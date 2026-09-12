@@ -1,0 +1,425 @@
+{
+  "units": "meters; kilograms; seconds",
+  "coordinates": {
+    "source": "Images/keyframes/{images,depth,confidence,cameras} only",
+    "depth_scale_m": 0.001,
+    "depth_pixel_to_rgb_scale": 4,
+    "raw_camera_to_scene_rotation": [
+      [
+        0.9930684569549263,
+        0.0,
+        0.1175373974578377
+      ],
+      [
+        0.1175373974578377,
+        0.0,
+        -0.9930684569549263
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ]
+    ],
+    "scene_xy_center_before_translation_m": [
+      0.45118058073450884,
+      0.6610745841042387
+    ],
+    "floor_raw_y_m": -1.3775,
+    "dominant_wall_angle_deg": 6.7500000000000036,
+    "room_span_estimate_m": [
+      11.286008524642906,
+      8.607535665277817
+    ],
+    "sample_count": 410685,
+    "method": "Confidence-filtered raw depth backprojection. Dominant horizontal wall-normal direction and modal floor height. No fused surface or automatic object classification."
+  },
+  "method": "Manual raw-photo interpretation; positions and dimensions estimated from raw RGB/depth and camera poses. No prebuilt reconstruction, object detection, or mesh input.",
+  "assets": [
+    {
+      "name": "sofa",
+      "movable": true,
+      "position_m": [
+        -1.55,
+        2.3,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        2.2,
+        0.9,
+        0.9
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "bed",
+      "movable": true,
+      "position_m": [
+        4.12,
+        -1.35,
+        0
+      ],
+      "yaw_deg": 90,
+      "dimensions_m": [
+        1.96,
+        1.06,
+        0.56
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "pillow",
+      "movable": true,
+      "position_m": [
+        4.12,
+        -1.93,
+        0
+      ],
+      "yaw_deg": 90,
+      "dimensions_m": [
+        0.55,
+        0.38,
+        0.13
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "desk",
+      "movable": true,
+      "position_m": [
+        4.8,
+        0.95,
+        0
+      ],
+      "yaw_deg": 90,
+      "dimensions_m": [
+        1.3,
+        0.72,
+        0.76
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "office_chair",
+      "movable": true,
+      "position_m": [
+        4.12,
+        0.3,
+        0
+      ],
+      "yaw_deg": 90,
+      "dimensions_m": [
+        0.55,
+        0.6,
+        0.96
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "visitor_chair",
+      "movable": true,
+      "position_m": [
+        -4.3,
+        -3.1,
+        0
+      ],
+      "yaw_deg": 180,
+      "dimensions_m": [
+        0.55,
+        0.6,
+        0.96
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "white_cabinet",
+      "movable": true,
+      "position_m": [
+        1.55,
+        2.03,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        0.85,
+        0.42,
+        1.7
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "black_dresser",
+      "movable": true,
+      "position_m": [
+        0.85,
+        2.04,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        0.48,
+        0.42,
+        1.18
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "gray_sideboard",
+      "movable": true,
+      "position_m": [
+        -3.72,
+        0.77,
+        0
+      ],
+      "yaw_deg": 90,
+      "dimensions_m": [
+        0.95,
+        0.65,
+        0.85
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "equipment_rack",
+      "movable": true,
+      "position_m": [
+        0.85,
+        -3.77,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        0.72,
+        0.43,
+        0.91
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "kitchen_cart",
+      "movable": true,
+      "position_m": [
+        0.03,
+        -3.77,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        0.72,
+        0.49,
+        0.91
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "low_bench",
+      "movable": true,
+      "position_m": [
+        -0.92,
+        -3.79,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        1.0,
+        0.4,
+        0.45
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "tall_shelf",
+      "movable": true,
+      "position_m": [
+        -2.12,
+        -3.79,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        0.73,
+        0.43,
+        1.95
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "mobile_display",
+      "movable": true,
+      "position_m": [
+        -4.0,
+        -0.95,
+        0
+      ],
+      "yaw_deg": 90,
+      "dimensions_m": [
+        1.25,
+        0.68,
+        1.9
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "display_table",
+      "movable": true,
+      "position_m": [
+        -4.38,
+        -2.18,
+        0
+      ],
+      "yaw_deg": 90,
+      "dimensions_m": [
+        1.12,
+        0.61,
+        0.73
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "display_chair",
+      "movable": true,
+      "position_m": [
+        -3.48,
+        -0.83,
+        0
+      ],
+      "yaw_deg": -90,
+      "dimensions_m": [
+        0.55,
+        0.6,
+        0.96
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "bedside_cart",
+      "movable": true,
+      "position_m": [
+        4.12,
+        -2.73,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        0.52,
+        0.48,
+        0.7
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "utility_cart",
+      "movable": true,
+      "position_m": [
+        4.46,
+        -3.6,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        0.67,
+        0.58,
+        0.62
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "large_box",
+      "movable": true,
+      "position_m": [
+        4.46,
+        -3.6,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        0.44,
+        0.38,
+        0.3
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "sofa_screen",
+      "movable": false,
+      "position_m": [
+        -3.8,
+        1.45,
+        0
+      ],
+      "yaw_deg": 50,
+      "dimensions_m": [
+        1.84,
+        0.035,
+        1.8
+      ],
+      "source": "User: three identical dividers, four panels and three hinges each; raw photos for pose",
+      "design": "four_panel_divider",
+      "panels": 4,
+      "hinges": 3,
+      "panel_width_m": 0.46,
+      "panel_height_m": 1.8,
+      "initial_hinge_angles_deg": [
+        20,
+        -25,
+        20
+      ],
+      "base_anchored": true
+    },
+    {
+      "name": "center_screen",
+      "movable": false,
+      "position_m": [
+        -0.36,
+        1.85,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        1.84,
+        0.035,
+        1.8
+      ],
+      "source": "User: three identical dividers, four panels and three hinges each; raw photos for pose",
+      "design": "four_panel_divider",
+      "panels": 4,
+      "hinges": 3,
+      "panel_width_m": 0.46,
+      "panel_height_m": 1.8,
+      "initial_hinge_angles_deg": [
+        35,
+        145,
+        -35
+      ],
+      "base_anchored": true
+    },
+    {
+      "name": "desk_screen",
+      "movable": false,
+      "position_m": [
+        2.05,
+        2.12,
+        0
+      ],
+      "yaw_deg": -15,
+      "dimensions_m": [
+        1.84,
+        0.035,
+        1.8
+      ],
+      "source": "User: three identical dividers, four panels and three hinges each; raw photos for pose",
+      "design": "four_panel_divider",
+      "panels": 4,
+      "hinges": 3,
+      "panel_width_m": 0.46,
+      "panel_height_m": 1.8,
+      "initial_hinge_angles_deg": [
+        -30,
+        40,
+        -30
+      ],
+      "base_anchored": true
+    }
+  ]
+}

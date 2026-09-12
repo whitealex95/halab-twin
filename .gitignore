@@ -1,0 +1,12 @@
+Polycam_HaLab_WT2_gpt/
+artifacts/
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.log
+mujoco_scene/saved_state.npz
+mujoco_scene/web_mobile_preview.png
+mujoco_scene/MUJOCO_LOG.TXT
+MUJOCO_LOG.TXT

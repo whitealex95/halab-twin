@@ -1,0 +1,95 @@
+{
+  "source": "Original RGB-D and camera poses only",
+  "planes": {
+    "west": {
+      "axis": 0,
+      "slope": -0.005046904358701694,
+      "offset": -5.5147830476864605,
+      "inliers": 14753,
+      "median_residual_m": 0.03152129307864637,
+      "p95_residual_m": 0.06638091876269615,
+      "observed_horizontal_range_m": [
+        -4.080707773533476,
+        2.6000533712688787
+      ],
+      "observed_top_m": 2.676951294107292
+    },
+    "east": {
+      "axis": 0,
+      "slope": -0.014472101054937559,
+      "offset": 5.27641787385119,
+      "inliers": 14683,
+      "median_residual_m": 0.032070928629395645,
+      "p95_residual_m": 0.06859182729048365,
+      "observed_horizontal_range_m": [
+        -3.61709549135557,
+        4.081096755295813
+      ],
+      "observed_top_m": 2.9043860021982315
+    },
+    "north": {
+      "axis": 1,
+      "slope": -0.02064006004920401,
+      "offset": -4.164000987735917,
+      "inliers": 38376,
+      "median_residual_m": 0.029279616717719836,
+      "p95_residual_m": 0.06860607036097366,
+      "observed_horizontal_range_m": [
+        -5.224568365096691,
+        5.109419043599826
+      ],
+      "observed_top_m": 2.8605184312083445
+    },
+    "south": {
+      "axis": 1,
+      "slope": -0.0202797041660865,
+      "offset": 4.23254740400844,
+      "inliers": 4654,
+      "median_residual_m": 0.03689123618228907,
+      "p95_residual_m": 0.07094221893344058,
+      "observed_horizontal_range_m": [
+        -4.9465862477731,
+        3.9763264905218683
+      ],
+      "observed_top_m": 3.0596640883407993
+    }
+  },
+  "corners_xy_m": [
+    [
+      -5.494340069615519,
+      -4.050597478768305
+    ],
+    [
+      5.338274286345103,
+      -4.274183289565201
+    ],
+    [
+      5.216695067560634,
+      4.126754371313628
+    ],
+    [
+      -5.536710990488449,
+      4.344830264948666
+    ]
+  ],
+  "height_m": 3.01,
+  "ceiling_horizontal_samples": 243,
+  "thickness_m": 0.15,
+  "method": "Robust vertical plane fitting to confidence-filtered raw depth normals; 7.5 cm inlier band. Wall intersections close the room. Wall top uses the modal high horizontal depth surface; unobserved spans and a level ceiling are extrapolated. Thickness and door heights are estimates.",
+  "doors": [
+    {
+      "name": "room_door1",
+      "wall": "north",
+      "x_center_m": -3.65,
+      "width_m": 0.9,
+      "height_m": 2.5
+    },
+    {
+      "name": "room_door2",
+      "wall": "north",
+      "x_center_m": 3.825,
+      "width_m": 0.95,
+      "height_m": 2.5
+    }
+  ]
+}

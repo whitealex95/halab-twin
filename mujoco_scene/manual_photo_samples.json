@@ -1,0 +1,114 @@
+{
+  "black_dresser": {
+    "frame": "276223977703.jpg",
+    "rgb_pixel": [
+      660,
+      340
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "white_cabinet": {
+    "frame": "276223977703.jpg",
+    "rgb_pixel": [
+      840,
+      250
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "bed": {
+    "frame": "276269762145.jpg",
+    "rgb_pixel": [
+      355,
+      450
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "office_chair": {
+    "frame": "276269762145.jpg",
+    "rgb_pixel": [
+      153,
+      387
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "tall_shelf": {
+    "frame": "276260892042.jpg",
+    "rgb_pixel": [
+      535,
+      188
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "low_bench": {
+    "frame": "276260892042.jpg",
+    "rgb_pixel": [
+      150,
+      510
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "mobile_display": {
+    "frame": "276246503129.jpg",
+    "rgb_pixel": [
+      460,
+      220
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "gray_sideboard": {
+    "frame": "276216424758.jpg",
+    "rgb_pixel": [
+      407,
+      270
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "sofa": {
+    "frame": "276220876494.jpg",
+    "rgb_pixel": [
+      450,
+      360
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "desk": {
+    "frame": "276231463953.jpg",
+    "rgb_pixel": [
+      850,
+      360
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "equipment_rack": {
+    "frame": "276297189398.jpg",
+    "rgb_pixel": [
+      590,
+      435
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "kitchen_cart": {
+    "frame": "276297189398.jpg",
+    "rgb_pixel": [
+      712,
+      460
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "bedside_cart": {
+    "frame": "276269762145.jpg",
+    "rgb_pixel": [
+      550,
+      450
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "utility_cart": {
+    "frame": "276269762145.jpg",
+    "rgb_pixel": [
+      685,
+      453
+    ],
+    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  }
+}

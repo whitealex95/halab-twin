@@ -1,0 +1,120 @@
+{
+  "removed": [
+    {
+      "path": "Polycam_HaLab_WT2_gpt/gltf",
+      "bytes": 4081364
+    },
+    {
+      "path": "Polycam_HaLab_WT2_gpt/Video.mp4",
+      "bytes": 1287632
+    },
+    {
+      "path": "Polycam_HaLab_WT2_gpt/link.txt",
+      "bytes": 62
+    },
+    {
+      "path": "Polycam_HaLab_WT2_gpt/RawData/raw.glb",
+      "bytes": 4081364
+    },
+    {
+      "path": "Polycam_HaLab_WT2_gpt/RawData/meshes",
+      "bytes": 30205472
+    },
+    {
+      "path": "Polycam_HaLab_WT2_gpt/RawData/point_cloud.ply",
+      "bytes": 1414171
+    },
+    {
+      "path": "Polycam_HaLab_WT2_gpt/RawData/splatfacto",
+      "bytes": 856188201
+    },
+    {
+      "path": "Polycam_HaLab_WT2_gpt/RawData/mesh_info.json",
+      "bytes": 1005
+    },
+    {
+      "path": "Polycam_HaLab_WT2_gpt/RawData/roomplan.json",
+      "bytes": 221810
+    },
+    {
+      "path": "Polycam_HaLab_WT2_gpt/RawData/optimized_roomplan.json",
+      "bytes": 13835
+    },
+    {
+      "path": "Polycam_HaLab_WT2_gpt/RawData/polycam.mp4",
+      "bytes": 1287632
+    },
+    {
+      "path": "Polycam_HaLab_WT2_gpt/RawData/thumbnail.jpg",
+      "bytes": 152653
+    },
+    {
+      "path": "mujoco_scene/assets",
+      "bytes": 19021291
+    },
+    {
+      "path": "mujoco_scene/scan_reference.xml",
+      "bytes": 655
+    },
+    {
+      "path": "mujoco_scene/reference/scan.npz",
+      "bytes": 1895246
+    },
+    {
+      "path": "mujoco_scene/reference/scan_preview.png",
+      "bytes": 1381808
+    },
+    {
+      "path": "mujoco_scene/reference/alignment.png",
+      "bytes": 533524
+    },
+    {
+      "path": "mujoco_scene/scripts/inspect_scan.py",
+      "bytes": 2058
+    },
+    {
+      "path": "mujoco_scene/scripts/__pycache__",
+      "bytes": 22545
+    },
+    {
+      "path": "mujoco_scene/__pycache__",
+      "bytes": 3792
+    },
+    {
+      "path": "mujoco_scene/scene.xml",
+      "bytes": 52909
+    },
+    {
+      "path": "mujoco_scene/inventory.json",
+      "bytes": 6851
+    },
+    {
+      "path": "mujoco_scene/validation.json",
+      "bytes": 922
+    },
+    {
+      "path": "mujoco_scene/overview.png",
+      "bytes": 126302
+    },
+    {
+      "path": "mujoco_scene/interior.png",
+      "bytes": 99137
+    },
+    {
+      "path": "mujoco_scene/sofa_area.png",
+      "bytes": 117879
+    },
+    {
+      "path": "mujoco_scene/bed_area.png",
+      "bytes": 67012
+    }
+  ],
+  "raw_files_verified_unchanged": 983,
+  "bytes_removed": 922267132,
+  "final_audit": {
+    "raw_files_sha256_verified": 983,
+    "reconstruction_artifacts_remaining_in_capture": [],
+    "old_scan_mode_removed": true,
+    "note": "scene.xml, inventory.json, validation.json and MuJoCo previews were regenerated from the raw-input workflow after deleting old versions."
+  }
+}

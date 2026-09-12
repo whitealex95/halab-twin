@@ -1,0 +1,40 @@
+{
+  "frames": 179,
+  "raw_arkit_poses": 14811,
+  "original_rgb_and_depth_preserved": true,
+  "raw_source_checksum_count": 983,
+  "camera_rotations_valid": true,
+  "calibration": [
+    {
+      "frame": 0,
+      "median_ray_vs_render_depth_error_m": 0.00025117948089681263,
+      "p90_error_m": 0.0004469426997041559,
+      "rays": 110
+    },
+    {
+      "frame": 45,
+      "median_ray_vs_render_depth_error_m": 0.0002568384528398582,
+      "p90_error_m": 0.0004198545785896624,
+      "rays": 110
+    },
+    {
+      "frame": 90,
+      "median_ray_vs_render_depth_error_m": 0.0002547541991790858,
+      "p90_error_m": 0.00046686711884535997,
+      "rays": 110
+    },
+    {
+      "frame": 135,
+      "median_ray_vs_render_depth_error_m": 0.00022872695661702025,
+      "p90_error_m": 0.00045180426537032585,
+      "rays": 110
+    },
+    {
+      "frame": 178,
+      "median_ray_vs_render_depth_error_m": 0.00017752471424159477,
+      "p90_error_m": 0.00042944222107594855,
+      "rays": 110
+    }
+  ],
+  "mean_frame_depth_mae_m": 0.1760793407384374
+}

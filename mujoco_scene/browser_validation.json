@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:8765/",
+  "desktop": true,
+  "mobile": true,
+  "consoleErrors": [],
+  "checks": [
+    "frame synchronization",
+    "rapid selection race",
+    "first/last frame bounds",
+    "calibrated camera follow",
+    "raw depth points",
+    "confidence masking",
+    "RGB wipe",
+    "depth error view",
+    "trajectory playback",
+    "asset search/selection",
+    "mobile overflow"
+  ]
+}
