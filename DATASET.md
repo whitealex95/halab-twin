@@ -1,6 +1,6 @@
 # HaLab raw RGB-D dataset
 
-[Download the original raw capture](https://github.com/whitealex95/halab-clone/releases/latest/download/halab-raw-dataset.zip) · [Archive SHA-256](https://github.com/whitealex95/halab-clone/releases/latest/download/halab-raw-dataset.sha256)
+[Download the original raw capture](https://github.com/whitealex95/halab-twin/releases/latest/download/halab-raw-dataset.zip) · [Archive SHA-256](https://github.com/whitealex95/halab-twin/releases/latest/download/halab-raw-dataset.sha256)
 
 Captured with an iPhone 14 Pro. The capture contains 179 RGB-D keyframes spanning approximately 244.7 seconds, with 14,811 additional raw ARKit pose samples. The archive contains all 983 preserved capture files, a per-file checksum list, and this description.
 

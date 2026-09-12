@@ -1,1 +1,1 @@
-{"name":"halab-clone","private":true,"version":"1.0.0","description":"Raw RGB-D HaLab reconstruction, MuJoCo scene, and calibrated web comparison","scripts":{"test:web":"node tests/web_smoke.cjs"},"devDependencies":{"playwright":"1.58.2"}}
+{"name":"halab-twin","private":true,"version":"1.0.0","description":"Raw RGB-D HaLab reconstruction, MuJoCo scene, and calibrated web comparison","scripts":{"test:web":"node tests/web_smoke.cjs"},"devDependencies":{"playwright":"1.58.2"}}

@@ -1,8 +1,8 @@
-# HaLab clone
+# HaLab Twin
 
 An interactive MuJoCo scene and web comparison viewer built from an iPhone 14 Pro's original RGB-D capture.
 
-**[Open the web demo](https://whitealex95.github.io/halab-clone/)** · **[Download the raw dataset](https://github.com/whitealex95/halab-clone/releases/latest/download/halab-raw-dataset.zip)** · [Dataset format](DATASET.md)
+**[Open the web demo](https://whitealex95.github.io/halab-twin/)** · **[Download MuJoCo Scene](https://whitealex95.github.io/halab-twin/scene.xml)** · **[Download the raw dataset](https://github.com/whitealex95/halab-twin/releases/latest/download/halab-raw-dataset.zip)** · [Dataset format](DATASET.md)
 
 ![HaLab capture and reconstruction viewer](mujoco_scene/web_preview.png)
 
@@ -20,8 +20,8 @@ The web app is a visualization of the reference scene. It does not run physics i
 ## Run locally
 
 ```bash
-git clone https://github.com/whitealex95/halab-clone.git
-cd halab-clone
+git clone https://github.com/whitealex95/halab-twin.git
+cd halab-twin
 python mujoco_scene/serve_web.py
 ```
 
