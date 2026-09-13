@@ -5,9 +5,9 @@
   "divider_hinges": 9,
   "identical_panel_geometry": true,
   "free_bodies": 26,
-  "bodies": 51,
+  "bodies": 53,
   "joints": 46,
-  "geoms": 495,
+  "geoms": 889,
   "initial_penetrations_over_3mm": [],
   "settling_xy_m": {
     "sofa": 0.0,
@@ -38,9 +38,9 @@
     "concealed_desk": 0.0
   },
   "force_response": {
-    "office_chair_free": 0.43057525479237135,
-    "white_cabinet_left_hinge": -1.4893999583443955,
-    "black_dresser_slide1": 0.27349982643491005,
+    "office_chair_free": 0.4305752546765662,
+    "white_cabinet_left_hinge": -1.4893999583413076,
+    "black_dresser_slide1": 0.2734998237138291,
     "sofa_screen_hinge1": 0.24728923370318007,
     "sofa_screen_hinge2": 0.6398381302380458,
     "sofa_screen_hinge3": -0.8187657746512069,
@@ -52,6 +52,6 @@
     "desk_screen_hinge3": 0.8185169768313232
   },
   "peak_generalized_speed": 0.922139999999999,
-  "final_max_generalized_speed": 0.043662454846429534,
+  "final_max_generalized_speed": 0.043662454846439824,
   "warnings": []
 }

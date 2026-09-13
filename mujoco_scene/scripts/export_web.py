@@ -21,6 +21,10 @@ def set_camera(renderer,model,data,frame):
   camera.frustum_bottom=-(c['height']-c['cy'])/c['fy']*near
   camera.frustum_center=(c['width']/2-c['cx'])/c['fx']*near
   camera.frustum_width=c['width']/(2*c['fx'])*near
+ # update_scene positioned the headlight before the calibrated camera override.
+ # Keep it at the same pose as the native viewer's camera light.
+ for light in renderer.scene.lights[:renderer.scene.nlight]:
+  if light.headlight:light.pos[:]=T[:3,3];light.dir[:]=-T[:3,2]
  # Renderer depth conversion uses model clipping distances.
  model.vis.map.znear=near/model.stat.extent;model.vis.map.zfar=far/model.stat.extent
 

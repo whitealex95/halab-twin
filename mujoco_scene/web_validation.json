@@ -8,8 +8,8 @@
   "calibration": [
     {
       "frame": 0,
-      "median_ray_vs_render_depth_error_m": 0.0002480079318538664,
-      "p90_error_m": 0.0004465564332027938,
+      "median_ray_vs_render_depth_error_m": 0.00025428801861648864,
+      "p90_error_m": 0.0004469426997041559,
       "rays": 110
     },
     {
@@ -20,8 +20,8 @@
     },
     {
       "frame": 90,
-      "median_ray_vs_render_depth_error_m": 0.0002891385924810308,
-      "p90_error_m": 0.0004807462052622391,
+      "median_ray_vs_render_depth_error_m": 0.0002653137273359585,
+      "p90_error_m": 0.0004823080193673724,
       "rays": 110
     },
     {
@@ -32,10 +32,10 @@
     },
     {
       "frame": 178,
-      "median_ray_vs_render_depth_error_m": 0.00020904220217921043,
-      "p90_error_m": 0.0004412483178806159,
+      "median_ray_vs_render_depth_error_m": 0.00022214409471965624,
+      "p90_error_m": 0.00044253686666611,
       "rays": 110
     }
   ],
-  "mean_frame_depth_mae_m": 0.1551588910245448
+  "mean_frame_depth_mae_m": 0.1553599122374807
 }

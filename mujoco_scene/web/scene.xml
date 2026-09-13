@@ -6,7 +6,7 @@
   <statistic center="0 0 .8" extent="6.8" />
   <visual>
     <global offwidth="1600" offheight="1200" azimuth="125" elevation="-48" />
-    <headlight ambient=".6 .6 .6" diffuse=".8 .8 .8" specular=".1 .1 .1" />
+    <headlight ambient=".72 .72 .72" diffuse=".15 .15 .15" specular=".02 .02 .02" />
     <rgba haze=".12 .15 .19 1" />
   </visual>
   <default>
@@ -15,18 +15,21 @@
   </default>
   <asset>
     <material name="white" rgba=".89 .89 .86 1" specular=".15" shininess=".1" />
-    <material name="wall" rgba=".86 .85 .79 1" specular=".15" shininess=".1" />
+    <material name="wall" rgba=".88 .87 .81 1" specular=".15" shininess=".1" />
+    <material name="north_paint" rgba=".90 .88 .85 1" specular=".15" shininess=".1" />
+    <material name="west_paint" rgba=".86 .82 .73 1" specular=".15" shininess=".1" />
     <material name="oak" rgba=".68 .52 .31 1" specular=".15" shininess=".1" />
     <material name="charcoal" rgba=".055 .065 .075 1" specular=".15" shininess=".1" />
     <material name="metal" rgba=".17 .19 .20 1" specular=".15" shininess=".1" />
-    <material name="sofa" rgba=".36 .37 .38 1" specular="0.02" shininess=".1" texture="sofa_weave" />
-    <material name="cushion" rgba=".43 .44 .45 1" specular="0.02" shininess=".1" texture="cushion_weave" />
+    <material name="sofa" rgba=".41 .42 .43 1" specular="0.02" shininess=".1" texture="sofa_weave" />
+    <material name="cushion" rgba=".49 .50 .51 1" specular="0.02" shininess=".1" texture="cushion_weave" />
     <material name="brass" rgba=".53 .44 .24 1" specular=".15" shininess=".1" />
-    <material name="screenframe" rgba=".29 .055 .045 1" specular=".15" shininess=".1" />
-    <material name="paper" rgba=".9 .9 .84 1" specular=".15" shininess=".1" />
+    <material name="screenframe" rgba=".30 .12 .10 1" specular=".15" shininess=".1" />
+    <material name="paper" rgba=".98 .97 .91 1" specular=".15" shininess=".1" />
     <material name="display" rgba=".12 .32 .43 1" specular=".15" shininess=".1" />
     <material name="orange" rgba=".96 .17 .025 1" specular=".15" shininess=".1" />
     <material name="blue" rgba=".035 .12 .6 1" specular=".15" shininess=".1" />
+    <material name="shelf_wood" rgba=".32 .225 .15 1" specular=".06" shininess=".1" texture="shelf_grain" />
     <material name="concrete" rgba=".72 .70 .66 1" specular="0.02" shininess=".1" texture="concrete_weave" />
     <material name="chrome" rgba=".60 .62 .63 1" specular=".65" shininess=".5" />
     <material name="red" rgba=".72 .025 .025 1" specular="0.02" shininess=".1" texture="red_weave" />
@@ -37,12 +40,13 @@
     <material name="frosted" rgba=".65 .68 .66 .86" specular=".15" shininess=".1" />
     <material name="sink" rgba=".32 .33 .32 1" specular=".15" shininess=".1" />
     <material name="steel" rgba=".57 .59 .59 1" specular=".65" shininess=".5" />
+    <texture name="shelf_grain" type="2d" builtin="flat" rgb1=".94 .89 .81" mark="random" markrgb=".65 .59 .52" random=".35" width="32" height="512" />
     <texture name="sky" type="skybox" builtin="gradient" rgb1=".25 .29 .34" rgb2=".075 .095 .12" width="512" height="3072" />
-    <texture name="carpet_tex" type="2d" builtin="flat" rgb1=".27 .27 .265" mark="random" markrgb=".43 .43 .42" random=".42" width="256" height="256" />
+    <texture name="carpet_tex" type="2d" builtin="flat" rgb1=".26 .26 .255" mark="random" markrgb=".39 .39 .38" random=".42" width="256" height="256" />
     <material name="carpet" texture="carpet_tex" texrepeat="3 3" texuniform="true" reflectance="0" specular="0" />
-    <texture name="carpet_dark_tex" type="2d" builtin="flat" rgb1=".18 .18 .18" mark="random" markrgb=".26 .26 .26" random=".42" width="256" height="256" />
+    <texture name="carpet_dark_tex" type="2d" builtin="flat" rgb1=".23 .23 .23" mark="random" markrgb=".32 .32 .32" random=".42" width="256" height="256" />
     <material name="carpet_dark" texture="carpet_dark_tex" texrepeat="3 3" texuniform="true" reflectance="0" specular="0" />
-    <texture name="carpet_mid_tex" type="2d" builtin="flat" rgb1=".205 .205 .205" mark="random" markrgb=".28 .28 .28" random=".42" width="256" height="256" />
+    <texture name="carpet_mid_tex" type="2d" builtin="flat" rgb1=".245 .245 .245" mark="random" markrgb=".35 .35 .35" random=".42" width="256" height="256" />
     <material name="carpet_mid" texture="carpet_mid_tex" texrepeat="3 3" texuniform="true" reflectance="0" specular="0" />
     <texture name="sofa_weave" type="2d" builtin="flat" rgb1=".98 .98 .98" mark="random" markrgb=".86 .86 .86" random=".28" width="128" height="128" />
     <texture name="cushion_weave" type="2d" builtin="flat" rgb1=".98 .98 .98" mark="random" markrgb=".86 .86 .86" random=".28" width="128" height="128" />
@@ -89,7 +93,8 @@
     <mesh name="concrete_pillar_mesh" vertex="-2.52 2.8 0 -1.72 2.8 0 -1.72 3.45 0 -2.52 3.45 0 -1.18 2.8 3.01 -0.38 2.8 3.01 -0.38 3.45 3.01 -1.18 3.45 3.01" face="0 2 1 0 3 2 4 5 6 4 6 7 0 1 5 0 5 4 1 2 6 1 6 5 2 3 7 2 7 6 3 0 4 3 4 7" texcoord="-2.52 0 -1.72 0 -1.72 0 -2.52 0 -1.18 3.01 -0.38 3.01 -0.38 3.01 -1.18 3.01" />
   </asset>
   <worldbody>
-    <light pos="0 0 6" dir="0 0 -1" diffuse=".7 .7 .7" castshadow="false" directional="true" />
+    <light name="ceiling_fill" pos="0 0 6" dir="0 0 -1" diffuse=".16 .16 .16" specular=".02 .02 .02" castshadow="false" directional="true" />
+    <light name="north_fill" pos="0 0 3" dir="0 -1 -.1" diffuse=".15 .15 .15" specular="0 0 0" castshadow="false" directional="true" />
     <geom name="floor" type="box" pos="-0.0992184 0.0353235 -0.081" size="5.58749 4.45951 0.08" material="carpet" group="0" />
     <geom name="floor_dark_diagonal" type="mesh" mesh="floor_dark_diagonal_mesh" pos="0 0 0" material="carpet_dark" mass="0" contype="0" conaffinity="0" />
     <geom name="floor_wall_band" type="mesh" mesh="floor_wall_band_mesh" pos="0 0 0" material="carpet_dark" mass="0" contype="0" conaffinity="0" />
@@ -97,22 +102,22 @@
     <geom name="ceiling" type="box" pos="-0.0992184 0.0353235 3.07" size="5.58749 4.45951 0.06" material="wall" group="4" />
     <geom name="east_wall" type="box" pos="5.35248 -0.0726292 1.505" size="4.20091 0.075 1.505" material="wall" group="3" euler="0 0 90.82913242939635" />
     <geom name="south_wall" type="box" pos="-0.158487 4.31078 1.505" size="5.37781 0.075 1.505" material="wall" group="3" euler="0 0 178.83821779137537" />
-    <geom name="west_wall" type="box" pos="-5.59052 0.146738 1.505" size="4.19777 0.075 1.505" material="wall" group="2" euler="0 0 -89.71083613574461" />
-    <geom name="north_wall_0" type="box" pos="-4.79872 -4.13997 1.505" size="0.697319 0.075 1.505" material="wall" group="2" euler="0 0 -1.1824204403233882" />
-    <geom name="door_lintel0" type="box" pos="-3.65155 -4.16365 2.755" size="0.450096 0.075 0.255" material="wall" group="2" euler="0 0 -1.1824204403233531" />
+    <geom name="west_wall" type="box" pos="-5.59052 0.146738 1.505" size="4.19777 0.075 1.505" material="west_paint" group="2" euler="0 0 -89.71083613574461" />
+    <geom name="north_wall_0" type="box" pos="-4.79872 -4.13997 1.505" size="0.697319 0.075 1.505" material="north_paint" group="2" euler="0 0 -1.1824204403233882" />
+    <geom name="door_lintel0" type="box" pos="-3.65155 -4.16365 2.755" size="0.450096 0.075 0.255" material="north_paint" group="2" euler="0 0 -1.1824204403233531" />
     <body name="room_door1" pos="-4.09928 -4.04438 0" euler="0 0 -1.1824204403233793">
       <joint name="room_door_hinge1" type="hinge" axis="0 0 1" range="0 100" damping="4" frictionloss="1" />
       <geom name="room_door_panel0" type="box" pos="0.45 0 1.25" size="0.4325 0.0225 1.25" material="oak" group="0" mass="20" />
       <geom name="room_door_handle0" type="box" pos="0.76 0.06 1.05" size="0.065 0.04 0.0125" material="metal" group="0" mass="0.15" />
     </body>
-    <geom name="north_wall_1" type="box" pos="0.0734523 -4.24053 1.505" size="3.2757 0.075 1.505" material="wall" group="2" euler="0 0 -1.1824204403233833" />
-    <geom name="door_lintel1" type="box" pos="3.82345 -4.31793 2.755" size="0.475101 0.075 0.255" material="wall" group="2" euler="0 0 -1.1824204403233416" />
+    <geom name="north_wall_1" type="box" pos="0.0734523 -4.24053 1.505" size="3.2757 0.075 1.505" material="north_paint" group="2" euler="0 0 -1.1824204403233833" />
+    <geom name="door_lintel1" type="box" pos="3.82345 -4.31793 2.755" size="0.475101 0.075 0.255" material="north_paint" group="2" euler="0 0 -1.1824204403233416" />
     <body name="room_door2" pos="3.35072 -4.19815 0" euler="0 0 -1.1824204403233793">
       <joint name="room_door_hinge2" type="hinge" axis="0 0 1" range="0 100" damping="4" frictionloss="1" />
       <geom name="room_door_panel1" type="box" pos="0.475 0 1.25" size="0.4575 0.0225 1.25" material="oak" group="0" mass="20" />
       <geom name="room_door_handle1" type="box" pos="0.81 0.06 1.05" size="0.065 0.04 0.0125" material="metal" group="0" mass="0.15" />
     </body>
-    <geom name="north_wall_2" type="box" pos="4.81759 -4.33845 1.505" size="0.519248 0.075 1.505" material="wall" group="2" euler="0 0 -1.1824204403233742" />
+    <geom name="north_wall_2" type="box" pos="4.81759 -4.33845 1.505" size="0.519248 0.075 1.505" material="north_paint" group="2" euler="0 0 -1.1824204403233742" />
     <body name="sofa" pos="-1.55 2.3 0.004" euler="0 0 0">
       <freejoint name="sofa_free" />
       <geom name="sofa_base" type="mesh" mesh="sofa_base_mesh" pos="0 0 0.24" material="sofa" mass="28" />
@@ -388,17 +393,47 @@
       <geom name="low_bench_leg2" type="box" pos="0.465 -0.165 0.2" size="0.0175 0.0175 0.2" material="metal" group="0" mass="0.8" />
       <geom name="low_bench_leg3" type="box" pos="0.465 0.165 0.2" size="0.0175 0.0175 0.2" material="metal" group="0" mass="0.8" />
     </body>
-    <body name="tall_shelf" pos="-2.12 -3.79 0.004" euler="0 0 0">
+    <body name="tall_shelf" pos="-2.1 -3.8 0.004" euler="0 0 0">
       <freejoint name="tall_shelf_free" />
-      <geom name="tall_shelf_leg0" type="box" pos="-0.34 -0.19 0.975" size="0.0125 0.0125 0.975" material="metal" group="0" mass="0.8" />
-      <geom name="tall_shelf_leg1" type="box" pos="-0.34 0.19 0.975" size="0.0125 0.0125 0.975" material="metal" group="0" mass="0.8" />
-      <geom name="tall_shelf_leg2" type="box" pos="0.34 -0.19 0.975" size="0.0125 0.0125 0.975" material="metal" group="0" mass="0.8" />
-      <geom name="tall_shelf_leg3" type="box" pos="0.34 0.19 0.975" size="0.0125 0.0125 0.975" material="metal" group="0" mass="0.8" />
-      <geom name="tall_shelf_shelf0" type="box" pos="0 0 0.1" size="0.365 0.215 0.0175" material="oak" group="0" mass="2" />
-      <geom name="tall_shelf_shelf1" type="box" pos="0 0 0.55625" size="0.365 0.215 0.0175" material="oak" group="0" mass="2" />
-      <geom name="tall_shelf_shelf2" type="box" pos="0 0 1.0125" size="0.365 0.215 0.0175" material="oak" group="0" mass="2" />
-      <geom name="tall_shelf_shelf3" type="box" pos="0 0 1.46875" size="0.365 0.215 0.0175" material="oak" group="0" mass="2" />
-      <geom name="tall_shelf_shelf4" type="box" pos="0 0 1.925" size="0.365 0.215 0.0175" material="oak" group="0" mass="2" />
+      <geom name="tall_shelf_upright0_-1" type="box" pos="-0.49 -0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
+      <geom name="tall_shelf_upright0_1" type="box" pos="-0.49 0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
+      <geom name="tall_shelf_upright1_-1" type="box" pos="0.16 -0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
+      <geom name="tall_shelf_upright1_1" type="box" pos="0.16 0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
+      <geom name="tall_shelf_upright2_-1" type="box" pos="0.49 -0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
+      <geom name="tall_shelf_upright2_1" type="box" pos="0.49 0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
+      <geom name="tall_shelf_full_board0" type="box" pos="0 0 0.06" size="0.5 0.215 0.009" material="shelf_wood" group="0" mass="2" />
+      <geom name="tall_shelf_full_board1" type="box" pos="0 0 0.47" size="0.5 0.215 0.009" material="shelf_wood" group="0" mass="2" />
+      <geom name="tall_shelf_full_board2" type="box" pos="0 0 0.97" size="0.5 0.215 0.009" material="shelf_wood" group="0" mass="2" />
+      <geom name="tall_shelf_narrow_board0" type="box" pos="0.325 0 1.25" size="0.155 0.215 0.009" material="shelf_wood" group="0" mass="0.6" />
+      <geom name="tall_shelf_narrow_board1" type="box" pos="0.325 0 1.57" size="0.155 0.215 0.009" material="shelf_wood" group="0" mass="0.6" />
+      <geom name="tall_shelf_wide_upper_board" type="box" pos="-0.165 0 1.57" size="0.32 0.215 0.009" material="shelf_wood" group="0" mass="1.3" />
+      <geom name="tall_shelf_side_rung0_0" type="box" pos="-0.49 0 0.06" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung0_1" type="box" pos="-0.49 0 0.47" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung0_2" type="box" pos="-0.49 0 0.97" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung0_3" type="box" pos="-0.49 0 1.25" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung0_4" type="box" pos="-0.49 0 1.57" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung0_5" type="box" pos="-0.49 0 1.91" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung1_0" type="box" pos="0.16 0 0.06" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung1_1" type="box" pos="0.16 0 0.47" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung1_2" type="box" pos="0.16 0 0.97" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung1_3" type="box" pos="0.16 0 1.25" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung1_4" type="box" pos="0.16 0 1.57" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung1_5" type="box" pos="0.16 0 1.91" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung2_0" type="box" pos="0.49 0 0.06" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung2_1" type="box" pos="0.49 0 0.47" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung2_2" type="box" pos="0.49 0 0.97" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung2_3" type="box" pos="0.49 0 1.25" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung2_4" type="box" pos="0.49 0 1.57" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung2_5" type="box" pos="0.49 0 1.91" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_rear_rail0" type="box" pos="0 -0.205 0.06" size="0.5 0.009 0.008" material="charcoal" group="0" mass="0.15" />
+      <geom name="tall_shelf_rear_rail1" type="box" pos="0 -0.205 0.47" size="0.5 0.009 0.008" material="charcoal" group="0" mass="0.15" />
+      <geom name="tall_shelf_rear_rail2" type="box" pos="0 -0.205 0.97" size="0.5 0.009 0.008" material="charcoal" group="0" mass="0.15" />
+      <geom name="tall_shelf_rear_rail3" type="box" pos="0 -0.205 1.49" size="0.5 0.009 0.008" material="charcoal" group="0" mass="0.15" />
+      <geom name="tall_shelf_rear_rail4" type="box" pos="0 -0.205 1.83" size="0.5 0.009 0.008" material="charcoal" group="0" mass="0.15" />
+      <geom name="tall_shelf_rear_brace0" type="capsule" fromto="-0.47 -0.212 0.08 0.47 -0.212 0.92" size="0.005" material="charcoal" mass="0.08" />
+      <geom name="tall_shelf_rear_brace1" type="capsule" fromto="0.47 -0.212 0.08 -0.47 -0.212 0.92" size="0.005" material="charcoal" mass="0.08" />
+      <geom name="tall_shelf_socket_support" type="box" pos="0.325 0.18 1.15" size="0.155 0.009 0.08" material="shelf_wood" group="0" mass="0.2" />
+      <geom name="tall_shelf_socket_panel" type="box" pos="0.325 0.194 1.15" size="0.115 0.004 0.0325" material="charcoal" group="0" contype="0" conaffinity="0" mass="0" />
     </body>
     <body name="mobile_display" pos="-4 -0.95 0.004" euler="0 0 90">
       <freejoint name="mobile_display_free" />
@@ -480,77 +515,189 @@
       <geom name="sofa_screen_paper0" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
       <geom name="sofa_screen_frame0_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
       <geom name="sofa_screen_frame0_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-      <geom name="sofa_screen_rail0_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_rail0_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_rail0_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_rail0_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_rail0_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_rail0_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_rail0_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_rail0_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_rail0_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_rail0_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_grid0_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_grid0_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_grid0_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="sofa_screen_grid0_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_grid0_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_grid0_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_grid0_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_grid0_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_grid0_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_rail0_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_grid0_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_grid0_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_grid0_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_grid0_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="sofa_screen_grid0_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
       <body name="sofa_screen_leaf1" pos="0.46 0 0" euler="0 0 20">
         <joint name="sofa_screen_hinge1" type="hinge" axis="0 0 1" ref="20" range="-175 175" damping="3" frictionloss=".6" />
         <geom name="sofa_screen_paper1" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
         <geom name="sofa_screen_frame1_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
         <geom name="sofa_screen_frame1_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-        <geom name="sofa_screen_rail1_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_rail1_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_rail1_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_rail1_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_rail1_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_rail1_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_rail1_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_rail1_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_rail1_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_rail1_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_grid1_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_grid1_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_grid1_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="sofa_screen_grid1_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_grid1_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_grid1_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_grid1_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_grid1_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_grid1_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_rail1_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_grid1_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_grid1_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_grid1_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_grid1_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="sofa_screen_grid1_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
         <body name="sofa_screen_leaf2" pos="0.46 0 0" euler="0 0 -25">
           <joint name="sofa_screen_hinge2" type="hinge" axis="0 0 1" ref="-25" range="-175 175" damping="3" frictionloss=".6" />
           <geom name="sofa_screen_paper2" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
           <geom name="sofa_screen_frame2_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
           <geom name="sofa_screen_frame2_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-          <geom name="sofa_screen_rail2_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_rail2_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_rail2_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_rail2_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_rail2_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_rail2_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_rail2_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_rail2_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_rail2_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_rail2_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_grid2_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_grid2_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_grid2_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="sofa_screen_grid2_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_grid2_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_grid2_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_grid2_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_grid2_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_grid2_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_rail2_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_grid2_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_grid2_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_grid2_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_grid2_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="sofa_screen_grid2_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
           <body name="sofa_screen_leaf3" pos="0.46 0 0" euler="0 0 20">
             <joint name="sofa_screen_hinge3" type="hinge" axis="0 0 1" ref="20" range="-175 175" damping="3" frictionloss=".6" />
             <geom name="sofa_screen_paper3" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
             <geom name="sofa_screen_frame3_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
             <geom name="sofa_screen_frame3_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-            <geom name="sofa_screen_rail3_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_rail3_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_rail3_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_rail3_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_rail3_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_rail3_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_rail3_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_rail3_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_rail3_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_rail3_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_grid3_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_grid3_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_grid3_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="sofa_screen_grid3_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_grid3_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_grid3_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_grid3_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_grid3_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_grid3_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_rail3_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_grid3_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_grid3_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_grid3_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_grid3_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="sofa_screen_grid3_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
           </body>
         </body>
       </body>
@@ -559,77 +706,189 @@
       <geom name="center_screen_paper0" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
       <geom name="center_screen_frame0_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
       <geom name="center_screen_frame0_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-      <geom name="center_screen_rail0_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_rail0_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_rail0_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_rail0_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_rail0_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_rail0_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_rail0_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_rail0_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_rail0_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_rail0_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_grid0_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_grid0_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_grid0_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="center_screen_grid0_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_grid0_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_grid0_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_grid0_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_grid0_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_grid0_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_rail0_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_grid0_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_grid0_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_grid0_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_grid0_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="center_screen_grid0_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
       <body name="center_screen_leaf1" pos="0.46 0 0" euler="0 0 35">
         <joint name="center_screen_hinge1" type="hinge" axis="0 0 1" ref="35" range="-175 175" damping="3" frictionloss=".6" />
         <geom name="center_screen_paper1" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
         <geom name="center_screen_frame1_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
         <geom name="center_screen_frame1_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-        <geom name="center_screen_rail1_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_rail1_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_rail1_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_rail1_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_rail1_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_rail1_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_rail1_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_rail1_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_rail1_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_rail1_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_grid1_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_grid1_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_grid1_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="center_screen_grid1_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_grid1_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_grid1_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_grid1_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_grid1_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_grid1_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_rail1_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_grid1_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_grid1_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_grid1_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_grid1_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="center_screen_grid1_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
         <body name="center_screen_leaf2" pos="0.46 0 0" euler="0 0 145">
           <joint name="center_screen_hinge2" type="hinge" axis="0 0 1" ref="145" range="-175 175" damping="3" frictionloss=".6" />
           <geom name="center_screen_paper2" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
           <geom name="center_screen_frame2_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
           <geom name="center_screen_frame2_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-          <geom name="center_screen_rail2_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_rail2_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_rail2_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_rail2_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_rail2_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_rail2_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_rail2_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_rail2_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_rail2_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_rail2_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_grid2_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_grid2_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_grid2_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="center_screen_grid2_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_grid2_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_grid2_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_grid2_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_grid2_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_grid2_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_rail2_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_grid2_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_grid2_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_grid2_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_grid2_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="center_screen_grid2_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
           <body name="center_screen_leaf3" pos="0.46 0 0" euler="0 0 -35">
             <joint name="center_screen_hinge3" type="hinge" axis="0 0 1" ref="-35" range="-175 175" damping="3" frictionloss=".6" />
             <geom name="center_screen_paper3" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
             <geom name="center_screen_frame3_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
             <geom name="center_screen_frame3_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-            <geom name="center_screen_rail3_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_rail3_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_rail3_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_rail3_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_rail3_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_rail3_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_rail3_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_rail3_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_rail3_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_rail3_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_grid3_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_grid3_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_grid3_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="center_screen_grid3_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_grid3_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_grid3_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_grid3_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_grid3_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_grid3_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_rail3_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_grid3_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_grid3_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_grid3_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_grid3_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="center_screen_grid3_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
           </body>
         </body>
       </body>
@@ -638,77 +897,189 @@
       <geom name="desk_screen_paper0" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
       <geom name="desk_screen_frame0_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
       <geom name="desk_screen_frame0_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-      <geom name="desk_screen_rail0_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_rail0_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_rail0_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_rail0_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_rail0_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_rail0_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_rail0_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_rail0_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_rail0_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_rail0_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_grid0_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_grid0_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_grid0_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-      <geom name="desk_screen_grid0_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_grid0_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_grid0_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_grid0_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_grid0_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_grid0_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_rail0_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_grid0_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_grid0_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_grid0_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_grid0_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="desk_screen_grid0_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
       <body name="desk_screen_leaf1" pos="0.46 0 0" euler="0 0 -30">
         <joint name="desk_screen_hinge1" type="hinge" axis="0 0 1" ref="-30" range="-175 175" damping="3" frictionloss=".6" />
         <geom name="desk_screen_paper1" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
         <geom name="desk_screen_frame1_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
         <geom name="desk_screen_frame1_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-        <geom name="desk_screen_rail1_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_rail1_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_rail1_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_rail1_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_rail1_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_rail1_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_rail1_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_rail1_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_rail1_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_rail1_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_grid1_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_grid1_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_grid1_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-        <geom name="desk_screen_grid1_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_grid1_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_grid1_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_grid1_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_grid1_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_grid1_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_rail1_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_grid1_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_grid1_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_grid1_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_grid1_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+        <geom name="desk_screen_grid1_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
         <body name="desk_screen_leaf2" pos="0.46 0 0" euler="0 0 40">
           <joint name="desk_screen_hinge2" type="hinge" axis="0 0 1" ref="40" range="-175 175" damping="3" frictionloss=".6" />
           <geom name="desk_screen_paper2" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
           <geom name="desk_screen_frame2_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
           <geom name="desk_screen_frame2_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-          <geom name="desk_screen_rail2_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_rail2_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_rail2_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_rail2_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_rail2_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_rail2_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_rail2_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_rail2_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_rail2_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_rail2_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_grid2_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_grid2_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_grid2_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-          <geom name="desk_screen_grid2_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_grid2_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_grid2_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_grid2_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_grid2_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_grid2_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_rail2_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_grid2_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_grid2_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_grid2_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_grid2_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+          <geom name="desk_screen_grid2_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
           <body name="desk_screen_leaf3" pos="0.46 0 0" euler="0 0 -30">
             <joint name="desk_screen_hinge3" type="hinge" axis="0 0 1" ref="-30" range="-175 175" damping="3" frictionloss=".6" />
             <geom name="desk_screen_paper3" type="box" pos="0.23 0 0.94" size="0.2125 0.0125 0.845" material="paper" group="0" mass="1.1" />
             <geom name="desk_screen_frame3_0" type="box" pos="0 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
             <geom name="desk_screen_frame3_0.46" type="box" pos="0.46 0 0.92" size="0.0125 0.0175 0.9" material="screenframe" group="0" mass="0.5" />
-            <geom name="desk_screen_rail3_0" type="box" pos="0.23 -0.022 0.1" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_rail3_1" type="box" pos="0.23 -0.022 0.288889" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_rail3_2" type="box" pos="0.23 -0.022 0.477778" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_rail3_3" type="box" pos="0.23 -0.022 0.666667" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_rail3_4" type="box" pos="0.23 -0.022 0.855556" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_rail3_5" type="box" pos="0.23 -0.022 1.04444" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_rail3_6" type="box" pos="0.23 -0.022 1.23333" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_rail3_7" type="box" pos="0.23 -0.022 1.42222" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_rail3_8" type="box" pos="0.23 -0.022 1.61111" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_rail3_9" type="box" pos="0.23 -0.022 1.8" size="0.23 0.008 0.006" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_grid3_0" type="box" pos="0.1 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_grid3_1" type="box" pos="0.186667 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_grid3_2" type="box" pos="0.273333 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
-            <geom name="desk_screen_grid3_3" type="box" pos="0.36 -0.022 0.94" size="0.0045 0.008 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_0" type="box" pos="0.23 -0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_1" type="box" pos="0.23 -0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_2" type="box" pos="0.23 -0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_3" type="box" pos="0.23 -0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_4" type="box" pos="0.23 -0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_5" type="box" pos="0.23 -0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_6" type="box" pos="0.23 -0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_7" type="box" pos="0.23 -0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_8" type="box" pos="0.23 -0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_9" type="box" pos="0.23 -0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_10" type="box" pos="0.23 -0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_11" type="box" pos="0.23 -0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_12" type="box" pos="0.23 -0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_13" type="box" pos="0.23 -0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_14" type="box" pos="0.23 -0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_front_15" type="box" pos="0.23 -0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_grid3_front_0" type="box" pos="0.085 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_grid3_front_1" type="box" pos="0.1575 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_grid3_front_2" type="box" pos="0.23 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_grid3_front_3" type="box" pos="0.3025 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_grid3_front_4" type="box" pos="0.375 -0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_0" type="box" pos="0.23 0.017 0.1" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_1" type="box" pos="0.23 0.017 0.213333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_2" type="box" pos="0.23 0.017 0.326667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_3" type="box" pos="0.23 0.017 0.44" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_4" type="box" pos="0.23 0.017 0.553333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_5" type="box" pos="0.23 0.017 0.666667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_6" type="box" pos="0.23 0.017 0.78" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_7" type="box" pos="0.23 0.017 0.893333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_8" type="box" pos="0.23 0.017 1.00667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_9" type="box" pos="0.23 0.017 1.12" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_10" type="box" pos="0.23 0.017 1.23333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_11" type="box" pos="0.23 0.017 1.34667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_12" type="box" pos="0.23 0.017 1.46" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_13" type="box" pos="0.23 0.017 1.57333" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_14" type="box" pos="0.23 0.017 1.68667" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_rail3_back_15" type="box" pos="0.23 0.017 1.8" size="0.23 0.004 0.0035" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_grid3_back_0" type="box" pos="0.085 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_grid3_back_1" type="box" pos="0.1575 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_grid3_back_2" type="box" pos="0.23 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_grid3_back_3" type="box" pos="0.3025 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
+            <geom name="desk_screen_grid3_back_4" type="box" pos="0.375 0.017 0.95" size="0.003 0.004 0.85" material="screenframe" group="0" contype="0" conaffinity="0" mass="0" />
           </body>
         </body>
       </body>
@@ -728,8 +1099,40 @@
     <body name="diagonal_pillar" pos="0 0 0" euler="0 0 0">
       <geom name="concrete_pillar" type="mesh" mesh="concrete_pillar_mesh" pos="0 0 0" material="concrete" mass="300" />
     </body>
-    <geom name="north_board0" type="box" pos="1.9 -4.17822 2.03" size="0.6 0.0175 0.425" material="paper" group="2" contype="0" conaffinity="0" mass="0" euler="0 0 -1.1824204403233793" />
-    <geom name="north_board1" type="box" pos="-0.8 -4.12249 2.03" size="0.6 0.0175 0.425" material="paper" group="2" contype="0" conaffinity="0" mass="0" euler="0 0 -1.1824204403233793" />
+    <body name="wall_table_mount1" pos="0.3764 -4.15027 0" euler="0 0 -1.1824204403233793">
+      <geom name="wall_mount1_backplate" type="box" pos="0 0 1.535" size="0.395 0.0135 0.26" material="charcoal" group="0" mass="3" />
+      <geom name="wall_mount1_bracket_side-1" type="box" pos="-0.235 0.04 1.53" size="0.0275 0.0175 0.185" material="metal" group="0" mass="0.3" />
+      <geom name="wall_mount1_bracket_inner-1" type="box" pos="-0.08 0.04 1.53" size="0.0175 0.0175 0.17" material="metal" group="0" mass="0.15" />
+      <geom name="wall_mount1_handle_top-1" type="capsule" fromto="-0.26 0.045 1.62 -0.33 0.07 1.6" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount1_handle_side-1" type="capsule" fromto="-0.33 0.07 1.6 -0.33 0.07 1.46" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount1_handle_bottom-1" type="capsule" fromto="-0.33 0.07 1.46 -0.26 0.045 1.44" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount1_bracket_side1" type="box" pos="0.235 0.04 1.53" size="0.0275 0.0175 0.185" material="metal" group="0" mass="0.3" />
+      <geom name="wall_mount1_bracket_inner1" type="box" pos="0.08 0.04 1.53" size="0.0175 0.0175 0.17" material="metal" group="0" mass="0.15" />
+      <geom name="wall_mount1_handle_top1" type="capsule" fromto="0.26 0.045 1.62 0.33 0.07 1.6" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount1_handle_side1" type="capsule" fromto="0.33 0.07 1.6 0.33 0.07 1.46" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount1_handle_bottom1" type="capsule" fromto="0.33 0.07 1.46 0.26 0.045 1.44" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount1_crosspiece-1" type="box" pos="0 0.04 1.355" size="0.25 0.0175 0.0225" material="metal" group="0" mass="0.3" />
+      <geom name="wall_mount1_crosspiece1" type="box" pos="0 0.04 1.705" size="0.25 0.0175 0.0225" material="metal" group="0" mass="0.3" />
+      <geom name="wall_mount1_hinge-1" type="box" pos="-0.17 0.026 1.785" size="0.055 0.016 0.02" material="chrome" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="wall_mount1_hinge1" type="box" pos="0.17 0.026 1.785" size="0.055 0.016 0.02" material="chrome" group="0" contype="0" conaffinity="0" mass="0" />
+    </body>
+    <body name="wall_table_mount2" pos="-1.1825 -4.11809 0" euler="0 0 -1.1824204403233793">
+      <geom name="wall_mount2_backplate" type="box" pos="0 0 1.535" size="0.385 0.0135 0.26" material="charcoal" group="0" mass="3" />
+      <geom name="wall_mount2_bracket_side-1" type="box" pos="-0.235 0.04 1.53" size="0.0275 0.0175 0.185" material="metal" group="0" mass="0.3" />
+      <geom name="wall_mount2_bracket_inner-1" type="box" pos="-0.08 0.04 1.53" size="0.0175 0.0175 0.17" material="metal" group="0" mass="0.15" />
+      <geom name="wall_mount2_handle_top-1" type="capsule" fromto="-0.26 0.045 1.62 -0.33 0.07 1.6" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount2_handle_side-1" type="capsule" fromto="-0.33 0.07 1.6 -0.33 0.07 1.46" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount2_handle_bottom-1" type="capsule" fromto="-0.33 0.07 1.46 -0.26 0.045 1.44" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount2_bracket_side1" type="box" pos="0.235 0.04 1.53" size="0.0275 0.0175 0.185" material="metal" group="0" mass="0.3" />
+      <geom name="wall_mount2_bracket_inner1" type="box" pos="0.08 0.04 1.53" size="0.0175 0.0175 0.17" material="metal" group="0" mass="0.15" />
+      <geom name="wall_mount2_handle_top1" type="capsule" fromto="0.26 0.045 1.62 0.33 0.07 1.6" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount2_handle_side1" type="capsule" fromto="0.33 0.07 1.6 0.33 0.07 1.46" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount2_handle_bottom1" type="capsule" fromto="0.33 0.07 1.46 0.26 0.045 1.44" size="0.014" material="charcoal" mass="0.15" />
+      <geom name="wall_mount2_crosspiece-1" type="box" pos="0 0.04 1.355" size="0.25 0.0175 0.0225" material="metal" group="0" mass="0.3" />
+      <geom name="wall_mount2_crosspiece1" type="box" pos="0 0.04 1.705" size="0.25 0.0175 0.0225" material="metal" group="0" mass="0.3" />
+      <geom name="wall_mount2_hinge-1" type="box" pos="-0.17 0.026 1.785" size="0.055 0.016 0.02" material="chrome" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="wall_mount2_hinge1" type="box" pos="0.17 0.026 1.785" size="0.055 0.016 0.02" material="chrome" group="0" contype="0" conaffinity="0" mass="0" />
+    </body>
     <geom name="east_whiteboard" type="box" pos="5.25142 -0.15 1.95" size="0.0175 1.95 0.54" material="paper" group="3" contype="0" conaffinity="0" mass="0" euler="0 0 0.8291324293963498" />
     <camera name="overview" pos="-10 -11 12" xyaxes="0.73994 -0.672673 0 0.413814 0.455196 0.788387" fovy="48" />
     <camera name="interior" pos="0 -3.65 1.8" xyaxes="1 0 -0 0 0.196116 0.980581" fovy="58" />

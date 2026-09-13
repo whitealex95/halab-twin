@@ -1,0 +1,426 @@
+{
+  "native_camera_parity": [
+    {
+      "frame": 1,
+      "mean_rgb_difference_255": 3.3908420138888887e-06,
+      "p99_rgb_difference_255": 0.0
+    },
+    {
+      "frame": 32,
+      "mean_rgb_difference_255": 0.0008578830295138889,
+      "p99_rgb_difference_255": 0.0
+    },
+    {
+      "frame": 44,
+      "mean_rgb_difference_255": 0.00015936957465277778,
+      "p99_rgb_difference_255": 0.0
+    },
+    {
+      "frame": 123,
+      "mean_rgb_difference_255": 0.0009138319227430555,
+      "p99_rgb_difference_255": 0.0
+    },
+    {
+      "frame": 124,
+      "mean_rgb_difference_255": 0.00299072265625,
+      "p99_rgb_difference_255": 0.0
+    },
+    {
+      "frame": 125,
+      "mean_rgb_difference_255": 0.0007731119791666666,
+      "p99_rgb_difference_255": 0.0
+    },
+    {
+      "frame": 126,
+      "mean_rgb_difference_255": 0.00013563368055555556,
+      "p99_rgb_difference_255": 0.0
+    },
+    {
+      "frame": 161,
+      "mean_rgb_difference_255": 0.0005459255642361111,
+      "p99_rgb_difference_255": 0.0
+    },
+    {
+      "frame": 173,
+      "mean_rgb_difference_255": 0.00013563368055555556,
+      "p99_rgb_difference_255": 0.0
+    }
+  ],
+  "wall_mount_reprojection": [
+    {
+      "geom": "wall_mount1_backplate",
+      "corner_reprojection_errors_px": [
+        0.643103822783676,
+        0.463304436901411,
+        1.5681423901514573,
+        0.5309861001551013
+      ]
+    },
+    {
+      "geom": "wall_mount2_backplate",
+      "corner_reprojection_errors_px": [
+        0.9039484612334133,
+        1.8493522070639263,
+        2.1190866513835243,
+        0.5953974695207689
+      ]
+    }
+  ],
+  "photometry": [
+    {
+      "frame": 1,
+      "walls": {
+        "pixels": 127,
+        "recorded_median_rgb": [
+          98.0,
+          95.0,
+          90.0
+        ],
+        "rendered_median_rgb": [
+          162.0,
+          160.0,
+          148.0
+        ],
+        "baseline_median_rgb": [
+          227.0,
+          224.0,
+          207.0
+        ]
+      },
+      "floor": {
+        "pixels": 46434,
+        "recorded_median_rgb": [
+          73.0,
+          73.0,
+          72.0
+        ],
+        "rendered_median_rgb": [
+          67.0,
+          67.0,
+          67.0
+        ],
+        "baseline_median_rgb": [
+          60.0,
+          60.0,
+          60.0
+        ]
+      }
+    },
+    {
+      "frame": 32,
+      "walls": {
+        "pixels": 48535,
+        "recorded_median_rgb": [
+          199.0,
+          183.0,
+          154.0
+        ],
+        "rendered_median_rgb": [
+          191.0,
+          183.0,
+          164.0
+        ],
+        "baseline_median_rgb": [
+          199.0,
+          197.0,
+          184.0
+        ]
+      },
+      "floor": {
+        "pixels": 28958,
+        "recorded_median_rgb": [
+          68.0,
+          63.0,
+          54.0
+        ],
+        "rendered_median_rgb": [
+          72.0,
+          72.0,
+          70.0
+        ],
+        "baseline_median_rgb": [
+          85.0,
+          85.0,
+          83.0
+        ]
+      }
+    },
+    {
+      "frame": 44,
+      "walls": {
+        "pixels": 40100,
+        "recorded_median_rgb": [
+          201.0,
+          194.0,
+          171.0
+        ],
+        "rendered_median_rgb": [
+          195.0,
+          193.0,
+          180.0
+        ],
+        "baseline_median_rgb": [
+          228.0,
+          225.0,
+          209.0
+        ]
+      },
+      "floor": {
+        "pixels": 32162,
+        "recorded_median_rgb": [
+          76.0,
+          76.0,
+          71.0
+        ],
+        "rendered_median_rgb": [
+          73.0,
+          73.0,
+          71.0
+        ],
+        "baseline_median_rgb": [
+          84.0,
+          84.0,
+          82.0
+        ]
+      }
+    },
+    {
+      "frame": 123,
+      "walls": {
+        "pixels": 55241,
+        "recorded_median_rgb": [
+          214.0,
+          208.0,
+          196.0
+        ],
+        "rendered_median_rgb": [
+          230.0,
+          226.0,
+          217.0
+        ],
+        "baseline_median_rgb": [
+          133.0,
+          130.0,
+          121.0
+        ]
+      },
+      "floor": {
+        "pixels": 32862,
+        "recorded_median_rgb": [
+          71.0,
+          70.0,
+          68.0
+        ],
+        "rendered_median_rgb": [
+          77.0,
+          77.0,
+          74.0
+        ],
+        "baseline_median_rgb": [
+          85.0,
+          85.0,
+          83.0
+        ]
+      }
+    },
+    {
+      "frame": 124,
+      "walls": {
+        "pixels": 77005,
+        "recorded_median_rgb": [
+          222.0,
+          217.0,
+          205.0
+        ],
+        "rendered_median_rgb": [
+          230.0,
+          226.0,
+          217.0
+        ],
+        "baseline_median_rgb": [
+          133.0,
+          130.0,
+          121.0
+        ]
+      },
+      "floor": {
+        "pixels": 17934,
+        "recorded_median_rgb": [
+          75.0,
+          74.0,
+          74.0
+        ],
+        "rendered_median_rgb": [
+          75.0,
+          75.0,
+          73.0
+        ],
+        "baseline_median_rgb": [
+          84.0,
+          84.0,
+          82.0
+        ]
+      }
+    },
+    {
+      "frame": 125,
+      "walls": {
+        "pixels": 76686,
+        "recorded_median_rgb": [
+          233.0,
+          230.0,
+          220.0
+        ],
+        "rendered_median_rgb": [
+          227.0,
+          222.0,
+          216.0
+        ],
+        "baseline_median_rgb": [
+          133.0,
+          130.0,
+          121.0
+        ]
+      },
+      "floor": {
+        "pixels": 22013,
+        "recorded_median_rgb": [
+          77.0,
+          76.0,
+          77.0
+        ],
+        "rendered_median_rgb": [
+          65.0,
+          65.0,
+          65.0
+        ],
+        "baseline_median_rgb": [
+          54.0,
+          54.0,
+          54.0
+        ]
+      }
+    },
+    {
+      "frame": 126,
+      "walls": {
+        "pixels": 60100,
+        "recorded_median_rgb": [
+          233.0,
+          230.0,
+          221.0
+        ],
+        "rendered_median_rgb": [
+          223.0,
+          219.0,
+          210.0
+        ],
+        "baseline_median_rgb": [
+          133.0,
+          130.0,
+          121.0
+        ]
+      },
+      "floor": {
+        "pixels": 26318,
+        "recorded_median_rgb": [
+          78.0,
+          77.0,
+          77.0
+        ],
+        "rendered_median_rgb": [
+          64.0,
+          64.0,
+          64.0
+        ],
+        "baseline_median_rgb": [
+          54.0,
+          54.0,
+          54.0
+        ]
+      }
+    },
+    {
+      "frame": 161,
+      "walls": {
+        "pixels": 134,
+        "recorded_median_rgb": [
+          128.0,
+          125.0,
+          124.0
+        ],
+        "rendered_median_rgb": [
+          234.0,
+          230.0,
+          221.0
+        ],
+        "baseline_median_rgb": [
+          133.0,
+          130.0,
+          121.0
+        ]
+      },
+      "floor": {
+        "pixels": 27135,
+        "recorded_median_rgb": [
+          64.0,
+          64.0,
+          64.0
+        ],
+        "rendered_median_rgb": [
+          61.0,
+          61.0,
+          61.0
+        ],
+        "baseline_median_rgb": [
+          53.0,
+          53.0,
+          53.0
+        ]
+      }
+    },
+    {
+      "frame": 173,
+      "walls": {
+        "pixels": 53358,
+        "recorded_median_rgb": [
+          197.0,
+          197.0,
+          187.0
+        ],
+        "rendered_median_rgb": [
+          190.0,
+          188.0,
+          175.0
+        ],
+        "baseline_median_rgb": [
+          133.0,
+          130.0,
+          121.0
+        ]
+      },
+      "floor": {
+        "pixels": 38093,
+        "recorded_median_rgb": [
+          58.0,
+          59.0,
+          58.0
+        ],
+        "rendered_median_rgb": [
+          75.0,
+          75.0,
+          73.0
+        ],
+        "baseline_median_rgb": [
+          84.0,
+          84.0,
+          82.0
+        ]
+      }
+    }
+  ],
+  "photometry_mask": "Rendered surface and recorded confidence >= 200, depth agreement < 0.10 m",
+  "baseline_ref": "71d9764",
+  "rendered_frames_checked": 179,
+  "maximum_white_clipping_fraction": 0.0
+}

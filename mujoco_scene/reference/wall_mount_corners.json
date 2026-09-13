@@ -1,0 +1,11 @@
+{
+  "frame": 126,
+  "frame_id": "276262659394",
+  "image_size": [1024, 768],
+  "source": "Manually selected outer backplate corners in the original recorded RGB; order is top-left, top-right, bottom-right, bottom-left.",
+  "face_offset_from_wall_m": 0.035,
+  "mounts": [
+    {"geom": "wall_mount1_backplate", "pixels": [[295, 128], [393, 128], [397, 255], [303, 238]]},
+    {"geom": "wall_mount2_backplate", "pixels": [[533, 126], [748, 124], [721, 320], [527, 282]]}
+  ]
+}

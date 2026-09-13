@@ -140,14 +140,17 @@ el(model,'compiler',angle='degree',autolimits='true')
 el(model,'option',timestep='.002',integrator='implicitfast',gravity='0 0 -9.81',cone='elliptic',iterations='60')
 el(model,'size',njmax='8000',nconmax='2000')
 el(model,'statistic',center='0 0 .8',extent='6.8')
-v=el(model,'visual');el(v,'global',offwidth='1600',offheight='1200',azimuth='125',elevation='-48');el(v,'headlight',ambient='.6 .6 .6',diffuse='.8 .8 .8',specular='.1 .1 .1');el(v,'rgba',haze='.12 .15 .19 1')
+v=el(model,'visual');el(v,'global',offwidth='1600',offheight='1200',azimuth='125',elevation='-48');el(v,'headlight',ambient='.72 .72 .72',diffuse='.15 .15 .15',specular='.02 .02 .02');el(v,'rgba',haze='.12 .15 .19 1')
 d=el(model,'default');el(d,'geom',friction='.7 .01 .001',solref='.015 1',solimp='.95 .99 .001',condim='4');el(d,'joint',damping='.5')
 a=el(model,'asset')
-colors={'white':'.89 .89 .86 1','wall':'.86 .85 .79 1','oak':'.68 .52 .31 1','charcoal':'.055 .065 .075 1','metal':'.17 .19 .20 1','sofa':'.36 .37 .38 1','cushion':'.43 .44 .45 1','brass':'.53 .44 .24 1','screenframe':'.29 .055 .045 1','paper':'.9 .9 .84 1','display':'.12 .32 .43 1','orange':'.96 .17 .025 1','blue':'.035 .12 .6 1'}
-colors.update(concrete='.72 .70 .66 1',chrome='.60 .62 .63 1',red='.72 .025 .025 1',cardboard='.56 .40 .22 1',tape='.66 .50 .28 1',linen='.83 .83 .79 1',blanket='.40 .41 .41 1',frosted='.65 .68 .66 .86',sink='.32 .33 .32 1',steel='.57 .59 .59 1')
+colors={'white':'.89 .89 .86 1','wall':'.88 .87 .81 1','north_paint':'.90 .88 .85 1','west_paint':'.86 .82 .73 1','oak':'.68 .52 .31 1','charcoal':'.055 .065 .075 1','metal':'.17 .19 .20 1','sofa':'.41 .42 .43 1','cushion':'.49 .50 .51 1','brass':'.53 .44 .24 1','screenframe':'.30 .12 .10 1','paper':'.98 .97 .91 1','display':'.12 .32 .43 1','orange':'.96 .17 .025 1','blue':'.035 .12 .6 1'}
+colors.update(shelf_wood='.32 .225 .15 1',concrete='.72 .70 .66 1',chrome='.60 .62 .63 1',red='.72 .025 .025 1',cardboard='.56 .40 .22 1',tape='.66 .50 .28 1',linen='.83 .83 .79 1',blanket='.40 .41 .41 1',frosted='.65 .68 .66 .86',sink='.32 .33 .32 1',steel='.57 .59 .59 1')
 for n,c in colors.items():el(a,'material',name=n,rgba=c,specular='.15',shininess='.1')
+el(a,'texture',name='shelf_grain',type='2d',builtin='flat',rgb1='.94 .89 .81',mark='random',markrgb='.65 .59 .52',random='.35',width='32',height='512')
+a.find("material[@name='shelf_wood']").set('texture','shelf_grain')
+a.find("material[@name='shelf_wood']").set('specular','.06')
 el(a,'texture',name='sky',type='skybox',builtin='gradient',rgb1='.25 .29 .34',rgb2='.075 .095 .12',width='512',height='3072')
-for name,base,fiber in [('carpet','.27 .27 .265','.43 .43 .42'),('carpet_dark','.18 .18 .18','.26 .26 .26'),('carpet_mid','.205 .205 .205','.28 .28 .28')]:
+for name,base,fiber in [('carpet','.26 .26 .255','.39 .39 .38'),('carpet_dark','.23 .23 .23','.32 .32 .32'),('carpet_mid','.245 .245 .245','.35 .35 .35')]:
     el(a,'texture',name=name+'_tex',type='2d',builtin='flat',rgb1=base,mark='random',markrgb=fiber,random='.42',width='256',height='256')
     el(a,'material',name=name,texture=name+'_tex',texrepeat='3 3',texuniform='true',reflectance='0',specular='0')
 for name in ['sofa','cushion','linen','blanket','red','concrete']:
@@ -157,7 +160,10 @@ for name in ['sofa','cushion','linen','blanket','red','concrete']:
 for name in ['chrome','steel']:
     mat=a.find(f"material[@name='{name}']");mat.set('specular','.65');mat.set('shininess','.5')
 world=el(model,'worldbody')
-el(world,'light',pos='0 0 6',dir='0 0 -1',diffuse='.7 .7 .7',castshadow='false',directional='true')
+# Shared native/offscreen lighting: mostly diffuse room fill with a gentle camera light.
+# North-wall fill approximates the ceiling fixtures without view-dependent exposure.
+el(world,'light',name='ceiling_fill',pos='0 0 6',dir='0 0 -1',diffuse='.16 .16 .16',specular='.02 .02 .02',castshadow='false',directional='true')
+el(world,'light',name='north_fill',pos='0 0 3',dir='0 -1 -.1',diffuse='.15 .15 .15',specular='0 0 0',castshadow='false',directional='true')
 walls=json.loads((OUT/'walls.json').read_text())
 corners=np.array(walls['corners_xy_m']);height=walls['height_m'];thickness=walls['thickness_m']
 lo=corners.min(0);hi=corners.max(0);mid=(lo+hi)/2
@@ -172,7 +178,7 @@ def wall_segment(name,p0,p1,z0=0,z1=None,group=2):
     p0=np.array(p0);p1=np.array(p1);direction=p1-p0;length=np.linalg.norm(direction)
     outward=np.array([direction[1],-direction[0]])/length
     center=(p0+p1)/2+outward*thickness/2;z1=height if z1 is None else z1
-    geom=box(world,name,[*center,(z0+z1)/2],[length,thickness,z1-z0],'wall',group=group)
+    geom=box(world,name,[*center,(z0+z1)/2],[length,thickness,z1-z0],'north_paint' if name.startswith(('north_wall','door_lintel')) else 'west_paint' if name=='west_wall' else 'wall',group=group)
     geom.set('euler',f'0 0 {np.degrees(np.arctan2(direction[1],direction[0]))}')
 wall_segment('east_wall',corners[1],corners[2],group=3)
 wall_segment('south_wall',corners[2],corners[3],group=3)
@@ -271,7 +277,20 @@ k=world.find("body[@name='kitchen_cart']")
 box(k,'stovetop',[0,0,.96],[.72,.49,.07],'metal',mass=2)
 for i,x in enumerate([-.18,.18]):cyl(k,f'burner{i}',[x,0,1.005],.105,.012,'charcoal',.1)
 table('low_bench',-.92,-3.79,1.0,.40,.45,mat='charcoal')
-shelf('tall_shelf',-2.12,-3.79,.73,.43,1.95,5,mat='oak')
+# Frames 123–126: split upper shelving above three full-width lower boards.
+b=body('tall_shelf',-2.10,-3.80,0,size=[1.00,.43,1.94],source='Recorded frames 123–126: dark wood, slim black frame, narrow left upper bay, wide right upper bay; raw depth surface samples.')
+for j,x in enumerate([-.49,.16,.49]):
+    for side in [-1,1]:box(b,f'tall_shelf_upright{j}_{side}',[x,side*.205,.975],[.018,.018,1.94],'charcoal',mass=.65)
+for j,z in enumerate([.06,.47,.97]):box(b,f'tall_shelf_full_board{j}',[0,0,z],[1.00,.43,.018],'shelf_wood',mass=2)
+for j,z in enumerate([1.25,1.57]):box(b,f'tall_shelf_narrow_board{j}',[.325,0,z],[.31,.43,.018],'shelf_wood',mass=.6)
+box(b,'tall_shelf_wide_upper_board',[-.165,0,1.57],[.64,.43,.018],'shelf_wood',mass=1.3)
+for j,x in enumerate([-.49,.16,.49]):
+    for k,z in enumerate([.06,.47,.97,1.25,1.57,1.91]):box(b,f'tall_shelf_side_rung{j}_{k}',[x,0,z],[.018,.43,.016],'charcoal',mass=.08)
+for j,z in enumerate([.06,.47,.97,1.49,1.83]):box(b,f'tall_shelf_rear_rail{j}',[0,-.205,z],[1.0,.018,.016],'charcoal',mass=.15)
+for j,ends in enumerate([[-.47,-.212,.08,.47,-.212,.92],[.47,-.212,.08,-.47,-.212,.92]]):capsule(b,f'tall_shelf_rear_brace{j}',ends[:3],ends[3:],.005,'charcoal',mass=.08)
+box(b,'tall_shelf_socket_support',[.325,.18,1.15],[.31,.018,.16],'shelf_wood',mass=.2)
+box(b,'tall_shelf_socket_panel',[.325,.194,1.15],[.23,.008,.065],'charcoal',visual=True)
+
 # TV on its own mobile stand.
 b=body('mobile_display',-4.0,-.95,90,size=[1.25,.68,1.9])
 for side in [-1,1]:
@@ -316,6 +335,8 @@ for name in ['pillow','folded_blanket','red_tool_bag']:
 # Three instances of ONE four-panel divider. Only poses and folds differ.
 SCREEN_WIDTH = .46
 SCREEN_HEIGHT = 1.80
+SCREEN_COLUMNS = 6
+SCREEN_ROWS = 15
 SCREEN_INSTANCES = [
     ('sofa_screen', -3.80, 1.45, 50, [20, -25, 20]),
     ('center_screen', -.36, 1.85, 0, [35, 145, -35]),
@@ -326,7 +347,7 @@ def screen(n,x,y,yaw,folds):
     root=body(n,x,y,yaw,free=False,size=[4*width,.035,SCREEN_HEIGHT],
               source='User: three identical dividers, four panels and three hinges each; raw photos for pose')
     inventory[-1].update(design='four_panel_divider',panels=4,hinges=3,
-                         panel_width_m=width,panel_height_m=SCREEN_HEIGHT,
+                         panel_width_m=width,panel_height_m=SCREEN_HEIGHT,grid_columns=SCREEN_COLUMNS,grid_rows=SCREEN_ROWS,
                          initial_hinge_angles_deg=folds,base_anchored=True)
     cur=root
     for i in range(4):
@@ -339,10 +360,11 @@ def screen(n,x,y,yaw,folds):
         box(cur,f'{n}_paper{i}',[width/2,0,.94],[width-.035,.025,1.69],'paper',mass=1.1)
         for side in [0,width]:
             box(cur,f'{n}_frame{i}_{side}',[side,0,.92],[.025,.035,1.80],'screenframe',mass=.5)
-        for j,z in enumerate(np.linspace(.10,1.8,10)):
-            box(cur,f'{n}_rail{i}_{j}',[width/2,-.022,z],[width,.016,.012],'screenframe',visual=True)
-        for j,xx in enumerate(np.linspace(.10,width-.1,4)):
-            box(cur,f'{n}_grid{i}_{j}',[xx,-.022,.94],[.009,.016,1.70],'screenframe',visual=True)
+        for face,yy in [('front',-.017),('back',.017)]:
+            for j,z in enumerate(np.linspace(.10,1.8,SCREEN_ROWS+1)):
+                box(cur,f'{n}_rail{i}_{face}_{j}',[width/2,yy,z],[width,.008,.007],'screenframe',visual=True)
+            for j,xx in enumerate(np.linspace(.0125,width-.0125,SCREEN_COLUMNS+1)[1:-1]):
+                box(cur,f'{n}_grid{i}_{face}_{j}',[xx,yy,.95],[.006,.008,1.70],'screenframe',visual=True)
     return root
 for args in SCREEN_INSTANCES:
     screen(*args)
@@ -360,11 +382,21 @@ vertices=[[x+center,y,z] for z,center in [(0,-2.12),(height,-.78)] for x,y in [(
 faces=[[0,2,1],[0,3,2],[4,5,6],[4,6,7],[0,1,5],[0,5,4],[1,2,6],[1,6,5],[2,3,7],[2,7,6],[3,0,4],[3,4,7]]
 mesh_geom(b,'concrete_pillar',vertices,faces,[0,0,0],'concrete',mass=300,uv=[[x,z] for x,y,z in vertices])
 
-# Large boards are attached to the fitted inner wall surfaces.
-for i,(x,w) in enumerate([(1.9,1.2),(-.8,1.2)]):
-    p=north_point(x)+np.array([0,.025])
-    g=box(world,f'north_board{i}',[*p,2.03],[w,.035,.85],'paper',visual=True,group=2)
-    g.set('euler',f'0 0 {yaw}')
+# Folded wall tables / mounts in frame 126. Positions are ray/plane measurements,
+# and the folded support rails sit proud of each dark rectangular backplate.
+for i,(x,w) in enumerate([(.3764,.79),(-1.1825,.77)],1):
+    p=north_point(x)+np.array([0,.0215])
+    b=body(f'wall_table_mount{i}',*p,yaw,free=False,size=[w,.10,.52],source='Recorded frame 126: four mount corners projected onto the fitted north wall plus 3.5 cm face offset; cross-checked in frames 123–125.')
+    box(b,f'wall_mount{i}_backplate',[0,0,1.535],[w,.027,.52],'charcoal',mass=3)
+    # A folded rectangular bracket with open vertical slots and side handles.
+    for side in [-1,1]:
+        box(b,f'wall_mount{i}_bracket_side{side}',[side*.235,.04,1.53],[.055,.035,.37],'metal',mass=.3)
+        box(b,f'wall_mount{i}_bracket_inner{side}',[side*.08,.04,1.53],[.035,.035,.34],'metal',mass=.15)
+        capsule(b,f'wall_mount{i}_handle_top{side}',[side*.26,.045,1.62],[side*.33,.07,1.60],.014,'charcoal')
+        capsule(b,f'wall_mount{i}_handle_side{side}',[side*.33,.07,1.60],[side*.33,.07,1.46],.014,'charcoal')
+        capsule(b,f'wall_mount{i}_handle_bottom{side}',[side*.33,.07,1.46],[side*.26,.045,1.44],.014,'charcoal')
+    for side in [-1,1]:box(b,f'wall_mount{i}_crosspiece{side}',[0,.04,1.53+side*.175],[.50,.035,.045],'metal',mass=.3)
+    for side in [-1,1]:box(b,f'wall_mount{i}_hinge{side}',[side*.17,.026,1.785],[.11,.032,.04],'chrome',visual=True)
 east=walls['planes']['east'];g=box(world,'east_whiteboard',[east['offset']-.025,-.15,1.95],[.035,3.9,1.08],'paper',visual=True,group=3)
 g.set('euler',f'0 0 {-math.degrees(math.atan(east["slope"]))}')
 # Fixed camera views (camera local -Z points toward target).

@@ -2,7 +2,7 @@
 
 The scene uses the original RGB photographs, per-frame depth/confidence maps, and camera poses in `../Polycam_HaLab_WT2_gpt/Images/keyframes/`. Furniture is manually interpreted from those photographs and the separately supplied cabinet/desk reference photos, using editable primitives and procedural meshes. Dimensions, placements, and physical parameters remain estimates.
 
-There are **three copies of the same divider design**: each has **four panels and three hinges**, for **12 panels and nine divider hinges** total. All panels are 0.46 m wide and 1.80 m high. Each copy has its own starting pose and fold angles. The center divider starts folded back on itself; its concealed panels are still present and can unfold.
+There are **three copies of the same divider design**: each has **four panels and three hinges**, for **12 panels and nine divider hinges** total. All panels are 0.46 m wide and 1.80 m high, with six columns and 15 rows of lattice cells on both faces, following frame 44. Each copy has its own starting pose and fold angles. The center divider starts folded back on itself; its concealed panels are still present and can unfold.
 
 ![Room overview](overview.png)
 
@@ -12,7 +12,7 @@ Run `python mujoco_scene/serve_web.py` and open http://127.0.0.1:8765, or use th
 
 ## Run
 
-From `~/Projects/halab-scan`:
+From `~/Projects/halab-twin`:
 
 ```bash
 python mujoco_scene/launch.py
@@ -64,7 +64,7 @@ The boundary walls are now fitted directly to raw depth normals using `reconstru
 
 `manual_photo_samples.json` contains manually selected RGB pixel locations on visible furniture surfaces. `manual_photo_measurements.json` records the corresponding confident depth measurements. These points are surface samples, not object centers. The scene uses manually estimated object centers and shape extents, with clearance adjustments to avoid initial intersections.
 
-The scene includes a sofa, mattress/cardboard box supports, movable pillow and folded blanket, desk and monitor, chairs, cabinets, a five-drawer dresser, equipment shelving, kitchen cart, low bench, tall shelf, mobile display, laundry/utility carts, three four-panel dividers, two room doors, a sink cabinet with drainer and faucet, a striped cone, a round folding stool with a separate red tool bag, an inclined concrete pillar, and the room shell. The floor uses large gray regions bounded by straight segments. Rounded meshes and procedural textile materials are embedded in the standalone XML. The drawer count and furniture layout were reviewed again against the original photographs.
+The scene includes a sofa, mattress/cardboard box supports, movable pillow and folded blanket, desk and monitor, chairs, cabinets, a five-drawer dresser, equipment shelving, kitchen cart, low bench, tall shelf, mobile display, laundry/utility carts, three four-panel dividers, two room doors, a sink cabinet with drainer and faucet, a striped cone, a round folding stool with a separate red tool bag, an inclined concrete pillar, and the room shell. The floor uses large gray regions bounded by straight segments. Rounded meshes and procedural textile materials are embedded in the standalone XML. The drawer count and furniture layout were reviewed again against the original photographs. Frames 123–126 guide the tall shelf’s slim black frame, dark wood, full-width lower boards, and split upper bays. The two black folding wall-table mounts are positioned from their frame-126 corners projected onto the measured wall plane with a 3.5 cm face offset. The original pixel annotations are in `reference/wall_mount_corners.json`; validation checks the modeled corners against these observations.
 
 Masses, friction, cabinet travel, and other unobserved mechanical properties are estimates. Upholstery and the pillow are rigid. Casters are simplified contact spheres. Cables/lines, ceiling hardware, and small clutter are omitted. No dimensions are inherited from the deleted object detections.
 
@@ -81,6 +81,7 @@ Masses, friction, cabinet travel, and other unobserved mechanical properties are
 | `reference/contact_sheet.jpg`, `reference/frames_*.jpg` | Contact sheets made from original photos |
 | `overview.png`, `interior.png`, `bed_area.png`, `sofa_area.png` | Current MuJoCo-rendered previews |
 | `scripts/validate_scene.py`, `validation.json` | Physics, divider structure, and interaction checks |
+| `scripts/validate_appearance.py`, `appearance_validation.json` | Native/export lighting parity and depth-matched color diagnostics |
 | `cleanup_report.json`, `raw_input_checksums.json` | Deletion record and raw-file integrity record |
 
 ```bash
@@ -112,3 +113,9 @@ Changing joint positions directly may cause intersections with nearby furniture.
 The three [additional photographs](../additional_data/README.md) document the white cabinet's three shelves and the concealed desk's wood top, pedestal legs, and casters. Shelf heights are estimated at 0.44, 0.83, and 1.24 m above the cabinet body origin. The extra desk is placed behind `desk_screen`; the later photo location and tabletop clutter are not copied into the scene.
 
 The web exporter retains each door/drawer's native joint axis, anchor, limits, and affected geometry. Browser toggles transform those rigid parts, and validation compares the transforms with MuJoCo forward kinematics. The recorded/rendered RGB-D pairs remain at the closed reference configuration. Rounded loose bedding and the bag use simple invisible contact surfaces to remain stable in physics.
+
+## Rendering appearance
+
+The native viewer and precomputed RGB comparisons share the XML’s room fill and material settings. The export camera override also moves its headlight; leaving that light at the default orbit pose previously darkened the paired images. Lower directional intensity and specular response avoid washing out the native view. Wall paint, carpet contrast, screen paper, and upholstery were adjusted against multiple recorded views.
+
+`MUJOCO_GL=egl python mujoco_scene/scripts/validate_appearance.py` compares native fixed-camera rendering with the calibrated camera path at equivalent centered intrinsics, checks white clipping across all frames, and writes a [recorded/rendered contact sheet](reference/appearance_comparison.jpg). The optional `--baseline-ref <git-revision>` adds old-render color diagnostics. Color measurements use confident pixels whose recorded and rendered depths agree within 0.10 m; the capture’s changing exposure and omitted clutter still produce differences.
