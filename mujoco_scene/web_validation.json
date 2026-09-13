@@ -8,7 +8,7 @@
   "calibration": [
     {
       "frame": 0,
-      "median_ray_vs_render_depth_error_m": 0.00025428801861648864,
+      "median_ray_vs_render_depth_error_m": 0.0002633094238588818,
       "p90_error_m": 0.0004469426997041559,
       "rays": 110
     },
@@ -20,8 +20,8 @@
     },
     {
       "frame": 90,
-      "median_ray_vs_render_depth_error_m": 0.0002653137273359585,
-      "p90_error_m": 0.0004823080193673724,
+      "median_ray_vs_render_depth_error_m": 0.00024142762956991248,
+      "p90_error_m": 0.0004719866698372544,
       "rays": 110
     },
     {
@@ -37,5 +37,5 @@
       "rays": 110
     }
   ],
-  "mean_frame_depth_mae_m": 0.1553599122374807
+  "mean_frame_depth_mae_m": 0.15410824411212914
 }

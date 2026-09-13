@@ -15,6 +15,7 @@ const url=process.env.DEMO_URL||'http://127.0.0.1:8765/';
  const fixed=await page.evaluate(()=>{const g=window.halab.manifest.geoms.find(g=>g.name==='sofa_base');return {id:g.id,pose:window.halab.geomPose(g.id)};});
  const referenceRgb=await page.locator('#rendered-rgb').getAttribute('src');
  for(const joint of joints){
+  if(['white_cabinet','sink_cabinet'].includes(joint.asset))assert(Math.abs(Math.abs(joint.open-joint.closed)-Math.PI)<1e-8,'Cabinet door must open 180 degrees');
   await page.locator('#search').fill(joint.asset.replaceAll('_',' '));await page.locator(`.asset[data-name="${joint.asset}"]`).click();
   const input=page.locator(`input[data-joint="${joint.id}"]`);const closed=await page.evaluate(id=>window.halab.geomPose(id),joint.geoms[0]);
   await input.check();const opened=await page.evaluate(id=>window.halab.geomPose(id),joint.geoms[0]);assert.notDeepEqual(opened,closed,joint.id);

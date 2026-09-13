@@ -17,22 +17,22 @@
     },
     {
       "frame": 123,
-      "mean_rgb_difference_255": 0.0009138319227430555,
+      "mean_rgb_difference_255": 0.000946044921875,
       "p99_rgb_difference_255": 0.0
     },
     {
       "frame": 124,
-      "mean_rgb_difference_255": 0.00299072265625,
+      "mean_rgb_difference_255": 0.002734714084201389,
       "p99_rgb_difference_255": 0.0
     },
     {
       "frame": 125,
-      "mean_rgb_difference_255": 0.0007731119791666666,
+      "mean_rgb_difference_255": 0.0009545220269097222,
       "p99_rgb_difference_255": 0.0
     },
     {
       "frame": 126,
-      "mean_rgb_difference_255": 0.00013563368055555556,
+      "mean_rgb_difference_255": 0.000213623046875,
       "p99_rgb_difference_255": 0.0
     },
     {
@@ -88,7 +88,7 @@
         ]
       },
       "floor": {
-        "pixels": 46434,
+        "pixels": 46430,
         "recorded_median_rgb": [
           73.0,
           73.0,
@@ -187,11 +187,11 @@
     {
       "frame": 123,
       "walls": {
-        "pixels": 55241,
+        "pixels": 57228,
         "recorded_median_rgb": [
-          214.0,
-          208.0,
-          196.0
+          216.0,
+          210.0,
+          197.0
         ],
         "rendered_median_rgb": [
           230.0,
@@ -226,11 +226,11 @@
     {
       "frame": 124,
       "walls": {
-        "pixels": 77005,
+        "pixels": 78158,
         "recorded_median_rgb": [
-          222.0,
-          217.0,
-          205.0
+          223.0,
+          218.0,
+          206.0
         ],
         "rendered_median_rgb": [
           230.0,
@@ -265,7 +265,7 @@
     {
       "frame": 125,
       "walls": {
-        "pixels": 76686,
+        "pixels": 78458,
         "recorded_median_rgb": [
           233.0,
           230.0,
@@ -304,11 +304,11 @@
     {
       "frame": 126,
       "walls": {
-        "pixels": 60100,
+        "pixels": 61865,
         "recorded_median_rgb": [
           233.0,
           230.0,
-          221.0
+          220.0
         ],
         "rendered_median_rgb": [
           223.0,

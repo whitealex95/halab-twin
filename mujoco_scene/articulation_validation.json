@@ -1,0 +1,143 @@
+{
+  "cabinet_doors_open_degrees": 180,
+  "carcass_clearance": [
+    {
+      "joint": "white_cabinet_left_hinge",
+      "positions_checked": 25,
+      "minimum_carcass_clearance_m": 0.0035000000000000586
+    },
+    {
+      "joint": "white_cabinet_right_hinge",
+      "positions_checked": 25,
+      "minimum_carcass_clearance_m": 0.0035000000000000586
+    },
+    {
+      "joint": "sink_cabinet_left_hinge",
+      "positions_checked": 25,
+      "minimum_carcass_clearance_m": 0.0034999999999994237
+    },
+    {
+      "joint": "sink_cabinet_right_hinge",
+      "positions_checked": 25,
+      "minimum_carcass_clearance_m": 0.003500000000000131
+    },
+    {
+      "joint": "black_dresser_slide1",
+      "positions_checked": 25,
+      "minimum_carcass_clearance_m": 0.0010000000000001117
+    },
+    {
+      "joint": "black_dresser_slide2",
+      "positions_checked": 25,
+      "minimum_carcass_clearance_m": 0.0010000000000001117
+    },
+    {
+      "joint": "black_dresser_slide3",
+      "positions_checked": 25,
+      "minimum_carcass_clearance_m": 0.001000000000000112
+    },
+    {
+      "joint": "black_dresser_slide4",
+      "positions_checked": 25,
+      "minimum_carcass_clearance_m": 0.0010000000000001117
+    },
+    {
+      "joint": "black_dresser_slide5",
+      "positions_checked": 25,
+      "minimum_carcass_clearance_m": 0.001000000000000112
+    }
+  ],
+  "drawer_payload_containment": [
+    {
+      "drawer": 1,
+      "impulse_direction": -1,
+      "payload_position_relative_to_tray_m": [
+        -0.05010948845377093,
+        0.09299292998468654,
+        0.016882686743003864
+      ]
+    },
+    {
+      "drawer": 2,
+      "impulse_direction": -1,
+      "payload_position_relative_to_tray_m": [
+        -0.05116959850352268,
+        0.0966688819572642,
+        0.01688269937483031
+      ]
+    },
+    {
+      "drawer": 3,
+      "impulse_direction": -1,
+      "payload_position_relative_to_tray_m": [
+        -0.05103712973247744,
+        0.09773578608013446,
+        0.01688270341600693
+      ]
+    },
+    {
+      "drawer": 4,
+      "impulse_direction": -1,
+      "payload_position_relative_to_tray_m": [
+        -0.05086926762264949,
+        0.09895966683133942,
+        0.01688269886628551
+      ]
+    },
+    {
+      "drawer": 5,
+      "impulse_direction": -1,
+      "payload_position_relative_to_tray_m": [
+        -0.04992446467680548,
+        0.09282014844287244,
+        0.016882685726130536
+      ]
+    },
+    {
+      "drawer": 1,
+      "impulse_direction": 1,
+      "payload_position_relative_to_tray_m": [
+        0.05648853301109449,
+        -0.10697364974589711,
+        0.016882686742728324
+      ]
+    },
+    {
+      "drawer": 2,
+      "impulse_direction": 1,
+      "payload_position_relative_to_tray_m": [
+        0.05766777372420597,
+        -0.1106455483015542,
+        0.016882699374556
+      ]
+    },
+    {
+      "drawer": 3,
+      "impulse_direction": 1,
+      "payload_position_relative_to_tray_m": [
+        0.05764104363663753,
+        -0.11164037037131656,
+        0.016882703415735775
+      ]
+    },
+    {
+      "drawer": 4,
+      "impulse_direction": 1,
+      "payload_position_relative_to_tray_m": [
+        0.05759845127969082,
+        -0.11272185907678509,
+        0.016882698866020555
+      ]
+    },
+    {
+      "drawer": 5,
+      "impulse_direction": 1,
+      "payload_position_relative_to_tray_m": [
+        0.05672133332820144,
+        -0.10588080320035835,
+        0.016882685725893538
+      ]
+    }
+  ],
+  "scope": "Own-carcass clearance; nearby furniture can still obstruct native door movement."
+}

@@ -295,7 +295,10 @@
         0.42,
         1.18
       ],
-      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions",
+      "drawer_count": 5,
+      "drawer_travel_m": 0.3024,
+      "drawer_construction": "Open-top boxes with bottom, side and back walls; paired stationary/moving runners and carcass clearance."
     },
     {
       "name": "sink_cabinet",
@@ -375,7 +378,10 @@
         0.43,
         1.94
       ],
-      "source": "Recorded frames 123\u2013126: dark wood, slim black frame, narrow left upper bay, wide right upper bay; raw depth surface samples."
+      "source": "Recorded frames 123\u2013126: dark wood, slim black frame, narrow left upper bay, wide right upper bay; raw depth surface samples.",
+      "lower_shelf_depth_m": 0.43,
+      "upper_shelf_depth_m": 0.23,
+      "upper_shelves_back_aligned": true
     },
     {
       "name": "mobile_display",

@@ -87,7 +87,6 @@ def main():
   if not affected:continue
   closed=float(model.qpos0[model.jnt_qposadr[jid]]);lo,hi=model.jnt_range[jid]
   target=lo if abs(lo-closed)>abs(hi-closed) else hi
-  if kind==mujoco.mjtJoint.mjJNT_HINGE:target=closed+np.clip(target-closed,-np.deg2rad(80),np.deg2rad(80))
   asset=next(g['asset'] for g in geoms if g['id']==affected[0])
   label='Drawer '+name.rsplit('slide',1)[1] if kind==mujoco.mjtJoint.mjJNT_SLIDE else 'Left door' if '_left_' in name else 'Right door' if '_right_' in name else 'Door'
   articulations.append({'id':name,'asset':asset,'label':label,'type':'slide' if kind==mujoco.mjtJoint.mjJNT_SLIDE else 'hinge','closed':closed,'open':float(target),'axis':data.xaxis[jid].tolist(),'anchor':data.xanchor[jid].tolist(),'geoms':affected})

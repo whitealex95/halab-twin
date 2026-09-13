@@ -265,14 +265,14 @@
       <geom name="white_cabinet_shelf1" type="box" pos="0 0.01 0.44" size="0.385 0.185 0.0125" material="white" group="0" mass="2" />
       <geom name="white_cabinet_shelf2" type="box" pos="0 0.01 0.83" size="0.385 0.185 0.0125" material="white" group="0" mass="2" />
       <geom name="white_cabinet_shelf3" type="box" pos="0 0.01 1.24" size="0.385 0.185 0.0125" material="white" group="0" mass="2" />
-      <body name="white_cabinet_left_door" pos="-0.4 -0.217 0.1">
-        <joint name="white_cabinet_left_hinge" type="hinge" axis="0 0 1" range="-105 0" damping="2" frictionloss=".4" />
-        <geom name="white_cabinet_left_panel" type="box" pos="0.1865 0 0.79" size="0.2 0.0125 0.79" material="white" group="0" mass="2" />
+      <body name="white_cabinet_left_door" pos="-0.427 -0.226 0.1">
+        <joint name="white_cabinet_left_hinge" type="hinge" axis="0 0 1" range="-180 0" damping="2" frictionloss=".4" />
+        <geom name="white_cabinet_left_panel" type="box" pos="0.2125 0 0.79" size="0.2105 0.0125 0.79" material="white" group="0" mass="2" />
         <geom name="white_cabinet_left_handle" type="box" pos="0.325 -0.032 0.816" size="0.011 0.02 0.075" material="brass" group="0" mass="0.08" />
       </body>
-      <body name="white_cabinet_right_door" pos="0.4 -0.217 0.1">
-        <joint name="white_cabinet_right_hinge" type="hinge" axis="0 0 1" range="0 105" damping="2" frictionloss=".4" />
-        <geom name="white_cabinet_right_panel" type="box" pos="-0.1865 0 0.79" size="0.2 0.0125 0.79" material="white" group="0" mass="2" />
+      <body name="white_cabinet_right_door" pos="0.427 -0.226 0.1">
+        <joint name="white_cabinet_right_hinge" type="hinge" axis="0 0 1" range="0 180" damping="2" frictionloss=".4" />
+        <geom name="white_cabinet_right_panel" type="box" pos="-0.2125 0 0.79" size="0.2105 0.0125 0.79" material="white" group="0" mass="2" />
         <geom name="white_cabinet_right_handle" type="box" pos="-0.325 -0.032 0.816" size="0.011 0.02 0.075" material="brass" group="0" mass="0.08" />
       </body>
     </body>
@@ -283,36 +283,71 @@
       <geom name="black_dresser_back" type="box" pos="0 0.1925 0.59" size="0.24 0.0175 0.59" material="charcoal" group="0" mass="4" />
       <geom name="black_dresser_left" type="box" pos="-0.2225 0 0.59" size="0.0175 0.21 0.59" material="charcoal" group="0" mass="4" />
       <geom name="black_dresser_right" type="box" pos="0.2225 0 0.59" size="0.0175 0.21 0.59" material="charcoal" group="0" mass="4" />
-      <body name="black_dresser_drawer1" pos="0 0 0.242">
-        <joint name="black_dresser_slide1" type="slide" axis="0 -1 0" range="0 0.273" damping="8" frictionloss="2" />
-        <geom name="black_dresser_drawer_front0" type="box" pos="0 -0.21 0" size="0.2025 0.0125 0.0945" material="charcoal" group="0" mass="1.2" />
-        <geom name="black_dresser_drawer_tray0" type="box" pos="0 0 -0.0795" size="0.195 0.17 0.0125" material="charcoal" group="0" mass="0.5" />
+      <body name="black_dresser_drawer1" pos="0 0 0.2077">
+        <joint name="black_dresser_slide1" type="slide" axis="0 -1 0" range="0 0.3024" damping="8" frictionloss="2" />
+        <geom name="black_dresser_drawer_front0" type="box" pos="0 -0.21 0" size="0.203 0.0125 0.1007" material="charcoal" group="0" mass="0.8" />
+        <geom name="black_dresser_drawer_tray0" type="box" pos="0 -0.01775 -0.0867" size="0.195 0.17975 0.005" material="charcoal" group="0" mass="0.3" />
+        <geom name="black_dresser_drawer_side0_-1" type="box" pos="-0.191 -0.01775 0.0015" size="0.004 0.17975 0.0832" material="charcoal" group="0" mass="0.2" />
+        <geom name="black_dresser_moving_runner0_-1" type="box" pos="-0.197 -0.01775 -0.0517" size="0.002 0.16725 0.01" material="metal" group="0" mass="0.04" />
+        <geom name="black_dresser_drawer_side0_1" type="box" pos="0.191 -0.01775 0.0015" size="0.004 0.17975 0.0832" material="charcoal" group="0" mass="0.2" />
+        <geom name="black_dresser_moving_runner0_1" type="box" pos="0.197 -0.01775 -0.0517" size="0.002 0.16725 0.01" material="metal" group="0" mass="0.04" />
+        <geom name="black_dresser_drawer_back0" type="box" pos="0 0.158 0.0015" size="0.187 0.004 0.0832" material="charcoal" group="0" mass="0.2" />
         <geom name="black_dresser_drawer_handle0" type="box" pos="0 -0.238 0" size="0.072 0.015 0.009" material="metal" group="0" mass="0.1" />
       </body>
-      <body name="black_dresser_drawer2" pos="0 0 0.446">
-        <joint name="black_dresser_slide2" type="slide" axis="0 -1 0" range="0 0.273" damping="8" frictionloss="2" />
-        <geom name="black_dresser_drawer_front1" type="box" pos="0 -0.21 0" size="0.2025 0.0125 0.0945" material="charcoal" group="0" mass="1.2" />
-        <geom name="black_dresser_drawer_tray1" type="box" pos="0 0 -0.0795" size="0.195 0.17 0.0125" material="charcoal" group="0" mass="0.5" />
+      <geom name="black_dresser_fixed_runner0_-1" type="box" pos="-0.202 -0.01775 0.156" size="0.002 0.16725 0.0125" material="metal" group="0" mass="0.05" />
+      <geom name="black_dresser_fixed_runner0_1" type="box" pos="0.202 -0.01775 0.156" size="0.002 0.16725 0.0125" material="metal" group="0" mass="0.05" />
+      <body name="black_dresser_drawer2" pos="0 0 0.4151">
+        <joint name="black_dresser_slide2" type="slide" axis="0 -1 0" range="0 0.3024" damping="8" frictionloss="2" />
+        <geom name="black_dresser_drawer_front1" type="box" pos="0 -0.21 0" size="0.203 0.0125 0.1007" material="charcoal" group="0" mass="0.8" />
+        <geom name="black_dresser_drawer_tray1" type="box" pos="0 -0.01775 -0.0867" size="0.195 0.17975 0.005" material="charcoal" group="0" mass="0.3" />
+        <geom name="black_dresser_drawer_side1_-1" type="box" pos="-0.191 -0.01775 0.0015" size="0.004 0.17975 0.0832" material="charcoal" group="0" mass="0.2" />
+        <geom name="black_dresser_moving_runner1_-1" type="box" pos="-0.197 -0.01775 -0.0517" size="0.002 0.16725 0.01" material="metal" group="0" mass="0.04" />
+        <geom name="black_dresser_drawer_side1_1" type="box" pos="0.191 -0.01775 0.0015" size="0.004 0.17975 0.0832" material="charcoal" group="0" mass="0.2" />
+        <geom name="black_dresser_moving_runner1_1" type="box" pos="0.197 -0.01775 -0.0517" size="0.002 0.16725 0.01" material="metal" group="0" mass="0.04" />
+        <geom name="black_dresser_drawer_back1" type="box" pos="0 0.158 0.0015" size="0.187 0.004 0.0832" material="charcoal" group="0" mass="0.2" />
         <geom name="black_dresser_drawer_handle1" type="box" pos="0 -0.238 0" size="0.072 0.015 0.009" material="metal" group="0" mass="0.1" />
       </body>
-      <body name="black_dresser_drawer3" pos="0 0 0.65">
-        <joint name="black_dresser_slide3" type="slide" axis="0 -1 0" range="0 0.273" damping="8" frictionloss="2" />
-        <geom name="black_dresser_drawer_front2" type="box" pos="0 -0.21 0" size="0.2025 0.0125 0.0945" material="charcoal" group="0" mass="1.2" />
-        <geom name="black_dresser_drawer_tray2" type="box" pos="0 0 -0.0795" size="0.195 0.17 0.0125" material="charcoal" group="0" mass="0.5" />
+      <geom name="black_dresser_fixed_runner1_-1" type="box" pos="-0.202 -0.01775 0.3634" size="0.002 0.16725 0.0125" material="metal" group="0" mass="0.05" />
+      <geom name="black_dresser_fixed_runner1_1" type="box" pos="0.202 -0.01775 0.3634" size="0.002 0.16725 0.0125" material="metal" group="0" mass="0.05" />
+      <body name="black_dresser_drawer3" pos="0 0 0.6225">
+        <joint name="black_dresser_slide3" type="slide" axis="0 -1 0" range="0 0.3024" damping="8" frictionloss="2" />
+        <geom name="black_dresser_drawer_front2" type="box" pos="0 -0.21 0" size="0.203 0.0125 0.1007" material="charcoal" group="0" mass="0.8" />
+        <geom name="black_dresser_drawer_tray2" type="box" pos="0 -0.01775 -0.0867" size="0.195 0.17975 0.005" material="charcoal" group="0" mass="0.3" />
+        <geom name="black_dresser_drawer_side2_-1" type="box" pos="-0.191 -0.01775 0.0015" size="0.004 0.17975 0.0832" material="charcoal" group="0" mass="0.2" />
+        <geom name="black_dresser_moving_runner2_-1" type="box" pos="-0.197 -0.01775 -0.0517" size="0.002 0.16725 0.01" material="metal" group="0" mass="0.04" />
+        <geom name="black_dresser_drawer_side2_1" type="box" pos="0.191 -0.01775 0.0015" size="0.004 0.17975 0.0832" material="charcoal" group="0" mass="0.2" />
+        <geom name="black_dresser_moving_runner2_1" type="box" pos="0.197 -0.01775 -0.0517" size="0.002 0.16725 0.01" material="metal" group="0" mass="0.04" />
+        <geom name="black_dresser_drawer_back2" type="box" pos="0 0.158 0.0015" size="0.187 0.004 0.0832" material="charcoal" group="0" mass="0.2" />
         <geom name="black_dresser_drawer_handle2" type="box" pos="0 -0.238 0" size="0.072 0.015 0.009" material="metal" group="0" mass="0.1" />
       </body>
-      <body name="black_dresser_drawer4" pos="0 0 0.854">
-        <joint name="black_dresser_slide4" type="slide" axis="0 -1 0" range="0 0.273" damping="8" frictionloss="2" />
-        <geom name="black_dresser_drawer_front3" type="box" pos="0 -0.21 0" size="0.2025 0.0125 0.0945" material="charcoal" group="0" mass="1.2" />
-        <geom name="black_dresser_drawer_tray3" type="box" pos="0 0 -0.0795" size="0.195 0.17 0.0125" material="charcoal" group="0" mass="0.5" />
+      <geom name="black_dresser_fixed_runner2_-1" type="box" pos="-0.202 -0.01775 0.5708" size="0.002 0.16725 0.0125" material="metal" group="0" mass="0.05" />
+      <geom name="black_dresser_fixed_runner2_1" type="box" pos="0.202 -0.01775 0.5708" size="0.002 0.16725 0.0125" material="metal" group="0" mass="0.05" />
+      <body name="black_dresser_drawer4" pos="0 0 0.8299">
+        <joint name="black_dresser_slide4" type="slide" axis="0 -1 0" range="0 0.3024" damping="8" frictionloss="2" />
+        <geom name="black_dresser_drawer_front3" type="box" pos="0 -0.21 0" size="0.203 0.0125 0.1007" material="charcoal" group="0" mass="0.8" />
+        <geom name="black_dresser_drawer_tray3" type="box" pos="0 -0.01775 -0.0867" size="0.195 0.17975 0.005" material="charcoal" group="0" mass="0.3" />
+        <geom name="black_dresser_drawer_side3_-1" type="box" pos="-0.191 -0.01775 0.0015" size="0.004 0.17975 0.0832" material="charcoal" group="0" mass="0.2" />
+        <geom name="black_dresser_moving_runner3_-1" type="box" pos="-0.197 -0.01775 -0.0517" size="0.002 0.16725 0.01" material="metal" group="0" mass="0.04" />
+        <geom name="black_dresser_drawer_side3_1" type="box" pos="0.191 -0.01775 0.0015" size="0.004 0.17975 0.0832" material="charcoal" group="0" mass="0.2" />
+        <geom name="black_dresser_moving_runner3_1" type="box" pos="0.197 -0.01775 -0.0517" size="0.002 0.16725 0.01" material="metal" group="0" mass="0.04" />
+        <geom name="black_dresser_drawer_back3" type="box" pos="0 0.158 0.0015" size="0.187 0.004 0.0832" material="charcoal" group="0" mass="0.2" />
         <geom name="black_dresser_drawer_handle3" type="box" pos="0 -0.238 0" size="0.072 0.015 0.009" material="metal" group="0" mass="0.1" />
       </body>
-      <body name="black_dresser_drawer5" pos="0 0 1.058">
-        <joint name="black_dresser_slide5" type="slide" axis="0 -1 0" range="0 0.273" damping="8" frictionloss="2" />
-        <geom name="black_dresser_drawer_front4" type="box" pos="0 -0.21 0" size="0.2025 0.0125 0.0945" material="charcoal" group="0" mass="1.2" />
-        <geom name="black_dresser_drawer_tray4" type="box" pos="0 0 -0.0795" size="0.195 0.17 0.0125" material="charcoal" group="0" mass="0.5" />
+      <geom name="black_dresser_fixed_runner3_-1" type="box" pos="-0.202 -0.01775 0.7782" size="0.002 0.16725 0.0125" material="metal" group="0" mass="0.05" />
+      <geom name="black_dresser_fixed_runner3_1" type="box" pos="0.202 -0.01775 0.7782" size="0.002 0.16725 0.0125" material="metal" group="0" mass="0.05" />
+      <body name="black_dresser_drawer5" pos="0 0 1.0373">
+        <joint name="black_dresser_slide5" type="slide" axis="0 -1 0" range="0 0.3024" damping="8" frictionloss="2" />
+        <geom name="black_dresser_drawer_front4" type="box" pos="0 -0.21 0" size="0.203 0.0125 0.1007" material="charcoal" group="0" mass="0.8" />
+        <geom name="black_dresser_drawer_tray4" type="box" pos="0 -0.01775 -0.0867" size="0.195 0.17975 0.005" material="charcoal" group="0" mass="0.3" />
+        <geom name="black_dresser_drawer_side4_-1" type="box" pos="-0.191 -0.01775 0.0015" size="0.004 0.17975 0.0832" material="charcoal" group="0" mass="0.2" />
+        <geom name="black_dresser_moving_runner4_-1" type="box" pos="-0.197 -0.01775 -0.0517" size="0.002 0.16725 0.01" material="metal" group="0" mass="0.04" />
+        <geom name="black_dresser_drawer_side4_1" type="box" pos="0.191 -0.01775 0.0015" size="0.004 0.17975 0.0832" material="charcoal" group="0" mass="0.2" />
+        <geom name="black_dresser_moving_runner4_1" type="box" pos="0.197 -0.01775 -0.0517" size="0.002 0.16725 0.01" material="metal" group="0" mass="0.04" />
+        <geom name="black_dresser_drawer_back4" type="box" pos="0 0.158 0.0015" size="0.187 0.004 0.0832" material="charcoal" group="0" mass="0.2" />
         <geom name="black_dresser_drawer_handle4" type="box" pos="0 -0.238 0" size="0.072 0.015 0.009" material="metal" group="0" mass="0.1" />
       </body>
+      <geom name="black_dresser_fixed_runner4_-1" type="box" pos="-0.202 -0.01775 0.9856" size="0.002 0.16725 0.0125" material="metal" group="0" mass="0.05" />
+      <geom name="black_dresser_fixed_runner4_1" type="box" pos="0.202 -0.01775 0.9856" size="0.002 0.16725 0.0125" material="metal" group="0" mass="0.05" />
     </body>
     <body name="sink_cabinet" pos="-3.72 0.77 0.004" euler="0 0 90">
       <freejoint name="sink_cabinet_free" />
@@ -322,9 +357,9 @@
       <geom name="sink_cabinet_left" type="box" pos="-0.4575 0 0.425" size="0.0175 0.325 0.425" material="sink" group="0" mass="4" />
       <geom name="sink_cabinet_right" type="box" pos="0.4575 0 0.425" size="0.0175 0.325 0.425" material="sink" group="0" mass="4" />
       <geom name="sink_cabinet_shelf1" type="box" pos="0 0.01 0.425" size="0.435 0.3 0.0125" material="sink" group="0" mass="2" />
-      <body name="sink_cabinet_left_door" pos="-0.45 -0.332 0.1">
-        <joint name="sink_cabinet_left_hinge" type="hinge" axis="0 0 1" range="-105 0" damping="2" frictionloss=".4" />
-        <geom name="sink_cabinet_left_panel" type="box" pos="0.2115 0 0.365" size="0.225 0.0125 0.365" material="sink" group="0" mass="2" />
+      <body name="sink_cabinet_left_door" pos="-0.477 -0.341 0.1">
+        <joint name="sink_cabinet_left_hinge" type="hinge" axis="0 0 1" range="-180 0" damping="2" frictionloss=".4" />
+        <geom name="sink_cabinet_left_panel" type="box" pos="0.2375 0 0.365" size="0.2355 0.0125 0.365" material="sink" group="0" mass="2" />
         <geom name="sink_cabinet_left_handle" type="box" pos="0.19 -0.032 0.61" size=".15 .02 .01" material="chrome" group="0" mass="0.08" />
         <geom name="sink_door_ribleft0" type="box" pos="0.055 -0.017 0.36" size="0.0025 0.002 0.3" material="metal" group="0" contype="0" conaffinity="0" mass="0" />
         <geom name="sink_door_ribleft1" type="box" pos="0.13 -0.017 0.36" size="0.0025 0.002 0.3" material="metal" group="0" contype="0" conaffinity="0" mass="0" />
@@ -332,9 +367,9 @@
         <geom name="sink_door_ribleft3" type="box" pos="0.28 -0.017 0.36" size="0.0025 0.002 0.3" material="metal" group="0" contype="0" conaffinity="0" mass="0" />
         <geom name="sink_door_ribleft4" type="box" pos="0.355 -0.017 0.36" size="0.0025 0.002 0.3" material="metal" group="0" contype="0" conaffinity="0" mass="0" />
       </body>
-      <body name="sink_cabinet_right_door" pos="0.45 -0.332 0.1">
-        <joint name="sink_cabinet_right_hinge" type="hinge" axis="0 0 1" range="0 105" damping="2" frictionloss=".4" />
-        <geom name="sink_cabinet_right_panel" type="box" pos="-0.2115 0 0.365" size="0.225 0.0125 0.365" material="sink" group="0" mass="2" />
+      <body name="sink_cabinet_right_door" pos="0.477 -0.341 0.1">
+        <joint name="sink_cabinet_right_hinge" type="hinge" axis="0 0 1" range="0 180" damping="2" frictionloss=".4" />
+        <geom name="sink_cabinet_right_panel" type="box" pos="-0.2375 0 0.365" size="0.2355 0.0125 0.365" material="sink" group="0" mass="2" />
         <geom name="sink_cabinet_right_handle" type="box" pos="-0.19 -0.032 0.61" size=".15 .02 .01" material="chrome" group="0" mass="0.08" />
         <geom name="sink_door_ribright0" type="box" pos="-0.055 -0.017 0.36" size="0.0025 0.002 0.3" material="metal" group="0" contype="0" conaffinity="0" mass="0" />
         <geom name="sink_door_ribright1" type="box" pos="-0.13 -0.017 0.36" size="0.0025 0.002 0.3" material="metal" group="0" contype="0" conaffinity="0" mass="0" />
@@ -395,36 +430,39 @@
     </body>
     <body name="tall_shelf" pos="-2.1 -3.8 0.004" euler="0 0 0">
       <freejoint name="tall_shelf_free" />
-      <geom name="tall_shelf_upright0_-1" type="box" pos="-0.49 -0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
-      <geom name="tall_shelf_upright0_1" type="box" pos="-0.49 0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
-      <geom name="tall_shelf_upright1_-1" type="box" pos="0.16 -0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
-      <geom name="tall_shelf_upright1_1" type="box" pos="0.16 0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
-      <geom name="tall_shelf_upright2_-1" type="box" pos="0.49 -0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
-      <geom name="tall_shelf_upright2_1" type="box" pos="0.49 0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
+      <geom name="tall_shelf_rear_upright0" type="box" pos="-0.49 -0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
+      <geom name="tall_shelf_lower_front_upright0" type="box" pos="-0.49 0.205 0.49" size="0.009 0.009 0.485" material="charcoal" group="0" mass="0.35" />
+      <geom name="tall_shelf_upper_front_upright0" type="box" pos="-0.49 0.005 1.455" size="0.009 0.009 0.49" material="charcoal" group="0" mass="0.35" />
+      <geom name="tall_shelf_rear_upright1" type="box" pos="0.16 -0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
+      <geom name="tall_shelf_lower_front_upright1" type="box" pos="0.16 0.205 0.49" size="0.009 0.009 0.485" material="charcoal" group="0" mass="0.35" />
+      <geom name="tall_shelf_upper_front_upright1" type="box" pos="0.16 0.005 1.455" size="0.009 0.009 0.49" material="charcoal" group="0" mass="0.35" />
+      <geom name="tall_shelf_rear_upright2" type="box" pos="0.49 -0.205 0.975" size="0.009 0.009 0.97" material="charcoal" group="0" mass="0.65" />
+      <geom name="tall_shelf_lower_front_upright2" type="box" pos="0.49 0.205 0.49" size="0.009 0.009 0.485" material="charcoal" group="0" mass="0.35" />
+      <geom name="tall_shelf_upper_front_upright2" type="box" pos="0.49 0.005 1.455" size="0.009 0.009 0.49" material="charcoal" group="0" mass="0.35" />
       <geom name="tall_shelf_full_board0" type="box" pos="0 0 0.06" size="0.5 0.215 0.009" material="shelf_wood" group="0" mass="2" />
       <geom name="tall_shelf_full_board1" type="box" pos="0 0 0.47" size="0.5 0.215 0.009" material="shelf_wood" group="0" mass="2" />
       <geom name="tall_shelf_full_board2" type="box" pos="0 0 0.97" size="0.5 0.215 0.009" material="shelf_wood" group="0" mass="2" />
-      <geom name="tall_shelf_narrow_board0" type="box" pos="0.325 0 1.25" size="0.155 0.215 0.009" material="shelf_wood" group="0" mass="0.6" />
-      <geom name="tall_shelf_narrow_board1" type="box" pos="0.325 0 1.57" size="0.155 0.215 0.009" material="shelf_wood" group="0" mass="0.6" />
-      <geom name="tall_shelf_wide_upper_board" type="box" pos="-0.165 0 1.57" size="0.32 0.215 0.009" material="shelf_wood" group="0" mass="1.3" />
+      <geom name="tall_shelf_narrow_board0" type="box" pos="0.325 -0.1 1.25" size="0.155 0.115 0.009" material="shelf_wood" group="0" mass="0.35" />
+      <geom name="tall_shelf_narrow_board1" type="box" pos="0.325 -0.1 1.57" size="0.155 0.115 0.009" material="shelf_wood" group="0" mass="0.35" />
+      <geom name="tall_shelf_wide_upper_board" type="box" pos="-0.165 -0.1 1.57" size="0.32 0.115 0.009" material="shelf_wood" group="0" mass="0.7" />
       <geom name="tall_shelf_side_rung0_0" type="box" pos="-0.49 0 0.06" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
       <geom name="tall_shelf_side_rung0_1" type="box" pos="-0.49 0 0.47" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
       <geom name="tall_shelf_side_rung0_2" type="box" pos="-0.49 0 0.97" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
-      <geom name="tall_shelf_side_rung0_3" type="box" pos="-0.49 0 1.25" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
-      <geom name="tall_shelf_side_rung0_4" type="box" pos="-0.49 0 1.57" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
-      <geom name="tall_shelf_side_rung0_5" type="box" pos="-0.49 0 1.91" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung0_3" type="box" pos="-0.49 -0.1 1.25" size="0.009 0.115 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung0_4" type="box" pos="-0.49 -0.1 1.57" size="0.009 0.115 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung0_5" type="box" pos="-0.49 -0.1 1.91" size="0.009 0.115 0.008" material="charcoal" group="0" mass="0.08" />
       <geom name="tall_shelf_side_rung1_0" type="box" pos="0.16 0 0.06" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
       <geom name="tall_shelf_side_rung1_1" type="box" pos="0.16 0 0.47" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
       <geom name="tall_shelf_side_rung1_2" type="box" pos="0.16 0 0.97" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
-      <geom name="tall_shelf_side_rung1_3" type="box" pos="0.16 0 1.25" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
-      <geom name="tall_shelf_side_rung1_4" type="box" pos="0.16 0 1.57" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
-      <geom name="tall_shelf_side_rung1_5" type="box" pos="0.16 0 1.91" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung1_3" type="box" pos="0.16 -0.1 1.25" size="0.009 0.115 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung1_4" type="box" pos="0.16 -0.1 1.57" size="0.009 0.115 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung1_5" type="box" pos="0.16 -0.1 1.91" size="0.009 0.115 0.008" material="charcoal" group="0" mass="0.08" />
       <geom name="tall_shelf_side_rung2_0" type="box" pos="0.49 0 0.06" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
       <geom name="tall_shelf_side_rung2_1" type="box" pos="0.49 0 0.47" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
       <geom name="tall_shelf_side_rung2_2" type="box" pos="0.49 0 0.97" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
-      <geom name="tall_shelf_side_rung2_3" type="box" pos="0.49 0 1.25" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
-      <geom name="tall_shelf_side_rung2_4" type="box" pos="0.49 0 1.57" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
-      <geom name="tall_shelf_side_rung2_5" type="box" pos="0.49 0 1.91" size="0.009 0.215 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung2_3" type="box" pos="0.49 -0.1 1.25" size="0.009 0.115 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung2_4" type="box" pos="0.49 -0.1 1.57" size="0.009 0.115 0.008" material="charcoal" group="0" mass="0.08" />
+      <geom name="tall_shelf_side_rung2_5" type="box" pos="0.49 -0.1 1.91" size="0.009 0.115 0.008" material="charcoal" group="0" mass="0.08" />
       <geom name="tall_shelf_rear_rail0" type="box" pos="0 -0.205 0.06" size="0.5 0.009 0.008" material="charcoal" group="0" mass="0.15" />
       <geom name="tall_shelf_rear_rail1" type="box" pos="0 -0.205 0.47" size="0.5 0.009 0.008" material="charcoal" group="0" mass="0.15" />
       <geom name="tall_shelf_rear_rail2" type="box" pos="0 -0.205 0.97" size="0.5 0.009 0.008" material="charcoal" group="0" mass="0.15" />
@@ -432,8 +470,8 @@
       <geom name="tall_shelf_rear_rail4" type="box" pos="0 -0.205 1.83" size="0.5 0.009 0.008" material="charcoal" group="0" mass="0.15" />
       <geom name="tall_shelf_rear_brace0" type="capsule" fromto="-0.47 -0.212 0.08 0.47 -0.212 0.92" size="0.005" material="charcoal" mass="0.08" />
       <geom name="tall_shelf_rear_brace1" type="capsule" fromto="0.47 -0.212 0.08 -0.47 -0.212 0.92" size="0.005" material="charcoal" mass="0.08" />
-      <geom name="tall_shelf_socket_support" type="box" pos="0.325 0.18 1.15" size="0.155 0.009 0.08" material="shelf_wood" group="0" mass="0.2" />
-      <geom name="tall_shelf_socket_panel" type="box" pos="0.325 0.194 1.15" size="0.115 0.004 0.0325" material="charcoal" group="0" contype="0" conaffinity="0" mass="0" />
+      <geom name="tall_shelf_socket_support" type="box" pos="0.325 -0.194 1.15" size="0.155 0.009 0.08" material="shelf_wood" group="0" mass="0.2" />
+      <geom name="tall_shelf_socket_panel" type="box" pos="0.325 -0.18 1.15" size="0.115 0.004 0.0325" material="charcoal" group="0" contype="0" conaffinity="0" mass="0" />
     </body>
     <body name="mobile_display" pos="-4 -0.95 0.004" euler="0 0 90">
       <freejoint name="mobile_display_free" />

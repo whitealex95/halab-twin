@@ -118,20 +118,34 @@ def cabinet(n,x,y,w,d,h,yaw=0,mat='white',drawers=False):
     b=body(n,x,y,yaw,size=[w,d,h]);t=.035
     for label,pos,size in [('bottom',[0,0,.05],[w,d,.1]),('top',[0,0,h-t/2],[w,d,t]),('back',[0,d/2-t/2,h/2],[w,t,h]),('left',[-w/2+t/2,0,h/2],[t,d,h]),('right',[w/2-t/2,0,h/2],[t,d,h])]:box(b,n+'_'+label,pos,size,mat,mass=4)
     if drawers:
+        # Five open-top boxes fit inside the carcass, with clearance at the top,
+        # back and side runners. Keep part of each box supported when extended.
+        pitch=(h-t-.004-.104)/5
+        drawer_width=w-2*t-.020
+        front_y=-d/2+.0125
+        back_y=d/2-t-.013
+        depth=back_y-front_y
         for i in range(5):
-            z=.14+(h-.16)/5*(i+.5);dh=(h-.16)/5-.015
-            dr=el(b,'body',name=f'{n}_drawer{i+1}',pos=vec([0,0,z]));el(dr,'joint',name=f'{n}_slide{i+1}',type='slide',axis='0 -1 0',range=f'0 {d*.65}',damping='8',frictionloss='2')
-            box(dr,f'{n}_drawer_front{i}',[0,-d/2,0],[w-.075,.025,dh],mat,mass=1.2)
-            box(dr,f'{n}_drawer_tray{i}',[0,0,-dh/2+.015],[w-.09,d-.08,.025],mat,mass=.5)
+            z=.104+pitch*(i+.5);dh=pitch-.006;bottom_z=-dh/2+.014;wall_h=dh-.035
+            dr=el(b,'body',name=f'{n}_drawer{i+1}',pos=vec([0,0,z]))
+            el(dr,'joint',name=f'{n}_slide{i+1}',type='slide',axis='0 -1 0',range=f'0 {d*.72}',damping='8',frictionloss='2')
+            box(dr,f'{n}_drawer_front{i}',[0,-d/2,0],[w-2*t-.004,.025,dh],mat,mass=.8)
+            box(dr,f'{n}_drawer_tray{i}',[0,(front_y+back_y)/2,bottom_z],[drawer_width,depth,.010],mat,mass=.3)
+            for side in [-1,1]:
+                box(dr,f'{n}_drawer_side{i}_{side}',[side*(drawer_width/2-.004),(front_y+back_y)/2,bottom_z+.005+wall_h/2],[.008,depth,wall_h],mat,mass=.2)
+                box(dr,f'{n}_moving_runner{i}_{side}',[side*(drawer_width/2+.002),(front_y+back_y)/2,bottom_z+.035],[.004,depth-.025,.020],'metal',mass=.04)
+                box(b,f'{n}_fixed_runner{i}_{side}',[side*(drawer_width/2+.007),(front_y+back_y)/2,z+bottom_z+.035],[.004,depth-.025,.025],'metal',mass=.05)
+            box(dr,f'{n}_drawer_back{i}',[0,back_y-.004,bottom_z+.005+wall_h/2],[drawer_width-.016,.008,wall_h],mat,mass=.2)
             box(dr,f'{n}_drawer_handle{i}',[0,-d/2-.028,0],[w*.3,.03,.018],'metal',mass=.1)
+        inventory[-1].update(drawer_count=5,drawer_travel_m=d*.72,drawer_construction='Open-top boxes with bottom, side and back walls; paired stationary/moving runners and carcass clearance.')
     else:
         shelves=[.44,.83,1.24] if n=='white_cabinet' else [h*.5]
         for i,z in enumerate(shelves):box(b,f'{n}_shelf{i+1}',[0,.01,z],[w-.08,d-.05,.025],mat,mass=2)
         if n=='white_cabinet':inventory[-1].update(shelf_heights_m=shelves,source='Capture exterior and additional_data/WhiteCabinet_view1.jpg: three internal shelves; heights scaled from the photographed cabinet frame.')
         for s,label in [(-1,'left'),(1,'right')]:
-            door=el(b,'body',name=n+'_'+label+'_door',pos=vec([s*(w/2-.025),-d/2-.007,.1]))
-            el(door,'joint',name=n+'_'+label+'_hinge',type='hinge',axis='0 0 1',range='-105 0' if s==-1 else '0 105',damping='2',frictionloss='.4')
-            box(door,n+'_'+label+'_panel',[-s*(w/4-.026),0,(h-.12)/2],[w/2-.025,.025,h-.12],mat,mass=2)
+            door=el(b,'body',name=n+'_'+label+'_door',pos=vec([s*(w/2+.002),-d/2-.016,.1]))
+            el(door,'joint',name=n+'_'+label+'_hinge',type='hinge',axis='0 0 1',range='-180 0' if s==-1 else '0 180',damping='2',frictionloss='.4')
+            box(door,n+'_'+label+'_panel',[-s*w/4,0,(h-.12)/2],[(w-.008)/2,.025,h-.12],mat,mass=2)
             box(door,n+'_'+label+'_handle',[-s*(w/2-.10),-.032,h*.48],[.022,.04,.15],'brass',mass=.08)
     return b
 
@@ -279,17 +293,22 @@ for i,x in enumerate([-.18,.18]):cyl(k,f'burner{i}',[x,0,1.005],.105,.012,'charc
 table('low_bench',-.92,-3.79,1.0,.40,.45,mat='charcoal')
 # Frames 123–126: split upper shelving above three full-width lower boards.
 b=body('tall_shelf',-2.10,-3.80,0,size=[1.00,.43,1.94],source='Recorded frames 123–126: dark wood, slim black frame, narrow left upper bay, wide right upper bay; raw depth surface samples.')
+inventory[-1].update(lower_shelf_depth_m=.43,upper_shelf_depth_m=.23,upper_shelves_back_aligned=True)
 for j,x in enumerate([-.49,.16,.49]):
-    for side in [-1,1]:box(b,f'tall_shelf_upright{j}_{side}',[x,side*.205,.975],[.018,.018,1.94],'charcoal',mass=.65)
+    box(b,f'tall_shelf_rear_upright{j}',[x,-.205,.975],[.018,.018,1.94],'charcoal',mass=.65)
+    box(b,f'tall_shelf_lower_front_upright{j}',[x,.205,.49],[.018,.018,.97],'charcoal',mass=.35)
+    box(b,f'tall_shelf_upper_front_upright{j}',[x,.005,1.455],[.018,.018,.98],'charcoal',mass=.35)
 for j,z in enumerate([.06,.47,.97]):box(b,f'tall_shelf_full_board{j}',[0,0,z],[1.00,.43,.018],'shelf_wood',mass=2)
-for j,z in enumerate([1.25,1.57]):box(b,f'tall_shelf_narrow_board{j}',[.325,0,z],[.31,.43,.018],'shelf_wood',mass=.6)
-box(b,'tall_shelf_wide_upper_board',[-.165,0,1.57],[.64,.43,.018],'shelf_wood',mass=1.3)
+for j,z in enumerate([1.25,1.57]):box(b,f'tall_shelf_narrow_board{j}',[.325,-.10,z],[.31,.23,.018],'shelf_wood',mass=.35)
+box(b,'tall_shelf_wide_upper_board',[-.165,-.10,1.57],[.64,.23,.018],'shelf_wood',mass=.7)
 for j,x in enumerate([-.49,.16,.49]):
-    for k,z in enumerate([.06,.47,.97,1.25,1.57,1.91]):box(b,f'tall_shelf_side_rung{j}_{k}',[x,0,z],[.018,.43,.016],'charcoal',mass=.08)
+    for k,z in enumerate([.06,.47,.97,1.25,1.57,1.91]):
+        shallow=z>1.;box(b,f'tall_shelf_side_rung{j}_{k}',[x,-.10 if shallow else 0,z],[.018,.23 if shallow else .43,.016],'charcoal',mass=.08)
 for j,z in enumerate([.06,.47,.97,1.49,1.83]):box(b,f'tall_shelf_rear_rail{j}',[0,-.205,z],[1.0,.018,.016],'charcoal',mass=.15)
 for j,ends in enumerate([[-.47,-.212,.08,.47,-.212,.92],[.47,-.212,.08,-.47,-.212,.92]]):capsule(b,f'tall_shelf_rear_brace{j}',ends[:3],ends[3:],.005,'charcoal',mass=.08)
-box(b,'tall_shelf_socket_support',[.325,.18,1.15],[.31,.018,.16],'shelf_wood',mass=.2)
-box(b,'tall_shelf_socket_panel',[.325,.194,1.15],[.23,.008,.065],'charcoal',visual=True)
+# The integral socket/backing panel faces the user from the wall side of the bay.
+box(b,'tall_shelf_socket_support',[.325,-.194,1.15],[.31,.018,.16],'shelf_wood',mass=.2)
+box(b,'tall_shelf_socket_panel',[.325,-.180,1.15],[.23,.008,.065],'charcoal',visual=True)
 
 # TV on its own mobile stand.
 b=body('mobile_display',-4.0,-.95,90,size=[1.25,.68,1.9])
