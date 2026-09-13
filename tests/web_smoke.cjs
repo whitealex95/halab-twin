@@ -10,7 +10,7 @@ const url=process.env.DEMO_URL||'http://127.0.0.1:8765/';
  await page.goto(url);await page.waitForFunction(()=>window.halab?.state().loaded===0,null,{timeout:30000});
  assert.equal(await page.locator('.asset').count(),await page.evaluate(()=>window.halab.manifest.assets.length));
  for(const name of ['traffic_cone','round_stool','red_tool_bag','sink_cabinet'])assert.equal(await page.locator(`.asset[data-name="${name}"]`).count(),1);
- assert.equal(await page.locator('.app-title img').getAttribute('alt'),'Ha Lab Twin');
+ assert.equal(await page.locator('.app-title').innerText(),'MocapLab Twin');
  const joints=await page.evaluate(()=>window.halab.manifest.articulations);
  const fixed=await page.evaluate(()=>{const g=window.halab.manifest.geoms.find(g=>g.name==='sofa_base');return {id:g.id,pose:window.halab.geomPose(g.id)};});
  const referenceRgb=await page.locator('#rendered-rgb').getAttribute('src');

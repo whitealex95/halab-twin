@@ -102,8 +102,8 @@ h1, h2 { margin: 0; font-size: 14px; font-weight: 600; white-space: nowrap; }
   #cut-row input { width: 160px; }
 }
 
-.app-title { display: flex; justify-content: center; margin: 0 0 8px; }
-.app-title img { display: block; width: 104px; max-width: 100%; height: auto; }
+.app-title { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; color: var(--navy); font-size: 16px; }
+.app-title img { display: block; flex: 0 0 44px; width: 44px; height: auto; }
 .articulations:empty { display: none; }
 .articulations { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 8px; }
 .articulations label { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; font-size: 12px; }
