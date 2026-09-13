@@ -4,7 +4,7 @@ const $=id=>document.getElementById(id);
 const orbitPosition=[-7.6,-9.5,9].map(value=>value/1.5);
 const state={index:0,loaded:-1,mode:'orbit',playing:false,pair:null,selected:null};
 let manifest,renderer,scene,camera,controls,framePoints,pathLine,denseLine,allFrustums,currentFrustum,rawPoints;
-const meshList=[],assetMeshes=new Map(),cache=new Map(),meshById=new Map(),jointStates=new Map();
+const meshList=[],assetMeshes=new Map(),cache=new Map(),meshById=new Map(),jointStates=new Map(),jointProgress=new Map(),jointAnimations=new Map();
 let cameraFlight=null;
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 let token=0,playClock=0,playStart=0,lastTime=performance.now();
@@ -79,11 +79,27 @@ function syncArticulationControls(){
  $('close-all').hidden=count===0;
  for(const input of $('articulations').querySelectorAll('input'))input.checked=jointStates.get(input.dataset.joint)||false;
 }
+function applyArticulation(joint,progress){
+ const delta=(joint.open-joint.closed)*progress,axis=new THREE.Vector3(...joint.axis),anchor=new THREE.Vector3(...joint.anchor),rotation=new THREE.Quaternion().setFromAxisAngle(axis,delta);
+ for(const geomId of joint.geoms){const mesh=meshById.get(geomId);if(!mesh)continue;mesh.position.copy(mesh.userData.referencePosition);mesh.quaternion.copy(mesh.userData.referenceQuaternion);if(joint.type==='hinge'){mesh.position.sub(anchor).applyQuaternion(rotation).add(anchor);mesh.quaternion.premultiply(rotation);}else mesh.position.addScaledVector(axis,delta);mesh.updateMatrixWorld();}
+ jointProgress.set(joint.id,progress);
+}
 function setArticulation(id,open){
  const joint=manifest.articulations.find(j=>j.id===id);if(!joint)return;
- const delta=(open?joint.open:joint.closed)-joint.closed,axis=new THREE.Vector3(...joint.axis),anchor=new THREE.Vector3(...joint.anchor),rotation=new THREE.Quaternion().setFromAxisAngle(axis,delta);
- for(const geomId of joint.geoms){const mesh=meshById.get(geomId);if(!mesh)continue;mesh.position.copy(mesh.userData.referencePosition);mesh.quaternion.copy(mesh.userData.referenceQuaternion);if(joint.type==='hinge'){mesh.position.sub(anchor).applyQuaternion(rotation).add(anchor);mesh.quaternion.premultiply(rotation);}else mesh.position.addScaledVector(axis,delta);mesh.updateMatrixWorld();}
- jointStates.set(id,open);syncArticulationControls();
+ open=!!open;
+ if((jointStates.get(id)||false)===open)return;
+ const from=jointProgress.get(id)||0,to=open?1:0;
+ jointStates.set(id,open);
+ if(reducedMotion.matches){jointAnimations.delete(id);applyArticulation(joint,to);}
+ else jointAnimations.set(id,{joint,from,to,start:performance.now(),duration:Math.max(120,(joint.type==='hinge'?650:550)*Math.abs(to-from))});
+ syncArticulationControls();
+}
+function updateArticulations(now){
+ for(const [id,animation] of jointAnimations){
+  const {joint,from,to,start,duration}=animation,t=reducedMotion.matches?1:Math.min(1,Math.max(0,(now-start)/duration)),ease=t*t*(3-2*t);
+  applyArticulation(joint,t===1?to:from+(to-from)*ease);
+  if(t===1)jointAnimations.delete(id);
+ }
 }
 function renderArticulations(){
  $('articulations').replaceChildren();
@@ -126,6 +142,6 @@ function wireExpandedWipe(){
  $('large-prev').onclick=()=>{pause();selectFrame(state.index-1);};$('large-next').onclick=()=>{pause();selectFrame(state.index+1);};
 }
 function wire(){$('open-all').onchange=()=>{const open=$('open-all').checked;for(const joint of manifest.articulations||[])setArticulation(joint.id,open);};$('close-all').onclick=()=>{for(const [id,open] of jointStates)if(open)setArticulation(id,false);};for(const mode of ['orbit','top','follow'])$(mode).onclick=()=>setMode(mode);for(const id of ['wall-mode','cut-height','ceiling','furniture','path','dense','frustums'])$(id).addEventListener('input',updateLayers);$('points').onchange=buildPoints;$('search').oninput=assetList;$('frame').oninput=()=>{pause();selectFrame(+$('frame').value);};$('prev').onclick=()=>{pause();selectFrame(state.index-1);};$('next').onclick=()=>{pause();selectFrame(state.index+1);};$('play').onclick=togglePlay;$('speed').onchange=()=>{if(state.playing){playClock=manifest.frames[state.index].time_s;playStart=performance.now();}};for(const id of ['error','depth-max','confidence'])$(id).onchange=()=>{drawDepth();if(id==='confidence')buildPoints();};$('wipe').onchange=()=>{const on=$('wipe').checked;$('images').classList.toggle('wipe-mode',on);$('render-figure').hidden=on;for(const id of ['wipe-rgb','wipe-line','wipe-slider'])$(id).hidden=!on;};$('wipe-slider').oninput=()=>setWipe($('wipe-slider').value);wireExpandedWipe();window.addEventListener('keydown',e=>{if(['INPUT','SELECT','TEXTAREA','BUTTON'].includes(document.activeElement.tagName))return;if(e.code==='Space'){e.preventDefault();togglePlay();}if(e.key==='ArrowRight'){pause();selectFrame(state.index+1);}if(e.key==='ArrowLeft'){pause();selectFrame(state.index-1);}});}
-function animate(now){requestAnimationFrame(animate);if(state.playing){const t=playClock+(now-playStart)/1000*+$('speed').value;let i=state.index;while(i+1<manifest.frames.length&&manifest.frames[i+1].time_s<=t)i++;if(i!==state.index)selectFrame(i);if(t>=manifest.duration_s)pause();}if(!renderer)return;updateCameraFlight(now);if(state.mode!=='follow')controls.update();const w=$('stage').clientWidth,h=$('stage').clientHeight;renderer.setScissorTest(false);renderer.setViewport(0,0,w,h);renderer.clear();if(state.mode==='follow'){const rw=Math.min(w,h*4/3),rh=rw*3/4;renderer.setViewport((w-rw)/2,(h-rh)/2,rw,rh);renderer.setScissor((w-rw)/2,(h-rh)/2,rw,rh);renderer.setScissorTest(true);}renderer.render(scene,camera);lastTime=now;}
-async function start(){try{const response=await fetch('data/manifest.json');if(!response.ok)throw Error('Dataset missing. Run scripts/export_web.py first.');manifest=await response.json();$('frame').max=manifest.frames.length-1;$('frame-count').textContent=manifest.frames.length;$('capture-duration').textContent=`${Math.floor(manifest.duration_s/60)}m ${Math.round(manifest.duration_s%60)}s`;$('asset-count').textContent=`${manifest.assets.length} OBJECTS`;$('room-size').textContent='fitted room shell';setupScene();wire();assetList();$('loading').remove();await selectFrame(0);requestAnimationFrame(animate);window.halab={selectFrame,setArticulation,viewState:()=>({position:camera.position.toArray(),target:controls.target.toArray(),focusing:!!cameraFlight}),articulationState:()=>Object.fromEntries(jointStates),geomPose:id=>{const mesh=meshById.get(id);return mesh?{position:mesh.position.toArray(),quaternion:mesh.quaternion.toArray()}:null;},state:()=>({index:state.index,loaded:state.loaded,mode:state.mode,playing:state.playing,rawPointCount:rawPoints?.geometry.attributes.position.count||0}),manifest};}catch(e){console.error(e);if($('loading'))$('loading').textContent=`Could not open viewer: ${e.message}`;tellError(e.message);}}
+function animate(now){requestAnimationFrame(animate);if(state.playing){const t=playClock+(now-playStart)/1000*+$('speed').value;let i=state.index;while(i+1<manifest.frames.length&&manifest.frames[i+1].time_s<=t)i++;if(i!==state.index)selectFrame(i);if(t>=manifest.duration_s)pause();}if(!renderer)return;updateArticulations(now);updateCameraFlight(now);if(state.mode!=='follow')controls.update();const w=$('stage').clientWidth,h=$('stage').clientHeight;renderer.setScissorTest(false);renderer.setViewport(0,0,w,h);renderer.clear();if(state.mode==='follow'){const rw=Math.min(w,h*4/3),rh=rw*3/4;renderer.setViewport((w-rw)/2,(h-rh)/2,rw,rh);renderer.setScissor((w-rw)/2,(h-rh)/2,rw,rh);renderer.setScissorTest(true);}renderer.render(scene,camera);lastTime=now;}
+async function start(){try{const response=await fetch('data/manifest.json');if(!response.ok)throw Error('Dataset missing. Run scripts/export_web.py first.');manifest=await response.json();$('frame').max=manifest.frames.length-1;$('frame-count').textContent=manifest.frames.length;$('capture-duration').textContent=`${Math.floor(manifest.duration_s/60)}m ${Math.round(manifest.duration_s%60)}s`;$('asset-count').textContent=`${manifest.assets.length} OBJECTS`;$('room-size').textContent='fitted room shell';setupScene();wire();assetList();$('loading').remove();await selectFrame(0);requestAnimationFrame(animate);window.halab={selectFrame,setArticulation,viewState:()=>({position:camera.position.toArray(),target:controls.target.toArray(),focusing:!!cameraFlight}),articulationState:()=>Object.fromEntries(jointStates),articulationMotion:()=>Object.fromEntries(manifest.articulations.map(j=>[j.id,{progress:jointProgress.get(j.id)||0,animating:jointAnimations.has(j.id)}])),geomPose:id=>{const mesh=meshById.get(id);return mesh?{position:mesh.position.toArray(),quaternion:mesh.quaternion.toArray()}:null;},state:()=>({index:state.index,loaded:state.loaded,mode:state.mode,playing:state.playing,rawPointCount:rawPoints?.geometry.attributes.position.count||0}),manifest};}catch(e){console.error(e);if($('loading'))$('loading').textContent=`Could not open viewer: ${e.message}`;tellError(e.message);}}
 start();

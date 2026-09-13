@@ -21,6 +21,9 @@
     "global door/drawer toggle and mixed state",
     "mobile overflow",
     "door and drawer toggles",
+    "animated hinge and slide intermediate poses",
+    "animation reversal without jumps",
+    "reduced-motion articulation",
     "joint reset",
     "fixed geometry unchanged"
   ]
