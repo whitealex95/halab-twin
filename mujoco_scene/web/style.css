@@ -30,6 +30,15 @@ aside section { padding: 18px; border-bottom: 1px solid var(--line); }
 .layers output { font-size: 10px; white-space: nowrap; }
 select { border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 4px 6px; border-radius: 5px; font-size: 11px; }
 input[type=checkbox] { width: 14px; height: 14px; }
+aside input[type=checkbox] { appearance: none; position: relative; flex: 0 0 34px; width: 34px; height: 20px; margin: 0; border: 1px solid #a6adb5; border-radius: 20px; background: #d5d9df; transition: background .16s, border-color .16s; }
+aside input[type=checkbox]::before { content: ""; position: absolute; width: 14px; height: 14px; left: 2px; top: 2px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px #062b4b33; transition: transform .16s; }
+aside input[type=checkbox]:checked { background: var(--gold); border-color: var(--gold); }
+aside input[type=checkbox]:checked::before { transform: translateX(14px); }
+aside input[type=checkbox]:indeterminate { background: var(--highlight); border-color: var(--gold); }
+aside input[type=checkbox]:indeterminate::before { transform: translateX(7px); background: var(--navy); }
+aside label:has(input[type=checkbox]) { cursor: pointer; }
+@media (prefers-reduced-motion: reduce) { aside input[type=checkbox], aside input[type=checkbox]::before { transition: none; } }
+
 .dot { width: 6px; height: 6px; display: inline-block; border-radius: 50%; margin-right: 6px; }
 .navy { background: var(--navy); }
 .gold { background: var(--gold); }
