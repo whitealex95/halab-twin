@@ -43,21 +43,50 @@ def main():
  trajectory=[dense[k] for k in sorted(dense)]
  model=mujoco.MjModel.from_xml_path(str(OUT/'scene.xml'));data=mujoco.MjData(model);mujoco.mj_forward(model,data)
  # Export the actual compiled reference geometry, not a parallel hand-authored model.
- geoms=[]
- types={int(mujoco.mjtGeom.mjGEOM_BOX):'box',int(mujoco.mjtGeom.mjGEOM_SPHERE):'sphere',int(mujoco.mjtGeom.mjGEOM_CYLINDER):'cylinder',int(mujoco.mjtGeom.mjGEOM_CAPSULE):'capsule'}
+ geoms=[];textures={}
+ (DATA/'textures').mkdir(exist_ok=True)
+ for tex in range(model.ntex):
+  if model.tex_type[tex]!=mujoco.mjtTexture.mjTEXTURE_2D:continue
+  adr=int(model.tex_adr[tex]);w=int(model.tex_width[tex]);h=int(model.tex_height[tex]);channels=int(model.tex_nchannel[tex])
+  pixels=model.tex_data[adr:adr+w*h*channels].reshape(h,w,channels)
+  url=f'data/textures/{model.texture(tex).name}.png';Image.fromarray(pixels).save(WEB/url)
+  textures[tex]=url
+ types={int(mujoco.mjtGeom.mjGEOM_BOX):'box',int(mujoco.mjtGeom.mjGEOM_SPHERE):'sphere',int(mujoco.mjtGeom.mjGEOM_CYLINDER):'cylinder',int(mujoco.mjtGeom.mjGEOM_CAPSULE):'capsule',int(mujoco.mjtGeom.mjGEOM_MESH):'mesh'}
  for i in range(model.ngeom):
+  if model.geom_rgba[i,3]==0:continue  # Invisible contact proxies are physics-only.
   kind=types.get(int(model.geom_type[i]));assert kind is not None,(i,model.geom_type[i])
-  rgba=model.geom_rgba[i].copy();material=int(model.geom_matid[i])
+  rgba=model.geom_rgba[i].copy();material=int(model.geom_matid[i]);appearance={}
   if material>=0:
    rgba=model.mat_rgba[material].copy()
+   appearance.update(specular=float(model.mat_specular[material]),shininess=float(model.mat_shininess[material]))
    texture_ids=model.mat_texid[material];texture_ids=texture_ids[texture_ids>=0]
-   if len(texture_ids):
-    tex=int(texture_ids[0]);adr=int(model.tex_adr[tex]);count=int(model.tex_width[tex]*model.tex_height[tex]*model.tex_nchannel[tex])
-    pixels=model.tex_data[adr:adr+count].reshape(-1,int(model.tex_nchannel[tex]))
-    rgba[:3]*=pixels[:,:3].mean(axis=0)/255
+   if len(texture_ids) and int(texture_ids[0]) in textures:
+    appearance['texture']={'url':textures[int(texture_ids[0])],'repeat':model.mat_texrepeat[material].tolist(),'uniform':bool(model.mat_texuniform[material])}
+  if kind=='mesh':
+   mid=int(model.geom_dataid[i]);va=int(model.mesh_vertadr[mid]);vn=int(model.mesh_vertnum[mid]);fa=int(model.mesh_faceadr[mid]);fn=int(model.mesh_facenum[mid]);ta=int(model.mesh_texcoordadr[mid]);tn=int(model.mesh_texcoordnum[mid])
+   appearance['mesh']={'vertices':model.mesh_vert[va:va+vn].tolist(),'faces':model.mesh_face[fa:fa+fn].tolist()}
+   if ta>=0 and tn:
+    appearance['mesh'].update(texcoords=model.mesh_texcoord[ta:ta+tn].tolist(),facetexcoords=model.mesh_facetexcoord[fa:fa+fn].tolist())
   bid=int(model.geom_bodyid[i]);root=bid
   while model.body_parentid[root]>0:root=int(model.body_parentid[root])
-  geoms.append({'id':i,'name':model.geom(i).name,'body':model.body(bid).name,'asset':'room' if root==0 else model.body(root).name,'type':kind,'size':model.geom_size[i].tolist(),'position':data.geom_xpos[i].tolist(),'rotation':data.geom_xmat[i].reshape(3,3).tolist(),'rgba':rgba.tolist(),'group':int(model.geom_group[i])})
+  geoms.append({'id':i,'name':model.geom(i).name,'body':model.body(bid).name,'asset':'room' if root==0 else model.body(root).name,'type':kind,'size':model.geom_size[i].tolist(),'position':data.geom_xpos[i].tolist(),'rotation':data.geom_xmat[i].reshape(3,3).tolist(),'rgba':rgba.tolist(),'group':int(model.geom_group[i]),**appearance})
+ # Rigid door/drawer subtrees retain their native MuJoCo hinge/slide axes.
+ articulations=[]
+ for jid in range(model.njnt):
+  name=model.joint(jid).name;kind=int(model.jnt_type[jid])
+  if kind not in [int(mujoco.mjtJoint.mjJNT_HINGE),int(mujoco.mjtJoint.mjJNT_SLIDE)] or '_screen_' in name:continue
+  body_id=int(model.jnt_bodyid[jid]);affected=[]
+  for geom in geoms:
+   ancestor=int(model.geom_bodyid[geom['id']])
+   while ancestor and ancestor!=body_id:ancestor=int(model.body_parentid[ancestor])
+   if ancestor==body_id:affected.append(geom['id'])
+  if not affected:continue
+  closed=float(model.qpos0[model.jnt_qposadr[jid]]);lo,hi=model.jnt_range[jid]
+  target=lo if abs(lo-closed)>abs(hi-closed) else hi
+  if kind==mujoco.mjtJoint.mjJNT_HINGE:target=closed+np.clip(target-closed,-np.deg2rad(80),np.deg2rad(80))
+  asset=next(g['asset'] for g in geoms if g['id']==affected[0])
+  label='Drawer '+name.rsplit('slide',1)[1] if kind==mujoco.mjtJoint.mjJNT_SLIDE else 'Left door' if '_left_' in name else 'Right door' if '_right_' in name else 'Door'
+  articulations.append({'id':name,'asset':asset,'label':label,'type':'slide' if kind==mujoco.mjtJoint.mjJNT_SLIDE else 'hinge','closed':closed,'open':float(target),'axis':data.xaxis[jid].tolist(),'anchor':data.xanchor[jid].tolist(),'geoms':affected})
  renderer=mujoco.Renderer(model,height=384,width=512)
  # Disable MSAA for depth: multisample resolve can select an off-center subpixel depth.
  model.vis.quality.offsamples=0
@@ -75,7 +104,7 @@ def main():
    frame['depth_metrics']={'valid_pixels':int(mask.sum()),'coverage':float(mask.mean()),'mae_m':float(np.mean(abs(error[mask]))) if mask.any() else None,'rmse_m':float(np.sqrt(np.mean(error[mask]**2))) if mask.any() else None}
    if frame['index']%25==0:print(f"Exported {frame['index']+1}/{len(frames)}",flush=True)
  finally:renderer.close();depth_renderer.close()
- manifest={'title':'HaLab Twin','frame_count':len(frames),'duration_s':frames[-1]['time_s'],'depth_width':256,'depth_height':192,'depth_unit_m':.001,'depth_encoding':'little-endian uint16, optical-axis depth, 0 invalid','confidence_threshold':200,'rgb_render_size':[512,384],'coordinate_convention':'Z up. camera_to_world columns: right, up, backward, position; OpenGL -Z forward.','comparison':'MuJoCo reference state at the recorded pose and intrinsics; no pose optimization.','scene_sha256':hashlib.sha256((OUT/'scene.xml').read_bytes()).hexdigest(),'raw_only':True,'walls':json.loads((OUT/'walls.json').read_text()),'assets':json.loads((OUT/'inventory.json').read_text())['assets'],'geoms':geoms,'frames':frames,'raw_arkit_trajectory':trajectory}
+ manifest={'title':'HaLab Twin','frame_count':len(frames),'duration_s':frames[-1]['time_s'],'depth_width':256,'depth_height':192,'depth_unit_m':.001,'depth_encoding':'little-endian uint16, optical-axis depth, 0 invalid','confidence_threshold':200,'rgb_render_size':[512,384],'coordinate_convention':'Z up. camera_to_world columns: right, up, backward, position; OpenGL -Z forward.','comparison':'MuJoCo reference state at the recorded pose and intrinsics; no pose optimization.','scene_sha256':hashlib.sha256((OUT/'scene.xml').read_bytes()).hexdigest(),'raw_only':False,'additional_data':'https://github.com/whitealex95/halab-twin/tree/main/additional_data','walls':json.loads((OUT/'walls.json').read_text()),'assets':json.loads((OUT/'inventory.json').read_text())['assets'],'geoms':geoms,'articulations':articulations,'frames':frames,'raw_arkit_trajectory':trajectory}
  shutil.copyfile(OUT/'scene.xml',OUT/'web/scene.xml')
  (DATA/'manifest.json').write_text(json.dumps(manifest,separators=(',',':'))+'\n')
  print(f"Ready: {len(frames)} RGB-D pairs, {len(trajectory)} raw tracking poses, {len(geoms)} MuJoCo geoms")

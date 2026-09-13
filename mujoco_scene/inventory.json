@@ -37,6 +37,38 @@
   "method": "Manual raw-photo interpretation; positions and dimensions estimated from raw RGB/depth and camera poses. No prebuilt reconstruction, object detection, or mesh input.",
   "assets": [
     {
+      "name": "room_door1",
+      "movable": false,
+      "position_m": [
+        -4.099277597898277,
+        -4.0443767415341805,
+        0
+      ],
+      "yaw_deg": -1.1824204403233793,
+      "dimensions_m": [
+        0.9,
+        0.045,
+        2.5
+      ],
+      "source": "Raw RGB-D doorway observations; hinged room door."
+    },
+    {
+      "name": "room_door2",
+      "movable": false,
+      "position_m": [
+        3.3507224021017223,
+        -4.19814518890075,
+        0
+      ],
+      "yaw_deg": -1.1824204403233793,
+      "dimensions_m": [
+        0.95,
+        0.045,
+        2.5
+      ],
+      "source": "Raw RGB-D doorway observations; hinged room door."
+    },
+    {
       "name": "sofa",
       "movable": true,
       "position_m": [
@@ -57,14 +89,14 @@
       "movable": true,
       "position_m": [
         4.12,
-        -1.35,
+        -1.1,
         0
       ],
       "yaw_deg": 90,
       "dimensions_m": [
         1.96,
         1.06,
-        0.56
+        0.485
       ],
       "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
     },
@@ -72,15 +104,31 @@
       "name": "pillow",
       "movable": true,
       "position_m": [
-        4.12,
-        -1.93,
+        4.0,
+        -1.65,
         0
       ],
-      "yaw_deg": 90,
+      "yaw_deg": 75,
       "dimensions_m": [
-        0.55,
-        0.38,
-        0.13
+        0.62,
+        0.41,
+        0.16
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "folded_blanket",
+      "movable": true,
+      "position_m": [
+        4.1,
+        -0.52,
+        0
+      ],
+      "yaw_deg": 80,
+      "dimensions_m": [
+        0.52,
+        0.4,
+        0.19
       ],
       "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
     },
@@ -110,9 +158,57 @@
       ],
       "yaw_deg": 90,
       "dimensions_m": [
-        0.55,
         0.6,
-        0.96
+        0.62,
+        1.04
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "round_stool",
+      "movable": true,
+      "position_m": [
+        -4.2,
+        -3.12,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        0.43,
+        0.43,
+        0.61
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "red_tool_bag",
+      "movable": true,
+      "position_m": [
+        -4.2,
+        -3.12,
+        0
+      ],
+      "yaw_deg": 90,
+      "dimensions_m": [
+        0.32,
+        0.22,
+        0.22
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "traffic_cone",
+      "movable": true,
+      "position_m": [
+        -3.95,
+        -3.78,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        0.34,
+        0.34,
+        0.78
       ],
       "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
     },
@@ -120,15 +216,47 @@
       "name": "visitor_chair",
       "movable": true,
       "position_m": [
-        -4.3,
-        -3.1,
+        -4.85,
+        -3.15,
         0
       ],
-      "yaw_deg": 180,
+      "yaw_deg": 90,
       "dimensions_m": [
-        0.55,
+        0.43,
+        0.48,
+        0.82
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "workstation_chair",
+      "movable": true,
+      "position_m": [
+        -4.87,
+        -2.13,
+        0
+      ],
+      "yaw_deg": 90,
+      "dimensions_m": [
         0.6,
-        0.96
+        0.62,
+        1.04
+      ],
+      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+    },
+    {
+      "name": "workstation_guest_chair",
+      "movable": true,
+      "position_m": [
+        -4.83,
+        -1.12,
+        0
+      ],
+      "yaw_deg": 90,
+      "dimensions_m": [
+        0.43,
+        0.48,
+        0.82
       ],
       "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
     },
@@ -146,7 +274,12 @@
         0.42,
         1.7
       ],
-      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+      "source": "Capture exterior and additional_data/WhiteCabinet_view1.jpg: three internal shelves; heights scaled from the photographed cabinet frame.",
+      "shelf_heights_m": [
+        0.44,
+        0.83,
+        1.24
+      ]
     },
     {
       "name": "black_dresser",
@@ -165,7 +298,7 @@
       "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
     },
     {
-      "name": "gray_sideboard",
+      "name": "sink_cabinet",
       "movable": true,
       "position_m": [
         -3.72,
@@ -264,15 +397,15 @@
       "name": "display_table",
       "movable": true,
       "position_m": [
-        -4.38,
-        -2.18,
+        -4.55,
+        -2.12,
         0
       ],
       "yaw_deg": 90,
       "dimensions_m": [
-        1.12,
-        0.61,
-        0.73
+        1.35,
+        0.72,
+        1.15
       ],
       "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
     },
@@ -286,9 +419,9 @@
       ],
       "yaw_deg": -90,
       "dimensions_m": [
-        0.55,
         0.6,
-        0.96
+        0.62,
+        1.04
       ],
       "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
     },
@@ -296,15 +429,15 @@
       "name": "bedside_cart",
       "movable": true,
       "position_m": [
-        4.12,
-        -2.73,
+        4.05,
+        -2.45,
         0
       ],
       "yaw_deg": 0,
       "dimensions_m": [
         0.52,
         0.48,
-        0.7
+        0.77
       ],
       "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
     },
@@ -420,6 +553,38 @@
         -30
       ],
       "base_anchored": true
+    },
+    {
+      "name": "concealed_desk",
+      "movable": true,
+      "position_m": [
+        3.05,
+        3.0,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        1.5,
+        0.65,
+        0.74
+      ],
+      "source": "additional_data/Desk_view1.jpg and Desk_view2.jpg: wood top, two pedestal legs and casters. Approximate captured placement behind desk_screen."
+    },
+    {
+      "name": "diagonal_pillar",
+      "movable": false,
+      "position_m": [
+        0,
+        0,
+        0
+      ],
+      "yaw_deg": 0,
+      "dimensions_m": [
+        2.14,
+        0.65,
+        3.01
+      ],
+      "source": "Visible pillar edges and depth samples in recorded frames 42\u201346; unseen back face extrapolated."
     }
   ]
 }

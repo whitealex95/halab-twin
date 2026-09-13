@@ -55,14 +55,6 @@
     ],
     "note": "Manually chosen visible surface patch, not an object center or automatic detection."
   },
-  "gray_sideboard": {
-    "frame": "276216424758.jpg",
-    "rgb_pixel": [
-      407,
-      270
-    ],
-    "note": "Manually chosen visible surface patch, not an object center or automatic detection."
-  },
   "sofa": {
     "frame": "276220876494.jpg",
     "rgb_pixel": [
@@ -110,5 +102,69 @@
       453
     ],
     "note": "Manually chosen visible surface patch, not an object center or automatic detection."
+  },
+  "sink_cabinet": {
+    "frame": "276216424758.jpg",
+    "rgb_pixel": [
+      407,
+      270
+    ],
+    "note": "Stainless sink cabinet: basin, drainer, splashback and faucet visible in frame 101."
+  },
+  "traffic_cone": {
+    "frame": "276153683432.jpg",
+    "rgb_pixel": [
+      145,
+      476
+    ],
+    "note": "Striped red safety cone, distinct from the stool and chair."
+  },
+  "round_stool": {
+    "frame": "276153683432.jpg",
+    "rgb_pixel": [
+      381,
+      492
+    ],
+    "note": "Round white folding stool seat, supporting the separate red bag."
+  },
+  "red_tool_bag": {
+    "frame": "276153683432.jpg",
+    "rgb_pixel": [
+      384,
+      465
+    ],
+    "note": "Red soft tool bag resting on the white stool."
+  },
+  "display_table": {
+    "frame": "276153683432.jpg",
+    "rgb_pixel": [
+      476,
+      452
+    ],
+    "note": "Desk edge below the translucent privacy panel."
+  },
+  "workstation_chair": {
+    "frame": "276153683432.jpg",
+    "rgb_pixel": [
+      596,
+      479
+    ],
+    "note": "Swivel chair tucked behind the desk screen."
+  },
+  "folded_blanket": {
+    "frame": "276308827210.jpg",
+    "rgb_pixel": [
+      337,
+      386
+    ],
+    "note": "Folded gray bedding on the mattress; separate from the white pillow."
+  },
+  "diagonal_pillar": {
+    "frame": "276179810398.jpg",
+    "rgb_pixel": [
+      550,
+      150
+    ],
+    "note": "Visible face of the inclined concrete pillar behind the sofa."
   }
 }

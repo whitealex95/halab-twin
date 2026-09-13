@@ -38,3 +38,7 @@ z_m = np.asarray(Image.open("path/to/depth.png"), dtype=np.float32) * 0.001
 The archive intentionally excludes the deleted textured meshes, generated point clouds, RoomPlan/object-detection outputs, Gaussian splats, rendered turntable videos, and their previews. The downloadable files are the original RGB-D/sensor capture, not a reconstruction.
 
 The browser distribution includes original RGB images and lossless millimeter depth/confidence binaries for paired visualization. MuJoCo-rendered RGB-D files are clearly separate in `web/data/rendered/`; they are simulation output, not camera measurements.
+
+## Additional data
+
+Three separate, uncalibrated reference photos are available in [additional_data](additional_data/README.md) and as a [release archive](https://github.com/whitealex95/halab-twin/releases/latest/download/halab-additional-data.zip) with an [archive checksum](https://github.com/whitealex95/halab-twin/releases/latest/download/halab-additional-data.sha256). They document the open cabinet and a desk moved out from behind its divider after the RGB-D capture. The original 983-file raw capture archive is unchanged.

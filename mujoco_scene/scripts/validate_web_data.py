@@ -8,6 +8,25 @@ ROOT=Path(__file__).resolve().parents[1];WEB=ROOT/'web';m=json.loads((WEB/'data/
 model=mujoco.MjModel.from_xml_path(str(ROOT/'scene.xml'));data=mujoco.MjData(model);mujoco.mj_forward(model,data)
 assert m['scene_sha256']==hashlib.sha256((ROOT/'scene.xml').read_bytes()).hexdigest()
 assert len(m['frames'])==179
+assert (ROOT/'scene.xml').read_bytes()==(WEB/'scene.xml').read_bytes()
+geom_map={g['id']:g for g in m['geoms']}
+for joint in m['articulations']:
+ j=model.joint(joint['id']);data.qpos[:]=model.qpos0;data.qpos[j.qposadr[0]]=joint['open'];mujoco.mj_forward(model,data)
+ delta=joint['open']-joint['closed'];axis=np.array(joint['axis']);anchor=np.array(joint['anchor'])
+ cross=np.array([[0,-axis[2],axis[1]],[axis[2],0,-axis[0]],[-axis[1],axis[0],0]])
+ rotation=np.eye(3)+np.sin(delta)*cross+(1-np.cos(delta))*(cross@cross)
+ for gid in joint['geoms']:
+  g=geom_map[gid];position=np.array(g['position']);orientation=np.array(g['rotation'])
+  if joint['type']=='hinge':position=rotation@(position-anchor)+anchor;orientation=rotation@orientation
+  else:position=position+axis*delta
+  assert np.allclose(position,data.geom_xpos[gid],atol=1e-6),(joint['id'],g['name'],'position')
+  assert np.allclose(orientation,data.geom_xmat[gid].reshape(3,3),atol=1e-6),(joint['id'],g['name'],'rotation')
+data.qpos[:]=model.qpos0;mujoco.mj_forward(model,data)
+for g in m['geoms']:
+ if 'texture' in g:assert (WEB/g['texture']['url']).is_file()
+ assert model.geom_rgba[g['id'],3]>0,'Invisible contact proxy exported'
+assert all(model.geom(f'white_cabinet_shelf{i}').id>=0 for i in range(1,4))
+
 for frame in m['frames']:
  T=np.array(frame['camera_to_world']);assert np.allclose(T[:3,:3].T@T[:3,:3],np.eye(3),atol=1e-5)
  for key in ['rgb','render_rgb','depth','render_depth','confidence']:assert (WEB/frame[key]).is_file()
@@ -27,5 +46,5 @@ for index in [0,45,90,135,178]:
  median=float(np.median(errors));p90=float(np.percentile(errors,90));assert median<.002 and p90<.008,(index,median,p90)
  calibration.append({'frame':index,'median_ray_vs_render_depth_error_m':median,'p90_error_m':p90,'rays':len(errors)})
 checks=json.loads((ROOT/'raw_input_checksums.json').read_text());assert all(hashlib.sha256((ROOT.parent/p).read_bytes()).hexdigest()==h for p,h in checks.items())
-report={'frames':len(m['frames']),'raw_arkit_poses':len(m['raw_arkit_trajectory']),'original_rgb_and_depth_preserved':True,'raw_source_checksum_count':len(checks),'camera_rotations_valid':True,'calibration':calibration,'mean_frame_depth_mae_m':float(np.mean([f['depth_metrics']['mae_m'] for f in m['frames']]))}
+report={'frames':len(m['frames']),'raw_arkit_poses':len(m['raw_arkit_trajectory']),'original_rgb_and_depth_preserved':True,'raw_source_checksum_count':len(checks),'camera_rotations_valid':True,'door_drawer_transforms_verified':len(m['articulations']),'calibration':calibration,'mean_frame_depth_mae_m':float(np.mean([f['depth_metrics']['mae_m'] for f in m['frames']]))}
 (ROOT/'web_validation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

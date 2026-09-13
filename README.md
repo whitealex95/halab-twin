@@ -9,13 +9,16 @@ An interactive MuJoCo scene and web comparison viewer built from an iPhone 14 Pr
 The demo includes:
 
 - A room shell fitted directly to raw depth measurements, with wall/ceiling visibility and cutaway controls.
-- 22 authored assets, including three identical dividers with four panels and three hinges each.
+- 32 selectable assets, including three identical dividers with four panels and three hinges each.
+- Gray floor regions with straight boundaries, an inclined concrete pillar, rounded upholstery, and refined desk/chair, sink, stool, cone, and bedding geometry.
+- Open/close controls for cabinet doors, room doors, and drawers in the web Assets panel. The paired images retain the recorded reference state.
+- Three supplementary photographs documenting the cabinet interior and the desk concealed behind the desk divider. [Download additional data](https://github.com/whitealex95/halab-twin/releases/latest/download/halab-additional-data.zip) · [Photo provenance](additional_data/README.md).
 - All 179 recorded camera poses and a separate trajectory containing 14,811 raw ARKit tracking poses.
 - Synchronized original RGB-D versus MuJoCo renders at the recorded pose and intrinsics.
 - RGB wipe comparison, shared metric depth colors, confidence masking, absolute depth errors, and pixel inspection.
 - Timestamp-based trajectory playback, a calibrated camera view, asset selection, and raw depth samples from the selected frame.
 
-The web app is a visualization of the reference scene. It does not run physics in the browser. Use the native MuJoCo viewer to move furniture and articulate doors, drawers, and divider panels.
+The web app visualizes the scene and its door/drawer articulation. Select an asset labeled DOORS or DRAWERS to expose its toggles; Close all restores the reference state. It does not run physics in the browser. Use the native MuJoCo viewer to move furniture and articulate doors, drawers, and divider panels.
 
 ## Run locally
 
@@ -38,7 +41,7 @@ Double-click an object, then Ctrl + right-drag to pull it or Ctrl + left-drag to
 
 ## Raw dataset
 
-The release archive contains all **983 original capture files**: RGB, depth, confidence, intrinsics/poses, ARKit motion, inertial motion, anchor updates, and location metadata. SHA-256 checksums are included and the release provides an archive checksum. See [DATASET.md](DATASET.md).
+The raw dataset release archive contains all **983 original capture files**: RGB, depth, confidence, intrinsics/poses, ARKit motion, inertial motion, anchor updates, and location metadata. SHA-256 checksums are included and the release provides an archive checksum. See [DATASET.md](DATASET.md).
 
 The original raw files remain unchanged. Prebuilt meshes, object detections/RoomPlan, Gaussian splats, generated point clouds, and rendered scan videos were removed and are not used. The raw dataset is distributed as a GitHub Release asset; the browser's recorded/rendered comparison data is included in the repository.
 
@@ -67,7 +70,7 @@ MuJoCo and EGL/OpenGL are required for rendering; they are not required to serve
 
 Reports: [physics](mujoco_scene/validation.json), [RGB-D calibration](mujoco_scene/web_validation.json), [browser](mujoco_scene/browser_validation.json), [wall fitting](mujoco_scene/walls.json).
 
-Walls use robust planar fits; unseen spans and a level ceiling are extrapolated. Wall thickness, doorway details, furniture geometry, masses, and friction are estimates. The scene is an authored approximation, not photorealistic ground truth. The mean of per-frame confident-depth MAEs is approximately 0.176 m for this revision; the browser reports each frame's actual metrics. Missing small objects and simplified shapes contribute to those differences. Divider bases are anchored in the simulation while their remaining panels articulate.
+Walls use robust planar fits; unseen spans and a level ceiling are extrapolated. Wall thickness, doorway details, furniture geometry, masses, and friction are estimates. The scene is an authored approximation, not photorealistic ground truth. The mean of per-frame confident-depth MAEs is approximately 0.155 m for this revision; the browser reports each frame's actual metrics. Missing small objects and simplified shapes contribute to those differences. Divider bases are anchored in the simulation while their remaining panels articulate.
 
 Browser tests can be rerun with:
 
@@ -81,6 +84,6 @@ The local web server must be running. Set `DEMO_URL` to test another deployment.
 
 ## Publishing
 
-GitHub Actions publishes `mujoco_scene/web/` to GitHub Pages on pushes to `main`. To package the original dataset, run `python mujoco_scene/scripts/package_dataset.py`; upload the resulting archive and checksum as release assets. The web demo and README link to the latest release.
+GitHub Actions publishes `mujoco_scene/web/` to GitHub Pages on pushes to `main`. To package the original dataset, run `python mujoco_scene/scripts/package_dataset.py`; upload the resulting archive and checksum as release assets. To package the three separate reference photographs, run `python mujoco_scene/scripts/package_additional_data.py` and upload `artifacts/halab-additional-data.zip` and its checksum to the same release. The web demo and README link to the latest release.
 
 The exploration/comparison layout was inspired by [Lab kitchen twin](https://frank-zy-dou.github.io/kitchen-twin/). Rendering and interaction use [MuJoCo](https://mujoco.readthedocs.io/) and [Three.js](https://threejs.org/); the vendored Three.js license is included in `mujoco_scene/web/vendor/THREE-LICENSE.txt`.

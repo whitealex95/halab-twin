@@ -14,6 +14,9 @@
     "depth error view",
     "trajectory playback",
     "asset search/selection",
-    "mobile overflow"
+    "mobile overflow",
+    "door and drawer toggles",
+    "joint reset",
+    "fixed geometry unchanged"
   ]
 }

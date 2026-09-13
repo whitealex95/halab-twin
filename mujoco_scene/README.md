@@ -64,7 +64,7 @@ The boundary walls are now fitted directly to raw depth normals using `reconstru
 
 `manual_photo_samples.json` contains manually selected RGB pixel locations on visible furniture surfaces. `manual_photo_measurements.json` records the corresponding confident depth measurements. These points are surface samples, not object centers. The scene uses manually estimated object centers and shape extents, with clearance adjustments to avoid initial intersections.
 
-The scene includes a sofa, mattress/bed support and movable pillow, desk and monitor, chairs, cabinets, a five-drawer dresser, equipment shelving, kitchen cart, low bench, tall shelf, mobile display, bedside/utility carts, three four-panel dividers, two room doors, and the room shell. The drawer count and furniture layout were reviewed again against the original photographs.
+The scene includes a sofa, mattress/cardboard box supports, movable pillow and folded blanket, desk and monitor, chairs, cabinets, a five-drawer dresser, equipment shelving, kitchen cart, low bench, tall shelf, mobile display, laundry/utility carts, three four-panel dividers, two room doors, a sink cabinet with drainer and faucet, a striped cone, a round folding stool with a separate red tool bag, an inclined concrete pillar, and the room shell. The floor uses large gray regions bounded by straight segments. Rounded meshes and procedural textile materials are embedded in the standalone XML. The drawer count and furniture layout were reviewed again against the original photographs.
 
 Masses, friction, cabinet travel, and other unobserved mechanical properties are estimates. Upholstery and the pillow are rigid. Casters are simplified contact spheres. Cables/lines, ceiling hardware, and small clutter are omitted. No dimensions are inherited from the deleted object detections.
 
@@ -105,4 +105,10 @@ for i in range(1, 4):
 mujoco.mj_forward(model, data)
 ```
 
-Changing joint positions directly may cause intersections with nearby furniture. Use mouse forces or a controller for physical interaction. Body and joint names are stable for integrating your own robot or controller.
+Changing joint positions directly may cause intersections with nearby furniture. Use mouse forces or a controller for physical interaction. Body and joint names are listed in `scene.xml` for integrating your own robot or controller. The former `gray_sideboard` is now `sink_cabinet`; `visitor_chair` now represents the white folding chair behind the separately modeled stool.
+
+## Additional reference data and web articulation
+
+The three [additional photographs](../additional_data/README.md) document the white cabinet's three shelves and the concealed desk's wood top, pedestal legs, and casters. Shelf heights are estimated at 0.44, 0.83, and 1.24 m above the cabinet body origin. The extra desk is placed behind `desk_screen`; the later photo location and tabletop clutter are not copied into the scene.
+
+The web exporter retains each door/drawer's native joint axis, anchor, limits, and affected geometry. Browser toggles transform those rigid parts, and validation compares the transforms with MuJoCo forward kinematics. The recorded/rendered RGB-D pairs remain at the closed reference configuration. Rounded loose bedding and the bag use simple invisible contact surfaces to remain stable in physics.
