@@ -140,13 +140,13 @@
         0.95,
         0
       ],
-      "yaw_deg": 90,
+      "yaw_deg": -90,
       "dimensions_m": [
         1.3,
         0.72,
         0.76
       ],
-      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+      "source": "Recorded frames 10, 85, 175: monitor faces into the room; wood top on two metal T legs."
     },
     {
       "name": "office_chair",
@@ -156,11 +156,11 @@
         0.3,
         0
       ],
-      "yaw_deg": 90,
+      "yaw_deg": 100,
       "dimensions_m": [
         0.6,
         0.62,
-        1.04
+        1.12
       ],
       "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
     },
@@ -240,7 +240,7 @@
       "dimensions_m": [
         0.6,
         0.62,
-        1.04
+        1.12
       ],
       "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
     },
@@ -320,33 +320,33 @@
       "name": "equipment_rack",
       "movable": true,
       "position_m": [
-        0.85,
-        -3.77,
+        0.81,
+        -3.94,
         0
       ],
-      "yaw_deg": 0,
+      "yaw_deg": -5,
       "dimensions_m": [
-        0.72,
-        0.43,
+        0.61,
+        0.4,
         0.91
       ],
-      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+      "source": "Recorded frames 19\u201322: three shallow black trays, blue uprights, end handles and four casters."
     },
     {
       "name": "kitchen_cart",
       "movable": true,
       "position_m": [
         0.03,
-        -3.77,
+        -3.91,
         0
       ],
       "yaw_deg": 0,
       "dimensions_m": [
         0.72,
-        0.49,
-        0.91
+        0.44,
+        0.85
       ],
-      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+      "source": "Recorded frames 19\u201322: white wheeled stove stand, two lower shelves, front controls and four burners."
     },
     {
       "name": "low_bench",
@@ -391,7 +391,7 @@
         -0.95,
         0
       ],
-      "yaw_deg": 90,
+      "yaw_deg": 103,
       "dimensions_m": [
         1.25,
         0.68,
@@ -419,65 +419,65 @@
       "name": "display_chair",
       "movable": true,
       "position_m": [
-        -3.48,
-        -0.83,
+        -3.84,
+        -0.3,
         0
       ],
-      "yaw_deg": -90,
+      "yaw_deg": -65,
       "dimensions_m": [
-        0.6,
-        0.62,
-        1.04
+        0.46,
+        0.48,
+        0.82
       ],
-      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+      "source": "Recorded frame 106: black side chair facing the display; seat/back edges guide yaw and placement."
     },
     {
       "name": "bedside_cart",
       "movable": true,
       "position_m": [
-        4.05,
-        -2.45,
+        4.0,
+        -2.38,
         0
       ],
-      "yaw_deg": 0,
+      "yaw_deg": 8,
       "dimensions_m": [
-        0.52,
-        0.48,
+        0.47,
+        0.43,
         0.77
       ],
-      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+      "source": "Recorded frames 136, 169, 172: cream fabric laundry cart, gray cuff, tubular frame and four casters."
     },
     {
       "name": "utility_cart",
       "movable": true,
       "position_m": [
-        4.46,
-        -3.6,
+        4.32,
+        -3.35,
         0
       ],
-      "yaw_deg": 0,
+      "yaw_deg": 104,
       "dimensions_m": [
-        0.67,
-        0.58,
-        0.62
+        0.82,
+        0.64,
+        0.86
       ],
-      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+      "source": "Recorded frames 136, 169, 172: low metal platform, four casters, and handle at the end nearest the laundry cart. RGB-D edge directions guide yaw."
     },
     {
       "name": "large_box",
       "movable": true,
       "position_m": [
-        4.46,
-        -3.6,
+        4.305484686264021,
+        -3.2917822564234402,
         0
       ],
-      "yaw_deg": 0,
+      "yaw_deg": 104,
       "dimensions_m": [
-        0.44,
-        0.38,
-        0.3
+        0.47,
+        0.49,
+        0.48
       ],
-      "source": "Manual raw-photo interpretation and raw depth samples; approximate dimensions"
+      "source": "Recorded frames 136, 169, 172: open cardboard box on the platform toward its handle, not above a second shelf."
     },
     {
       "name": "sofa_screen",

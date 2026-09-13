@@ -2,12 +2,12 @@
   "native_camera_parity": [
     {
       "frame": 1,
-      "mean_rgb_difference_255": 3.3908420138888887e-06,
+      "mean_rgb_difference_255": 1.1867947048611111e-05,
       "p99_rgb_difference_255": 0.0
     },
     {
       "frame": 32,
-      "mean_rgb_difference_255": 0.0008578830295138889,
+      "mean_rgb_difference_255": 0.0008680555555555555,
       "p99_rgb_difference_255": 0.0
     },
     {
@@ -17,32 +17,32 @@
     },
     {
       "frame": 123,
-      "mean_rgb_difference_255": 0.000946044921875,
+      "mean_rgb_difference_255": 0.0007052951388888889,
       "p99_rgb_difference_255": 0.0
     },
     {
       "frame": 124,
-      "mean_rgb_difference_255": 0.002734714084201389,
+      "mean_rgb_difference_255": 0.0027414957682291665,
       "p99_rgb_difference_255": 0.0
     },
     {
       "frame": 125,
-      "mean_rgb_difference_255": 0.0009545220269097222,
+      "mean_rgb_difference_255": 0.0009290907118055555,
       "p99_rgb_difference_255": 0.0
     },
     {
       "frame": 126,
-      "mean_rgb_difference_255": 0.000213623046875,
+      "mean_rgb_difference_255": 0.00015767415364583334,
       "p99_rgb_difference_255": 0.0
     },
     {
       "frame": 161,
-      "mean_rgb_difference_255": 0.0005459255642361111,
+      "mean_rgb_difference_255": 0.0002593994140625,
       "p99_rgb_difference_255": 0.0
     },
     {
       "frame": 173,
-      "mean_rgb_difference_255": 0.00013563368055555556,
+      "mean_rgb_difference_255": 0.0003475613064236111,
       "p99_rgb_difference_255": 0.0
     }
   ],
@@ -82,34 +82,34 @@
           148.0
         ],
         "baseline_median_rgb": [
-          227.0,
-          224.0,
-          207.0
+          162.0,
+          160.0,
+          148.0
         ]
       },
       "floor": {
-        "pixels": 46430,
+        "pixels": 46420,
         "recorded_median_rgb": [
           73.0,
           73.0,
           72.0
         ],
         "rendered_median_rgb": [
-          67.0,
-          67.0,
+          68.0,
+          68.0,
           67.0
         ],
         "baseline_median_rgb": [
-          60.0,
-          60.0,
-          60.0
+          67.0,
+          67.0,
+          67.0
         ]
       }
     },
     {
       "frame": 32,
       "walls": {
-        "pixels": 48535,
+        "pixels": 48573,
         "recorded_median_rgb": [
           199.0,
           183.0,
@@ -121,27 +121,27 @@
           164.0
         ],
         "baseline_median_rgb": [
-          199.0,
-          197.0,
-          184.0
+          191.0,
+          183.0,
+          164.0
         ]
       },
       "floor": {
-        "pixels": 28958,
+        "pixels": 28421,
         "recorded_median_rgb": [
           68.0,
           63.0,
           54.0
         ],
         "rendered_median_rgb": [
-          72.0,
-          72.0,
+          73.0,
+          73.0,
           70.0
         ],
         "baseline_median_rgb": [
-          85.0,
-          85.0,
-          83.0
+          72.0,
+          72.0,
+          70.0
         ]
       }
     },
@@ -160,9 +160,9 @@
           180.0
         ],
         "baseline_median_rgb": [
-          228.0,
-          225.0,
-          209.0
+          195.0,
+          193.0,
+          180.0
         ]
       },
       "floor": {
@@ -178,9 +178,9 @@
           71.0
         ],
         "baseline_median_rgb": [
-          84.0,
-          84.0,
-          82.0
+          73.0,
+          73.0,
+          71.0
         ]
       }
     },
@@ -199,34 +199,34 @@
           217.0
         ],
         "baseline_median_rgb": [
-          133.0,
-          130.0,
-          121.0
+          230.0,
+          226.0,
+          217.0
         ]
       },
       "floor": {
-        "pixels": 32862,
+        "pixels": 31898,
         "recorded_median_rgb": [
           71.0,
-          70.0,
+          71.0,
           68.0
         ],
         "rendered_median_rgb": [
           77.0,
           77.0,
-          74.0
+          75.0
         ],
         "baseline_median_rgb": [
-          85.0,
-          85.0,
-          83.0
+          77.0,
+          77.0,
+          74.0
         ]
       }
     },
     {
       "frame": 124,
       "walls": {
-        "pixels": 78158,
+        "pixels": 77867,
         "recorded_median_rgb": [
           223.0,
           218.0,
@@ -238,13 +238,13 @@
           217.0
         ],
         "baseline_median_rgb": [
-          133.0,
-          130.0,
-          121.0
+          230.0,
+          226.0,
+          217.0
         ]
       },
       "floor": {
-        "pixels": 17934,
+        "pixels": 17174,
         "recorded_median_rgb": [
           75.0,
           74.0,
@@ -256,18 +256,18 @@
           73.0
         ],
         "baseline_median_rgb": [
-          84.0,
-          84.0,
-          82.0
+          75.0,
+          75.0,
+          73.0
         ]
       }
     },
     {
       "frame": 125,
       "walls": {
-        "pixels": 78458,
+        "pixels": 78898,
         "recorded_median_rgb": [
-          233.0,
+          234.0,
           230.0,
           220.0
         ],
@@ -277,15 +277,15 @@
           216.0
         ],
         "baseline_median_rgb": [
-          133.0,
-          130.0,
-          121.0
+          227.0,
+          222.0,
+          216.0
         ]
       },
       "floor": {
-        "pixels": 22013,
+        "pixels": 21803,
         "recorded_median_rgb": [
-          77.0,
+          78.0,
           76.0,
           77.0
         ],
@@ -295,16 +295,16 @@
           65.0
         ],
         "baseline_median_rgb": [
-          54.0,
-          54.0,
-          54.0
+          64.0,
+          64.0,
+          65.0
         ]
       }
     },
     {
       "frame": 126,
       "walls": {
-        "pixels": 61865,
+        "pixels": 62381,
         "recorded_median_rgb": [
           233.0,
           230.0,
@@ -316,13 +316,13 @@
           210.0
         ],
         "baseline_median_rgb": [
-          133.0,
-          130.0,
-          121.0
+          223.0,
+          219.0,
+          210.0
         ]
       },
       "floor": {
-        "pixels": 26318,
+        "pixels": 25947,
         "recorded_median_rgb": [
           78.0,
           77.0,
@@ -334,58 +334,40 @@
           64.0
         ],
         "baseline_median_rgb": [
-          54.0,
-          54.0,
-          54.0
+          64.0,
+          64.0,
+          64.0
         ]
       }
     },
     {
       "frame": 161,
-      "walls": {
-        "pixels": 134,
-        "recorded_median_rgb": [
-          128.0,
-          125.0,
-          124.0
-        ],
-        "rendered_median_rgb": [
-          234.0,
-          230.0,
-          221.0
-        ],
-        "baseline_median_rgb": [
-          133.0,
-          130.0,
-          121.0
-        ]
-      },
       "floor": {
-        "pixels": 27135,
+        "pixels": 27763,
         "recorded_median_rgb": [
           64.0,
-          64.0,
+          63.0,
           64.0
         ],
         "rendered_median_rgb": [
+          62.0,
+          62.0,
+          62.0
+        ],
+        "baseline_median_rgb": [
           61.0,
           61.0,
           61.0
-        ],
-        "baseline_median_rgb": [
-          53.0,
-          53.0,
-          53.0
         ]
       }
     },
     {
       "frame": 173,
       "walls": {
-        "pixels": 53358,
+        "pixels": 53744,
         "recorded_median_rgb": [
           197.0,
-          197.0,
+          196.0,
           187.0
         ],
         "rendered_median_rgb": [
@@ -394,13 +376,13 @@
           175.0
         ],
         "baseline_median_rgb": [
-          133.0,
-          130.0,
-          121.0
+          190.0,
+          188.0,
+          175.0
         ]
       },
       "floor": {
-        "pixels": 38093,
+        "pixels": 37751,
         "recorded_median_rgb": [
           58.0,
           59.0,
@@ -412,15 +394,15 @@
           73.0
         ],
         "baseline_median_rgb": [
-          84.0,
-          84.0,
-          82.0
+          75.0,
+          75.0,
+          73.0
         ]
       }
     }
   ],
   "photometry_mask": "Rendered surface and recorded confidence >= 200, depth agreement < 0.10 m",
-  "baseline_ref": "71d9764",
+  "baseline_ref": "fbb18dd",
   "rendered_frames_checked": 179,
   "maximum_white_clipping_fraction": 0.0
 }

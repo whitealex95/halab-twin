@@ -30,6 +30,7 @@ assert all(model.geom(f'white_cabinet_shelf{i}').id>=0 for i in range(1,4))
 for frame in m['frames']:
  T=np.array(frame['camera_to_world']);assert np.allclose(T[:3,:3].T@T[:3,:3],np.eye(3),atol=1e-5)
  for key in ['rgb','render_rgb','depth','render_depth','confidence']:assert (WEB/frame[key]).is_file()
+ assert Image.open(WEB/frame['render_rgb']).size==tuple(m['rgb_render_size'])
  raw=ROOT.parent/'Polycam_HaLab_WT2_gpt/Images/keyframes'
  assert (WEB/frame['rgb']).read_bytes()==(raw/'images'/f"{frame['id']}.jpg").read_bytes()
  assert np.array_equal(np.fromfile(WEB/frame['depth'],dtype='<u2').reshape(192,256),np.asarray(Image.open(raw/'depth'/f"{frame['id']}.png")))

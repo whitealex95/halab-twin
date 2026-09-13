@@ -11,6 +11,8 @@
     "raw depth points",
     "confidence masking",
     "RGB wipe",
+    "expanded wipe synchronization and navigation",
+    "modal keyboard and mobile layout",
     "depth error view",
     "trajectory playback",
     "asset search/selection",

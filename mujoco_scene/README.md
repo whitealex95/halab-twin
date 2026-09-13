@@ -125,3 +125,11 @@ The native viewer and precomputed RGB comparisons share the XML’s room fill an
 The white and sink cabinets have 180° door ranges, with hinge pivots outside the carcass and sufficient clearance throughout the swing. Web toggles use the native joint limit without an extra angle cap. Room doors retain their measured-model limits. The dresser’s five drawers have bottoms, side walls, backs, fronts, and paired stationary/moving runners. Each extends 0.3024 m while retaining support inside the carcass.
 
 `python mujoco_scene/scripts/validate_articulations.py` samples 25 positions along each cabinet hinge and dresser slide, checks geometry against its own carcass (including parent/child pairs normally omitted from automatic contact checks), and verifies that all five extended drawers retain small moving payloads. Nearby furniture can still obstruct physical movement. See the [articulation preview](reference/articulation_preview.png), with alternate drawers and the right cabinet door open.
+
+## Existing-asset review
+
+[asset_review.json](asset_review.json) records the source frames and decisions for all 34 existing assets. Comparison sheets cover [desks, chairs, sink and rack](reference/asset_review_1.jpg), [cabinets and display](reference/asset_review_2.jpg), and [shelf, bed and carts](reference/asset_review_3.jpg). The concealed desk still uses the separately supplied photos. No clutter assets were added.
+
+The utility cart is a low platform with four visible caster assemblies and a handle at the end toward the laundry cart. The open cardboard box sits directly on that deck near the handle. The caster tires are visual cylinders with simple spherical contact surfaces; they are not separately actuated wheels. A flat invisible deck contact surface stabilizes the box. Validation checks the box support, wheel count and handle side in three reference views.
+
+The browser’s **Expand RGB wipe** dialog retains the compact viewer, shares its frame and split position, supports frame navigation, and closes with Escape. RGB comparisons are now rendered at 1024 × 768. The lower numerical error, overlap, pixel, and reference-state readouts were removed from the interface; underlying depth data and per-frame metrics remain in the manifest.

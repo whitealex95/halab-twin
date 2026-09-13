@@ -1,0 +1,346 @@
+{
+  "scope": "All 34 existing assets: manual geometry, material and orientation review against recorded/rendered RGB-D pairs. No new clutter assets.",
+  "frame_numbering": "One-based web frame numbers",
+  "assets": [
+    {
+      "name": "room_door1",
+      "reference_frames": [
+        25,
+        118,
+        124
+      ],
+      "result": "Refined",
+      "review": "Lever handles, round roses, hinge hardware, and subtler vertical wood grain; fitted doorway pose retained."
+    },
+    {
+      "name": "room_door2",
+      "reference_frames": [
+        136,
+        169,
+        172
+      ],
+      "result": "Refined",
+      "review": "Lever handles and wood grain; doorway dimensions and hinge placement retained."
+    },
+    {
+      "name": "sofa",
+      "reference_frames": [
+        44,
+        70,
+        73
+      ],
+      "result": "Refined",
+      "review": "Retained cushions, arm proportions, feet, and pose; reduced coarse fabric texture scale."
+    },
+    {
+      "name": "bed",
+      "reference_frames": [
+        10,
+        136,
+        172,
+        175
+      ],
+      "result": "Refined",
+      "review": "Unequal cardboard supports and seams, lighter cardboard, and finer mattress weave; mattress dimensions and pose retained."
+    },
+    {
+      "name": "pillow",
+      "reference_frames": [
+        136,
+        172,
+        175
+      ],
+      "result": "Refined",
+      "review": "Thinner blue-gray piping and finer fabric; rounded shape and pose retained."
+    },
+    {
+      "name": "folded_blanket",
+      "reference_frames": [
+        10,
+        136,
+        175
+      ],
+      "result": "Refined",
+      "review": "Soft rounded overlapping folds replace flat stacked slabs; lighter gray textile."
+    },
+    {
+      "name": "desk",
+      "reference_frames": [
+        10,
+        85,
+        175
+      ],
+      "result": "Refined",
+      "review": "Reversed monitor orientation to face into the room, corrected monitor proportions, and rebuilt two T legs."
+    },
+    {
+      "name": "office_chair",
+      "reference_frames": [
+        10,
+        136,
+        175
+      ],
+      "result": "Refined",
+      "review": "Curved mesh back, narrow lumbar region, tubular perimeter, supported arms, and slight yaw correction."
+    },
+    {
+      "name": "round_stool",
+      "reference_frames": [
+        34,
+        115,
+        118
+      ],
+      "result": "Retained",
+      "review": "Round white seat, folding tubular supports, and pose agree with the visible object."
+    },
+    {
+      "name": "red_tool_bag",
+      "reference_frames": [
+        34,
+        115,
+        118
+      ],
+      "result": "Refined",
+      "review": "Reduced body and handle height to match the flatter fabric bag on the stool."
+    },
+    {
+      "name": "traffic_cone",
+      "reference_frames": [
+        25,
+        34,
+        118
+      ],
+      "result": "Retained",
+      "review": "Retained red base, taper, two white bands, and position."
+    },
+    {
+      "name": "visitor_chair",
+      "reference_frames": [
+        34,
+        115,
+        118
+      ],
+      "result": "Retained",
+      "review": "White folding chair behind the stool; retained seat/back/frame and orientation."
+    },
+    {
+      "name": "workstation_chair",
+      "reference_frames": [
+        34,
+        109,
+        112
+      ],
+      "result": "Refined",
+      "review": "Improved shared swivel-chair back and arms. Placement retained where the desk screen obscures its outline."
+    },
+    {
+      "name": "workstation_guest_chair",
+      "reference_frames": [
+        34,
+        103,
+        106
+      ],
+      "result": "Retained",
+      "review": "White folding chair behind the display; pose and light frame retained."
+    },
+    {
+      "name": "white_cabinet",
+      "reference_frames": [
+        76,
+        79,
+        88
+      ],
+      "result": "Refined",
+      "review": "Added subtle inset door panels. Retained shelf layout, 180-degree door travel, and pose."
+    },
+    {
+      "name": "black_dresser",
+      "reference_frames": [
+        76,
+        79,
+        88
+      ],
+      "result": "Retained",
+      "review": "Five drawer boxes and slides already refined; dimensions, front direction, and dark finish retained."
+    },
+    {
+      "name": "sink_cabinet",
+      "reference_frames": [
+        67,
+        100,
+        103
+      ],
+      "result": "Refined",
+      "review": "Actual recessed bowl and surrounding counter, drain, asymmetric door handles, and finer surface details; cabinet pose retained."
+    },
+    {
+      "name": "equipment_rack",
+      "reference_frames": [
+        19,
+        22,
+        160,
+        163
+      ],
+      "result": "Refined",
+      "review": "Narrower three-tray rack moved toward the wall, with blue uprights, raised handles, four casters, and corrected tray heights/yaw."
+    },
+    {
+      "name": "kitchen_cart",
+      "reference_frames": [
+        19,
+        22,
+        126,
+        163
+      ],
+      "result": "Refined",
+      "review": "Shallower white cart moved toward the wall; lower stove height, four burners, grates, front controls, two shelves, and four casters."
+    },
+    {
+      "name": "low_bench",
+      "reference_frames": [
+        22,
+        124,
+        126
+      ],
+      "result": "Refined",
+      "review": "Added lower slatted shelf and end supports; retained top and pose."
+    },
+    {
+      "name": "tall_shelf",
+      "reference_frames": [
+        123,
+        124,
+        126
+      ],
+      "result": "Retained",
+      "review": "Retained corrected shallow upper bays, wall-side backing, dark wood, and slim black frame."
+    },
+    {
+      "name": "mobile_display",
+      "reference_frames": [
+        34,
+        103,
+        106
+      ],
+      "result": "Refined",
+      "review": "Adjusted yaw and display height; brighter pale-blue screen, rounded tray, silver base, and four caster assemblies."
+    },
+    {
+      "name": "display_table",
+      "reference_frames": [
+        34,
+        109,
+        112,
+        115
+      ],
+      "result": "Refined",
+      "review": "Subtler wood grain; retained T legs, privacy panel, clips, and orientation."
+    },
+    {
+      "name": "display_chair",
+      "reference_frames": [
+        103,
+        106
+      ],
+      "result": "Refined",
+      "review": "Repositioned and rotated the chair beside the display; thin tubular frame, gray seat, and black back."
+    },
+    {
+      "name": "bedside_cart",
+      "reference_frames": [
+        136,
+        169,
+        172
+      ],
+      "result": "Refined",
+      "review": "Cream fabric laundry basket with gray cuff, tubular support, and four casters; revised size and placement."
+    },
+    {
+      "name": "utility_cart",
+      "reference_frames": [
+        136,
+        169,
+        172
+      ],
+      "result": "Refined",
+      "review": "Low metal platform, four caster assemblies, and a left-end handle in the reference views; corrected yaw and position."
+    },
+    {
+      "name": "large_box",
+      "reference_frames": [
+        136,
+        169,
+        172
+      ],
+      "result": "Refined",
+      "review": "Open cardboard walls and flaps; rests on the cart deck near the handle rather than on an invented upper shelf."
+    },
+    {
+      "name": "sofa_screen",
+      "reference_frames": [
+        44,
+        70,
+        73
+      ],
+      "result": "Retained",
+      "review": "Six-column lattice on both faces; retained four-panel geometry and recorded fold arrangement."
+    },
+    {
+      "name": "center_screen",
+      "reference_frames": [
+        76,
+        88,
+        94
+      ],
+      "result": "Retained",
+      "review": "Six-column lattice, four panels, three hinges, and current fold arrangement retained."
+    },
+    {
+      "name": "desk_screen",
+      "reference_frames": [
+        82,
+        85,
+        88
+      ],
+      "result": "Retained",
+      "review": "Six-column lattice, four panels, three hinges, and current pose retained."
+    },
+    {
+      "name": "concealed_desk",
+      "reference_frames": [],
+      "result": "Retained",
+      "review": "Retained dimensions and pedestal/caster geometry from additional_data/Desk_view1.jpg and Desk_view2.jpg; mostly concealed during the capture."
+    },
+    {
+      "name": "diagonal_pillar",
+      "reference_frames": [
+        42,
+        44,
+        46
+      ],
+      "result": "Retained",
+      "review": "Retained inclined concrete geometry, tilt, and placement; adjusted texture scale with other rough materials."
+    },
+    {
+      "name": "wall_table_mount1",
+      "reference_frames": [
+        124,
+        126,
+        161
+      ],
+      "result": "Retained",
+      "review": "Retained measured four-corner placement, stand-off, and folded bracket geometry."
+    },
+    {
+      "name": "wall_table_mount2",
+      "reference_frames": [
+        124,
+        126,
+        161
+      ],
+      "result": "Retained",
+      "review": "Retained measured four-corner placement, stand-off, and folded bracket geometry."
+    }
+  ],
+  "limits": "Hidden surfaces and mechanical parameters remain estimates. Review notes describe visible evidence rather than an exact photorealistic fit."
+}

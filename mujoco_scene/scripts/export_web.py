@@ -90,7 +90,7 @@ def main():
   asset=next(g['asset'] for g in geoms if g['id']==affected[0])
   label='Drawer '+name.rsplit('slide',1)[1] if kind==mujoco.mjtJoint.mjJNT_SLIDE else 'Left door' if '_left_' in name else 'Right door' if '_right_' in name else 'Door'
   articulations.append({'id':name,'asset':asset,'label':label,'type':'slide' if kind==mujoco.mjtJoint.mjJNT_SLIDE else 'hinge','closed':closed,'open':float(target),'axis':data.xaxis[jid].tolist(),'anchor':data.xanchor[jid].tolist(),'geoms':affected})
- renderer=mujoco.Renderer(model,height=384,width=512)
+ renderer=mujoco.Renderer(model,height=768,width=1024)
  # Disable MSAA for depth: multisample resolve can select an off-center subpixel depth.
  model.vis.quality.offsamples=0
  depth_renderer=mujoco.Renderer(model,height=192,width=256)
@@ -107,7 +107,7 @@ def main():
    frame['depth_metrics']={'valid_pixels':int(mask.sum()),'coverage':float(mask.mean()),'mae_m':float(np.mean(abs(error[mask]))) if mask.any() else None,'rmse_m':float(np.sqrt(np.mean(error[mask]**2))) if mask.any() else None}
    if frame['index']%25==0:print(f"Exported {frame['index']+1}/{len(frames)}",flush=True)
  finally:renderer.close();depth_renderer.close()
- manifest={'title':'HaLab Twin','frame_count':len(frames),'duration_s':frames[-1]['time_s'],'depth_width':256,'depth_height':192,'depth_unit_m':.001,'depth_encoding':'little-endian uint16, optical-axis depth, 0 invalid','confidence_threshold':200,'rgb_render_size':[512,384],'coordinate_convention':'Z up. camera_to_world columns: right, up, backward, position; OpenGL -Z forward.','comparison':'MuJoCo reference state at the recorded pose and intrinsics; no pose optimization.','scene_sha256':hashlib.sha256((OUT/'scene.xml').read_bytes()).hexdigest(),'raw_only':False,'additional_data':'https://github.com/whitealex95/halab-twin/tree/main/additional_data','walls':json.loads((OUT/'walls.json').read_text()),'assets':json.loads((OUT/'inventory.json').read_text())['assets'],'geoms':geoms,'articulations':articulations,'frames':frames,'raw_arkit_trajectory':trajectory}
+ manifest={'title':'HaLab Twin','frame_count':len(frames),'duration_s':frames[-1]['time_s'],'depth_width':256,'depth_height':192,'depth_unit_m':.001,'depth_encoding':'little-endian uint16, optical-axis depth, 0 invalid','confidence_threshold':200,'rgb_render_size':[1024,768],'coordinate_convention':'Z up. camera_to_world columns: right, up, backward, position; OpenGL -Z forward.','comparison':'MuJoCo reference state at the recorded pose and intrinsics; no pose optimization.','scene_sha256':hashlib.sha256((OUT/'scene.xml').read_bytes()).hexdigest(),'raw_only':False,'additional_data':'https://github.com/whitealex95/halab-twin/tree/main/additional_data','walls':json.loads((OUT/'walls.json').read_text()),'assets':json.loads((OUT/'inventory.json').read_text())['assets'],'geoms':geoms,'articulations':articulations,'frames':frames,'raw_arkit_trajectory':trajectory}
  shutil.copyfile(OUT/'scene.xml',OUT/'web/scene.xml')
  (DATA/'manifest.json').write_text(json.dumps(manifest,separators=(',',':'))+'\n')
  print(f"Ready: {len(frames)} RGB-D pairs, {len(trajectory)} raw tracking poses, {len(geoms)} MuJoCo geoms")

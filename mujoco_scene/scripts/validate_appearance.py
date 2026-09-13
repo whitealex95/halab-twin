@@ -68,7 +68,7 @@ def main():
             segmentation = renderer.render()[:, :, 0]
             renderer.disable_segmentation_rendering()
             recorded = np.array(Image.open(WEB / frame['rgb']).resize((512, 384)))
-            rendered = np.array(Image.open(WEB / frame['render_rgb']))
+            rendered = np.array(Image.open(WEB / frame['render_rgb']).resize((512, 384)))
             raw_depth = np.fromfile(WEB / frame['depth'], dtype='<u2').reshape(192, 256)
             sim_depth = np.fromfile(WEB / frame['render_depth'], dtype='<u2').reshape(192, 256)
             confidence = np.fromfile(WEB / frame['confidence'], dtype='u1').reshape(192, 256)
@@ -79,7 +79,7 @@ def main():
             if args.baseline_ref:
                 blob = subprocess.check_output(['git', 'show',
                     f'{args.baseline_ref}:mujoco_scene/web/{frame["render_rgb"]}'], cwd=ROOT.parent)
-                baseline = np.array(Image.open(io.BytesIO(blob)))
+                baseline = np.array(Image.open(io.BytesIO(blob)).resize((512, 384)))
             stats = {'frame': index + 1}
             for name, ids in [('walls', walls), ('floor', floors)]:
                 mask = np.isin(segmentation, ids) & aligned

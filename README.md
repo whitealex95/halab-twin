@@ -11,13 +11,16 @@ The demo includes:
 - A room shell fitted directly to raw depth measurements, with wall/ceiling visibility and cutaway controls.
 - 34 selectable assets, including three identical dividers with four panels and three hinges each; every panel has a six-column lattice on both faces.
 - A dark-wood tall shelf with asymmetric upper bays and two wall-mounted folding table brackets placed from the recorded views.
+- Existing assets reviewed against RGB-D: corrected platform cart and box, wheeled laundry cart and rack, stove cart, chair and monitor orientation, and furniture details. [Asset review](mujoco_scene/asset_review.json) · [Comparison sheets](mujoco_scene/reference/asset_review_1.jpg).
 - Gray floor regions with straight boundaries, an inclined concrete pillar, rounded upholstery, and refined desk/chair, sink, stool, cone, and bedding geometry.
 - Open/close controls for cabinet doors, room doors, and drawers in the web Assets panel. Cabinet doors open 180°; the dresser has five complete drawer boxes on slides. The paired images retain the recorded reference state.
 - Three supplementary photographs documenting the cabinet interior and the desk concealed behind the desk divider. [Download additional data](https://github.com/whitealex95/halab-twin/releases/latest/download/halab-additional-data.zip) · [Photo provenance](additional_data/README.md).
 - All 179 recorded camera poses and a separate trajectory containing 14,811 raw ARKit tracking poses.
 - Synchronized original RGB-D versus MuJoCo renders at the recorded pose and intrinsics.
-- RGB wipe comparison, shared metric depth colors, confidence masking, absolute depth errors, and pixel inspection.
+- RGB wipe comparison, shared metric depth colors, confidence masking, absolute depth errors, and an expanded RGB-wipe viewer with synchronized frame controls.
 - Timestamp-based trajectory playback, a calibrated camera view, asset selection, and raw depth samples from the selected frame.
+
+Use **Expand RGB wipe** above the comparison to inspect a larger image, drag the split, or change frames. Close or Escape returns to the compact layout.
 
 The web app visualizes the scene and its door/drawer articulation. Select an asset labeled DOORS or DRAWERS to expose its toggles; Close all restores the reference state. It does not run physics in the browser. Use the native MuJoCo viewer to move furniture and articulate doors, drawers, and divider panels.
 
@@ -61,7 +64,7 @@ MUJOCO_GL=egl python mujoco_scene/scripts/validate_appearance.py
 python mujoco_scene/scripts/validate_articulations.py
 ```
 
-MuJoCo and EGL/OpenGL are required for rendering; they are not required to serve the precomputed web demo. The renderer exports optical-axis depth in millimeters at the native 256 × 192 depth resolution. RGB renders are 512 × 384; original RGB is preserved at 1024 × 768. Intrinsics are scaled consistently, including the principal point. Depth multisampling is disabled so each depth pixel corresponds to its center ray. The calibrated renderer updates the headlight with the camera pose. Its ambient, ceiling, and north-wall fill lights come from the same XML as the native viewer; there is no separate image exposure adjustment.
+MuJoCo and EGL/OpenGL are required for rendering; they are not required to serve the precomputed web demo. The renderer exports optical-axis depth in millimeters at the native 256 × 192 depth resolution. Both original RGB and MuJoCo RGB renders are 1024 × 768. Intrinsics are scaled consistently, including the principal point. Depth multisampling is disabled so each depth pixel corresponds to its center ray. The calibrated renderer updates the headlight with the camera pose. Its ambient, ceiling, and north-wall fill lights come from the same XML as the native viewer; there is no separate image exposure adjustment.
 
 ## Validation and limits
 
@@ -74,7 +77,7 @@ MuJoCo and EGL/OpenGL are required for rendering; they are not required to serve
 
 Reports: [physics](mujoco_scene/validation.json), [RGB-D calibration](mujoco_scene/web_validation.json), [browser](mujoco_scene/browser_validation.json), [appearance](mujoco_scene/appearance_validation.json), [door/drawer geometry](mujoco_scene/articulation_validation.json), [wall fitting](mujoco_scene/walls.json).
 
-Walls use robust planar fits; unseen spans and a level ceiling are extrapolated. Wall thickness, doorway details, furniture geometry, masses, and friction are estimates. The scene is an authored approximation, not photorealistic ground truth. The mean of per-frame confident-depth MAEs is approximately 0.154 m for this revision; the browser reports each frame's actual metrics. Missing small objects and simplified shapes contribute to those differences. Divider bases are anchored in the simulation while their remaining panels articulate.
+Walls use robust planar fits; unseen spans and a level ceiling are extrapolated. Wall thickness, doorway details, furniture geometry, masses, and friction are estimates. The scene is an authored approximation, not photorealistic ground truth. The mean of per-frame confident-depth MAEs is approximately 0.148 m for this revision; per-frame metrics remain available in the data manifest. Missing small objects and simplified shapes contribute to those differences. Divider bases are anchored in the simulation while their remaining panels articulate.
 
 Browser tests can be rerun with:
 

@@ -7,7 +7,7 @@
   "free_bodies": 26,
   "bodies": 53,
   "joints": 46,
-  "geoms": 927,
+  "geoms": 1206,
   "initial_penetrations_over_3mm": [],
   "settling_xy_m": {
     "sofa": 0.0,
@@ -38,9 +38,9 @@
     "concealed_desk": 0.0
   },
   "force_response": {
-    "office_chair_free": 0.43057525480169545,
-    "white_cabinet_left_hinge": -1.4622402018149656,
-    "black_dresser_slide1": 0.30289119913097323,
+    "office_chair_free": 0.257571271367528,
+    "white_cabinet_left_hinge": -1.4622402018149658,
+    "black_dresser_slide1": 0.30289129288018135,
     "sofa_screen_hinge1": 0.24728923370317996,
     "sofa_screen_hinge2": 0.6398381302380458,
     "sofa_screen_hinge3": -0.8187657746512069,
@@ -51,7 +51,7 @@
     "desk_screen_hinge2": -0.6373523623917444,
     "desk_screen_hinge3": 0.8185169768313232
   },
-  "peak_generalized_speed": 0.922139999999999,
-  "final_max_generalized_speed": 0.043662454846448415,
+  "peak_generalized_speed": 0.5689800000000003,
+  "final_max_generalized_speed": 0.043662454846419965,
   "warnings": []
 }
