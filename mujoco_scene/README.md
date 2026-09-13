@@ -1,6 +1,6 @@
-# HaLab MuJoCo scene — raw capture inputs only
+# HaLab MuJoCo scene
 
-The scene uses the original RGB photographs, per-frame depth/confidence maps, and camera poses in `../Polycam_HaLab_WT2_gpt/Images/keyframes/`. Furniture is manually interpreted from those photographs and approximated with editable collision primitives. Dimensions, placements, and physical parameters remain estimates.
+The scene uses the original RGB photographs, per-frame depth/confidence maps, and camera poses in `../Polycam_HaLab_WT2_gpt/Images/keyframes/`. Furniture is manually interpreted from those photographs and the separately supplied cabinet/desk reference photos, using editable primitives and procedural meshes. Dimensions, placements, and physical parameters remain estimates.
 
 There are **three copies of the same divider design**: each has **four panels and three hinges**, for **12 panels and nine divider hinges** total. All panels are 0.46 m wide and 1.80 m high. Each copy has its own starting pose and fold angles. The center divider starts folded back on itself; its concealed panels are still present and can unfold.
 
@@ -8,7 +8,7 @@ There are **three copies of the same divider design**: each has **four panels an
 
 ## Web comparison
 
-Run `python mujoco_scene/serve_web.py` and open http://127.0.0.1:8765, or use the [public demo](https://whitealex95.github.io/halab-clone/). It shows all recorded camera poses, the raw ARKit trajectory, and original RGB-D alongside calibrated MuJoCo renders. See the [repository README](../README.md) for exporting and validation. The [raw dataset](https://github.com/whitealex95/halab-clone/releases/latest/download/halab-raw-dataset.zip) is downloadable separately.
+Run `python mujoco_scene/serve_web.py` and open http://127.0.0.1:8765, or use the [public demo](https://whitealex95.github.io/halab-twin/). It shows all recorded camera poses, the raw ARKit trajectory, and original RGB-D alongside calibrated MuJoCo renders. See the [repository README](../README.md) for exporting and validation. The [raw dataset](https://github.com/whitealex95/halab-twin/releases/latest/download/halab-raw-dataset.zip) is downloadable separately.
 
 ## Run
 
