@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 const $=id=>document.getElementById(id);
-const orbitPosition=[-7.6,-9.5,9];
+const orbitPosition=[-7.22,-9.025,8.55];
 const state={index:0,loaded:-1,mode:'orbit',playing:false,pair:null,selected:null};
 let manifest,renderer,scene,camera,controls,framePoints,pathLine,denseLine,allFrustums,currentFrustum,rawPoints;
 const meshList=[],assetMeshes=new Map(),cache=new Map(),meshById=new Map(),jointStates=new Map();
