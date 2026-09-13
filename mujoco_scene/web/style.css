@@ -102,7 +102,8 @@ h1, h2 { margin: 0; font-size: 14px; font-weight: 600; white-space: nowrap; }
   #cut-row input { width: 160px; }
 }
 
-.app-title { font-size: 21px; color: var(--navy); margin: 0 0 15px; letter-spacing: -.4px; }
+.app-title { display: flex; justify-content: center; margin: 0 0 8px; }
+.app-title img { display: block; width: 104px; max-width: 100%; height: auto; }
 .articulations:empty { display: none; }
 .articulations { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 8px; }
 .articulations label { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; font-size: 12px; }
